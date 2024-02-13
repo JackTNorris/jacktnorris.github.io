@@ -29,6 +29,6 @@ export const BlogPostNavigator = ({onChangeTopic}: BlogPostNavigatorProps) => {
         <div className='grid grid-cols-3 grid-rows-1 text-center border rounded-md w-80'>
             {renderTopicsMenu()}
         </div>
-        <div style={{transform: `translateX(${currentTopic}00%)`}} className='bg-blue-700 transition-all ease-in-out duration-200 delay-75 h-1 w-[107px] self-start' />
+        <div style={{transform: `translateX(${currentTopic - 1}00%)`}} className='bg-blue-700 transition-all ease-in-out duration-200 delay-75 h-1 w-[107px]' />
     </div>)
 }
