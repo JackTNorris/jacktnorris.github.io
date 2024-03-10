@@ -1,8 +1,12 @@
 import { Navigate, Outlet } from 'react-router-dom'
-import { auth as fbauth } from '../loaders/firebase'
+import { useAuth } from '../hooks/useAuth';
 export const PrivateRoutes = () => {
-  let auth = {token: !!fbauth.currentUser}
-return (
-    auth.token ? <Outlet/> : <Navigate to='/login'/>
-  )
+  const user = useAuth();
+  return typeof user === 'undefined' ? (
+    <h1>Loading.....</h1>
+  ) : user ? (
+    <Outlet />
+  ) : (
+    <Navigate to='/login' />
+  );
 }

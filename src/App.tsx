@@ -18,10 +18,9 @@ function App() {
             <Route path='/' element={<Navigate to={'/home'} />} />
             <Route path='*' element={<Navigate to={'/home'} />} />
             <Route path="/home" Component={Home} />
-            <Route path="/blog" Component={Blog} />
             <Route path="/login" Component={Login} />
             <Route element={<PrivateRoutes />}>
-              {/*<Route path="home"  />*/}
+              <Route path="/blog" Component={Blog} />
             </Route>
 
 
