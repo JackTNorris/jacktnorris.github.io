@@ -23,11 +23,11 @@ export const Login = () => {
     }
 
     return (
-        <div className='flex flex-col justify-center items-center min-h-dvh'>
-            <div className='flex flex-col p-3 justify-center items-center gap-2 w-full max-w-96 border border-black'>
-                <input className='w-full border rounded-md' placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-                <input type='password' className='w-full border rounded-md' placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}/>
-                <button className='border hover:bg-blue-200 rounded-md' onClick={login}>Login</button>
+        <div className='site-container flex flex-col justify-center items-center h-screen w-screen'>
+            <div className='flex flex-col p-5 rounded-md justify-center items-center gap-2 w-[30rem] border border-black bg-white'>
+                <input className='w-full border rounded-md p-2' placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+                <input type='password' className='p-2 w-full border rounded-md' placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}/>
+                <button className='p-2 border hover:bg-blue-200 rounded-md transition-all' onClick={login}>Login</button>
                 <p>{logMessage}</p>
             </div>
         </div>

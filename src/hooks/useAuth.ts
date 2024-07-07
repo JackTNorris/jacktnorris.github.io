@@ -10,6 +10,5 @@ export function useAuth() {
       );
       return unSubscribe;
     }, []);
-    console.log(currentUser)
     return currentUser;
 }
