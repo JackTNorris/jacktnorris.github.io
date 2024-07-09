@@ -22,10 +22,10 @@ export const BlogFeed = ({topic}: BlogFeedProps) => {
         },
     ]
     return (
-        <div className='flex flex-col w-3/5 min-w-80'>
+        <div className='flex flex-col w-3/5 min-w-[20rem]'>
             {blogs.map((blog, index) => 
-            <div className={twMerge('w-full aspect-[5/2] m-12 bg-slate-100 shadow-md rounded-lg', index % 2 ? 'self-start' : 'self-end')}>
-
+            <div className={twMerge('w-4/5 aspect-[5/2] mt-12 bg-slate-100 shadow-md rounded-lg', index % 2 ? 'self-end' : 'self-start')}>
+                
             </div>)}
         </div>
     );
