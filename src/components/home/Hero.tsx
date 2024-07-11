@@ -1,7 +1,7 @@
 //TODO: migrate completely over to vanilla html, css, and js
 import ProfilePicture from '../../assets/images/pfp.jpeg';
 import { TextCarousel } from './TextCarousel';
-
+import '../Header.css';
 export const Hero = () => {
     return (
         <div className='-mt-20 site-container flex flex-col w-screen min-h-screen items-center justify-center'>
