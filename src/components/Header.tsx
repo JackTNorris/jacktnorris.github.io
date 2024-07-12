@@ -3,7 +3,7 @@ import { NavigationMenu } from './NavigationMenu';
 import './Header.css'
 export const Header = () => {
     window.addEventListener('scroll', () => {
-        document.body.style.setProperty('--scroll', (window.pageYOffset / (document.body.offsetHeight - window.innerHeight)) + '');
+        document.body.style.setProperty('--scroll', Math.min((window.scrollY / (document.body.offsetHeight - window.innerHeight)), 0.999999) + '');
       }, false);
     return (
     <div>

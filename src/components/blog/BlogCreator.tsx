@@ -3,7 +3,7 @@ import { Modal } from "../Modal";
 export const BlogCreator = () => {
     return (
         <div className="flex flex-row flex-1 justify-end">
-            <button onClick={() => alert('new blog dawg')}>New</button>
+            <a href='/blog/create-blogs'>New</a>
         </div>
     );
 }

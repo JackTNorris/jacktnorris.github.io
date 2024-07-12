@@ -1,7 +1,7 @@
 .progress {
     height: 3px;
     width: 0%;
-    background-color: #d20000;
+    background-color: #fccb59;
     position: fixed;
     top: 5rem;
     left: 0;
@@ -12,7 +12,7 @@
   }
   @keyframes progress {
     to {
-      background-color: rgb(20, 255, 226);
+      background-color: rgb(41, 51, 229);
       width: 100%;
     }
   }
