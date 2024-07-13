@@ -31,7 +31,7 @@ module.exports = {
         }
       },
       animation: {
-        'snap-slide-down': 'fade-in-down 5s infinite'
+        'snap-slide-down': 'fade-in-down 5s infinite',
       },
     },
   },
