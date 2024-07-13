@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div className='site-container px'>
             <Hero />
-           {/* <AboutMe /> */}
+            <AboutMe />
         </div>
     );
 };
