@@ -6,9 +6,9 @@ import { useAuth } from '../hooks/useAuth';
 import { AboutMe } from '../components/home/AboutMe';
 const Home = () => {
     return (
-        <div className='site-container'>
+        <div className='site-container px'>
             <Hero />
-            <AboutMe />
+           {/* <AboutMe /> */}
         </div>
     );
 };
