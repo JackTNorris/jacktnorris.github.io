@@ -1,3 +1,4 @@
+// used this as a ref: https://vergenet.net/~conrad/boids/pseudocode.html
 import { useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 import _, { random } from 'lodash'
@@ -34,7 +35,7 @@ export const Boids = () => {
   }
 
   const cohesion = () => {
-    
+
   }
 
   useEffect(() => {

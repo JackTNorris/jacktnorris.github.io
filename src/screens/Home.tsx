@@ -9,7 +9,7 @@ import { Boids } from 'components/animations/Boids';
 const Home = () => {
     return (
         <div className='site-container'>
-            <Boids />
+            <ConwayBoard />
             <Hero />
             <AboutMe />
         </div>
