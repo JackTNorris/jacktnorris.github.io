@@ -129,7 +129,7 @@ export const ConwayBoard = ({className}: ConwayBoardProps) => {
     for (let row = 0; row <  grid.length; row++) {
       for (let col = 0;  col < grid[row].length; col++) {
         if (grid[row][col]) {
-          colorRect(row * gridSize, col * gridSize, "rgba(0, 0, 255, 0.2)");
+          colorRect(row * gridSize, col * gridSize, "rgba(59, 130, 246, 0.2)");
         }
       }
     }
