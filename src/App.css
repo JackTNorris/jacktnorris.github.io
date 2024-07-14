@@ -41,3 +41,12 @@
 .site-container {
   padding-top: 5rem;
 }
+
+.mdxeditor-popup-container {
+  width: 0;
+  height: 0;
+}
+
+.cm-activeLine {
+  z-index: -20;
+}
