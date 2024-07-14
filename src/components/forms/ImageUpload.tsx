@@ -11,7 +11,7 @@ export const ImageUpload = ({handleFileChange, images}: ImageUploadProps) => {
         <label className='flex flex-col justify-center items-center w-full rounded-md max-w-[50rem] min-h-28 border border-dashed hover:bg-slate-200 transition-all hover:cursor-pointer'>
             {
                 images && images.length > 0 ? 
-                <div className='flex flex-row overflow-scroll'>
+                <div className='flex flex-row gap-2 overflow-scroll'>
                     {images.map(img => {
                         return (
                             <img src={URL.createObjectURL(img as any)} className='w-36' alt='New Uploaded Image' />
