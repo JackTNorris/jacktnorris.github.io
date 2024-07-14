@@ -2,9 +2,9 @@ import { useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 export const ConwayBoard = () => {
-  const width = window.screen.width * 3
+  const width = window.screen.width * 1.5
   const height = window.screen.height * 1.5
-  const gridSize = 25
+  const gridSize = 20
 
   const grid: boolean[][] = Array.from(Array((Math.round(width / gridSize))), () => new Array(Math.round(height / gridSize)).fill(false));
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -132,7 +132,7 @@ export const ConwayBoard = () => {
 
   return (
     <>
-    <div className="fixed flex flex-row w-screen h-screen -z-10 overflow-clip">
+    <div className="fixed flex flex-row justify-center items-center w-screen h-screen -z-10 overflow-clip">
       <canvas height={height} width={width} ref={canvas} className={twMerge('bg-white')} />
     </div>
     </>

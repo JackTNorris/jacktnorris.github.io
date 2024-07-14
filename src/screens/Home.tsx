@@ -6,10 +6,11 @@ import { useAuth } from '../hooks/useAuth';
 import { AboutMe } from '../components/home/AboutMe';
 import { ConwayBoard } from 'components/animations/ConwayBoard';
 import { Boids } from 'components/animations/Boids';
+import { random } from 'lodash';
 const Home = () => {
     return (
         <div className='site-container'>
-            <ConwayBoard />
+            {random(0, 1) ? <ConwayBoard /> : <Boids />}
             <Hero />
             <AboutMe />
         </div>
