@@ -33,12 +33,12 @@ export const NavigationMenu = () => {
     <div className='hidden sm:display-block sm:flex flex-row h-full items-center gap-3 justify-end flex-1 p-3'>
         {getMenuItemsDesktop()}
     </div>
-    <div className="absolute sm:hidden w-screen flex flex-row justify-end">
+    <div className="absolute sm:hidden w-screen h-full flex flex-row justify-end items-center">
         <div>
             <div onClick={() => setIsOpen((curr_state) => !curr_state)}>
                 <TiThMenu className={twMerge('h-10 w-10 text-gray-400 transition duration-500', isOpen && 'rotate-90')}/> 
             </div>
-            <div className={twMerge('absolute left-0 -top-5 mt-20 flex w-full self-start flex-col items-center gap-3 bg-slate-100 shadow-lgx overflow-hidden transition-all duration-500 h-0', isOpen && 'h-40')}>
+            <div className={twMerge('absolute left-0 top-0 mt-20 flex w-full self-start flex-col items-center gap-3 bg-slate-100 shadow-lgx overflow-hidden transition-all duration-500 h-0', isOpen && 'h-40')}>
                 {getMenuItemsMobile()}
             </div>
         </div>

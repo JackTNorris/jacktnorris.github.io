@@ -104,15 +104,14 @@ export const ConwayBoard = ({className}: ConwayBoardProps) => {
     if (ctx) {
       ctx.fillStyle = color;
       ctx.fillRect(clickX, clickY, gridSize, gridSize);
-      outline && ctx.strokeRect(clickX, clickY, gridSize, gridSize);
     }
   }
   const initBoard = () => {
     resetGrid()
     //have some funkiness here I need to fix
     for (let row = 0; row < grid.length; row++) {
-      for (let col = 0; col < grid[0].length; col++) {
-        grid[col][row] = Math.random() < 0.5;
+      for (let col = 0; col < grid[row].length; col++) {
+        grid[row][col] = Math.random() < 0.5;
       }
     }
   }
@@ -130,7 +129,7 @@ export const ConwayBoard = ({className}: ConwayBoardProps) => {
     for (let row = 0; row <  grid.length; row++) {
       for (let col = 0;  col < grid[row].length; col++) {
         if (grid[row][col]) {
-          colorRect(col * gridSize, row * gridSize, "rgba(0, 0, 255, 0.2)");
+          colorRect(row * gridSize, col * gridSize, "rgba(0, 0, 255, 0.2)");
         }
       }
     }
