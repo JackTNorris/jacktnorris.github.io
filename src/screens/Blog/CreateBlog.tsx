@@ -1,3 +1,4 @@
+//TODO: add types for this shit
 import { ImageUpload } from '../../components/forms/ImageUpload'
 import { ChangeEvent, useState } from "react"
 
@@ -8,7 +9,7 @@ export const CreateBlog = () => {
         'Learning': ['AI', 'Algorithms & Data Structures', 'Network Security', 'Low-Level Learnings'],
     }
 
-    const [formValue, setFormValue] = useState({
+    const [formValue, setFormValue] = useState<any & {images: File}>({
         title: '',
         category: '',
         subCategory: '',
@@ -25,13 +26,18 @@ export const CreateBlog = () => {
     }
 
     const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-
+        const uploadedPhotos = event.target.files;
+        const newPhotos = [];
+        for (const photo of uploadedPhotos as FileList) {
+          newPhotos.push(photo);
+        }
+        setFormValue({...formValue, images: [...formValue.images, ...newPhotos]})
     }
 
     return (
         <div className='site-container'>
             <div className='flex flex-col items-center p-5 gap-3 px-8'>
-                <input className='p-1 w-full max-w-[50rem] h-10 border rounded-md' placeholder="Title" />
+                <input className='p-1 w-full max-w-[50rem] h-10 border rounded-md required' placeholder="Title" />
                 <select className='p-1 w-full max-w-[50rem] h-10 border rounded-md' aria-placeholder="Category" defaultValue={""} onChange={event => setFormValue({...formValue, category: event.target.value})}>
                     <option value="" disabled>Category</option>
                     {Object.keys(blogCategories).map((category, index) => (

@@ -9,11 +9,9 @@ export const AboutMe = () => {
                 <div className='flex flex-col gap-5'>
                     <p className='font-bold text-sm sm:text-xl'>
                     I'm serving as Peace Corps Health Volunteer in Paraguay from May 2024 to August 2026, putting into practice my belief that service is a responsibility that extends beyond the domain of doctors and social workers -- it's also the duty of scientists and engineers as well.
-
-                    Upon to my return to the states, I plan to attend graduate school for computer science, ideally doing research that hybridizes computer science with medicine.
                     </p>
                     <p className='font-bold text-sm sm:text-xl'>
-                    Scroll down to see how I got here!
+                    Upon to my return to the states, I plan to attend graduate school for computer science, ideally doing research that hybridizes computer science with medicine. Scroll down to know a little bit more about me!
                     </p>
                 </div>
             </div>
