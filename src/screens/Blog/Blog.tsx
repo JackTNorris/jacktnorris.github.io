@@ -12,7 +12,6 @@ export const Blog = () => {
             <div className={twMerge('m-4 self-end', !!!currentUser && 'hidden')}>
                 <BlogCreator />
             </div>
-            <BlogPostNavigator />
             <BlogFeed topic="apples" />
         </div>
     )

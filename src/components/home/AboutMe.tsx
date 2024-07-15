@@ -1,7 +1,7 @@
 import SkydivePicture from '../../assets/images/skydive.jpeg'
 export const AboutMe = () => {
     return (
-        <div className='site-container flex-col sm:flex-row flex w-screen sm:h-screen px-24 sm:px-36 gap-5'>
+        <div className='site-container flex-col sm:flex-row flex w-screen sm:h-screen px-8 sm:px-36 gap-5'>
             <div className='flex flex-col h-full w-full justify-center items-center gap-3'>
                 <div className='flex w-full flex-row justify-center sm:justify-start'>
                     <h1 className='underline text-4xl font-extrabold'>A little about me...</h1>
@@ -11,7 +11,7 @@ export const AboutMe = () => {
                     I'm currently a Peace Corps Health Volunteer in Paraguay, putting into practice my belief that service is a responsibility that extends beyond the domain of doctors and social workers -- it's also the duty of scientists and engineers as well.
                     </p>
                     <p className='font-bold text-sm sm:text-xl'>
-                    In my freetime, I love to go an adventure outside, play my violin, read, or write code!
+                    In my freetime, I love adventuring outside, playing my violin, reading, or writing code!
                     </p>
                     <p className='font-bold text-sm sm:text-xl'>
                     Upon to my return to the states, I plan to attend graduate school for computer science, ideally doing research that hybridizes computer science with medicine. Scroll down to know a little bit more about me!
