@@ -115,7 +115,7 @@ export const ConwayBoard = () => {
     generateGrid();
     initBoard()
     setInterval(initBoard, 10000)
-    setInterval(draw, 100);
+    setInterval(draw, 200);
   })
 
   const draw = () => {
