@@ -124,6 +124,7 @@ export const ConwayBoard = () => {
     for (let row = 0; row <  grid.length; row++) {
       for (let col = 0;  col < grid[row].length; col++) {
         if (grid[row][col]) {
+          // test
           colorRect(row * gridSize, col * gridSize, "rgba(59, 130, 246, 0.2)");
         }
       }

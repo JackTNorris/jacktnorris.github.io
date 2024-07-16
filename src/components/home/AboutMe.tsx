@@ -18,7 +18,7 @@ export const AboutMe = () => {
                     </p>
                 </div>
             </div>
-            <div className='h-full w-full flex flex-col justify-center items-center sm:items-end pb-10'>
+            <div className='h-full w-full flex flex-col justify-center items-center sm:items-end'>
                 <div className='flex flex-col justify-center items-center relative h-56 aspect-square rotate-0 transition-all sm:h-96'>
                 <div className='rounded-lg absolute translate-y-5 translate-x-5 border-2 border-blue-400 h-56 aspect-square -z-10 sm:h-96'></div>
                     <img alt='Me skydiving' src={SkydivePicture} className='h-56 aspect-square grayscale hover:grayscale-0 hover:translate-x-3 hover:translate-y-3 rounded-lg transition-all sm:h-96 shadow-[35px_35px_60px_-15px_rgba(0,0,0,0.3)] shadow-blue-500' />
