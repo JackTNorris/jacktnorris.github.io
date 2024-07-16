@@ -1,50 +1,58 @@
 //TODO: add types for this shit
 import { ImageUpload } from '../../components/forms/ImageUpload'
-import { ChangeEvent, useRef, useState } from "react"
+import { ChangeEvent, useEffect, useRef, useState } from "react"
 import { BoldItalicUnderlineToggles, DiffSourceToggleWrapper, InsertCodeBlock, InsertImage, MDXEditor, MDXEditorMethods, UndoRedo, codeBlockPlugin, codeMirrorPlugin, contentEditableClassName$, diffSourcePlugin, headingsPlugin, imagePlugin, toolbarPlugin } from '@mdxeditor/editor'
 import { listsPlugin, quotePlugin, thematicBreakPlugin } from '@mdxeditor/editor'
 import '@mdxeditor/editor/style.css'
 import Markdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import { MDXEditorWrapper } from 'components/forms/MDXEditorWrapper'
+import { createBlogPost, createDraftBlog, fetchBlogTags } from 'services/blogService'
+import { auth } from 'loaders/firebase'
 export const CreateBlog = () => {    
     const tags = ['Random', 'Family', 'Unfiltered', 'Travel', 'AI', 'Algorithms & Data Structures', 'Network Security', 'Low-Level Learnings']
     const ref = useRef<MDXEditorMethods>(null);
-    const [formValue, setFormValue] = useState<any & {images: File}>({
+    const [formValue, setFormValue] = useState({
         title: '',
         tag: '',
         content: '',
-        images: [],
     })
+    const [availableTags, setAvailableTags] = useState<string[]>([])
+
+    useEffect(() => {
+        const x = async () => {
+            const g = await fetchBlogTags(auth.currentUser?.uid ? auth.currentUser.uid : '')
+            setAvailableTags(g)
+        }
+        x()
+    })
+
 
 
     const onPressPublish = () => {
         const wantsPublished = window.confirm('Are you sure you want to publish this blog?')
         if (wantsPublished) {
+            createBlogPost(formValue.title, formValue.tag, formValue.content, auth.currentUser?.uid ? auth.currentUser.uid : '')
             //publish the blog
         }
-        console.log(ref.current?.getMarkdown())
-        
+        console.log(formValue)        
     }
 
-    const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const uploadedPhotos = event.target.files;
-        const newPhotos = [];
-        for (const photo of uploadedPhotos as FileList) {
-          newPhotos.push(photo);
-        }
-        setFormValue({...formValue, images: [...formValue.images, ...newPhotos]})
+    const onPressSave = () => {
+        createDraftBlog(formValue.title, formValue.tag, formValue.content, auth.currentUser?.uid ? auth.currentUser.uid : '')
+        console.log(formValue)        
     }
 
     return (
         <div className='site-container -z-10'>
             <div className='flex flex-col items-center p-5 gap-3 px-8'>
                 <div className='w-full max-w-[50rem] font-bold'><p>Title: </p></div>
-                <input className='p-1 w-full max-w-[50rem] h-10 border rounded-md required' placeholder="Title" />
+                <input onChange={e => setFormValue({...formValue, title: e.target.value})} className='p-1 w-full max-w-[50rem] h-10 border rounded-md required' placeholder="Title" />
+
                 <div className='w-full max-w-[50rem] font-bold'><p>Tag: </p></div>
-                <select className='p-1 w-full max-w-[50rem] h-10 border rounded-md' aria-placeholder="Category" defaultValue={""}>
-                    <option value="" disabled>Tag</option>
-                    {tags.map((category, index) => (
+                <select className='p-1 w-full max-w-[50rem] h-10 border rounded-md' aria-placeholder="Category" defaultValue={""} onChange={e => setFormValue({...formValue, tag: e.target.value})}>
+                    <option value="" disabled>Select</option>
+                    {availableTags.map((category, index) => (
                         <option key={index} value={category}>{category}</option>
                     ))}
                 </select>
@@ -56,7 +64,7 @@ export const CreateBlog = () => {
                     rehypePlugins={[rehypeRaw]} 
                     className='prose w-full p-1 max-w-[50rem] h-96 border rounded-md overflow-scroll'
                 >{formValue.content}</Markdown>
-                <button className='w-full max-w-[50rem] h-8 border-blue-500 hover:bg-blue-200 border text-black rounded-md transition-all'>Save</button>
+                <button className='w-full max-w-[50rem] h-8 border-blue-500 hover:bg-blue-200 border text-black rounded-md transition-all' onClick={onPressSave}>Save</button>
                 <button className='w-full max-w-[50rem] h-8 bg-blue-500 hover:bg-blue-400 text-white rounded-md transition-all' onClick={onPressPublish}>Publish</button>
             </div>
         </div>

@@ -50,3 +50,7 @@
 .cm-activeLine {
   z-index: -20;
 }
+
+.prose {
+  max-width: none;
+}
