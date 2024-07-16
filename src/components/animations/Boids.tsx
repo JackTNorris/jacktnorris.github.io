@@ -119,7 +119,8 @@ export const Boids = () => {
 
   useEffect(() => {
     draw()
-    setInterval(draw, 10)
+    const interval = setInterval(draw, 10)
+    return () => clearInterval(interval)
   })
 
   return (

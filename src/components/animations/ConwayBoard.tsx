@@ -114,8 +114,13 @@ export const ConwayBoard = () => {
   useEffect(() => {
     generateGrid();
     initBoard()
-    setInterval(initBoard, 10000)
-    setInterval(draw, 200);
+    const initInterval = setInterval(initBoard, 10000)
+    const drawInterval = setInterval(draw, 200);
+
+    return () => {
+      clearInterval(initInterval)
+      clearInterval(drawInterval)
+    }
   })
 
   const draw = () => {
