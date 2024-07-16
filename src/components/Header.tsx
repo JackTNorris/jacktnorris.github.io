@@ -10,7 +10,7 @@ export const Header = () => {
         <div className='bg-white absolute flex flex-col w-screen items-center justify-center sm:justify-start h-20 shadow-lg gap-2'>
             <div className='progress'></div>
             <div className='flex flex-row w-full'>
-                <a href='/login'><img className='h-20 w-20 sticky hover:rotate-6 transition-all' src={logo} alt='my-logo'/></a>
+                <a className='z-10' href='/login'><img className='h-20 w-20 sticky hover:rotate-6 transition-all' src={logo} alt='my-logo'/></a>
                 <NavigationMenu />
             </div>
         </div>
