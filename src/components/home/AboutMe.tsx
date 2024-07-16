@@ -1,7 +1,7 @@
 import SkydivePicture from '../../assets/images/skydive.jpeg'
 export const AboutMe = () => {
     return (
-        <div className='site-container flex-col sm:flex-row flex w-screen sm:h-screen px-8 sm:px-36 gap-5'>
+        <div className='flex-col sm:flex-row flex w-screen sm:h-screen px-8 py-10 sm:px-36 gap-3'>
             <div className='flex flex-col h-full w-full justify-center items-center gap-3'>
                 <div className='flex w-full flex-row justify-center sm:justify-start'>
                     <h1 className='text-lg sm:text-3xl font-extrabold press-start text-blue-500'>A little about me...</h1>
