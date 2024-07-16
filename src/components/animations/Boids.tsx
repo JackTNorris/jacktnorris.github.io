@@ -28,7 +28,7 @@ export const Boids = () => {
       })
     }
     updateBoids()
-
+    requestAnimationFrame(draw)
   }
 
 
@@ -118,9 +118,7 @@ export const Boids = () => {
   }
 
   useEffect(() => {
-    draw()
-    const interval = setInterval(draw, 10)
-    return () => clearInterval(interval)
+    requestAnimationFrame(draw)
   })
 
   return (

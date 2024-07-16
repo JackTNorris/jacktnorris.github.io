@@ -1,3 +1,4 @@
+import { request } from "https";
 import { useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -5,7 +6,7 @@ export const ConwayBoard = () => {
   const width = window.screen.width * 1.5
   const height = window.screen.height * 1.5
   const gridSize = 20
-
+  let counter = 0
   const grid: boolean[][] = Array.from(Array((Math.round(width / gridSize))), () => new Array(Math.round(height / gridSize)).fill(false));
   const canvas = useRef<HTMLCanvasElement>(null);
 
@@ -114,16 +115,11 @@ export const ConwayBoard = () => {
   useEffect(() => {
     generateGrid();
     initBoard()
-    const initInterval = setInterval(initBoard, 10000)
-    const drawInterval = setInterval(draw, 200);
-
-    return () => {
-      clearInterval(initInterval)
-      clearInterval(drawInterval)
-    }
+    requestAnimationFrame(draw)
   })
 
   const draw = () => {
+    counter += 1
     generateGrid();
     applyConwayRules();
     for (let row = 0; row <  grid.length; row++) {
@@ -133,6 +129,12 @@ export const ConwayBoard = () => {
         }
       }
     }
+    if (counter >= 300)
+    {
+        counter = 0
+        initBoard()
+    }
+    requestAnimationFrame(draw)
   }
 
   return (
