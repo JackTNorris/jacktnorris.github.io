@@ -3,8 +3,8 @@ import { useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 export const ConwayBoard = () => {
-  const width = window.screen.width * 1.5
-  const height = window.screen.height * 1.5
+  const width = window.screen.width
+  const height = window.screen.height
   const gridSize = 20
   let counter = 0
   const grid: boolean[][] = Array.from(Array((Math.round(width / gridSize))), () => new Array(Math.round(height / gridSize)).fill(false));
@@ -119,7 +119,6 @@ export const ConwayBoard = () => {
   })
 
   const draw = () => {
-    counter += 1
     generateGrid();
     applyConwayRules();
     for (let row = 0; row <  grid.length; row++) {
@@ -128,11 +127,6 @@ export const ConwayBoard = () => {
           colorRect(row * gridSize, col * gridSize, "rgba(59, 130, 246, 0.2)");
         }
       }
-    }
-    if (counter >= 300)
-    {
-        counter = 0
-        initBoard()
     }
     requestAnimationFrame(draw)
   }

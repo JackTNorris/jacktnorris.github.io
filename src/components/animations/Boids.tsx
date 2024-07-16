@@ -11,8 +11,8 @@ type Boid = {
 }
 
 export const Boids = () => {
-  const width = window.screen.width * 1.5
-  const height = window.screen.height * 1.5
+  const width = window.screen.width
+  const height = window.screen.height
   const canvas = useRef<HTMLCanvasElement>(null);
   const numBoids = 200
   const boids: Boid[] = _.range(numBoids).map(boid => {return {position: {x: random(width), y: random(height)}, theta: random(360), velocity: {x: random(-0.1, 0.1, true), y: random(-0.1, 0.1, true)}}})
