@@ -7,12 +7,20 @@ import { twMerge } from "tailwind-merge";
 
 export type BlogFeedProps = {
     topic: string
+    isDrafts?: boolean
 }
-export const BlogFeed = ({topic}: BlogFeedProps) => {
+export const BlogFeed = ({topic, isDrafts}: BlogFeedProps) => {
     const [blogs, setBlogs] = useState<BlogPost[]>([])
     const x = async () => {
-        const g = await fetchBlogPosts('guDT9CByeceyrbjRG6hOAnAs4mH3')
-        setBlogs(g)
+        if (isDrafts) {
+            const g = await fetchDraftBlogs('guDT9CByeceyrbjRG6hOAnAs4mH3')
+            setBlogs(g)
+        }
+        else {
+            const g = await fetchBlogPosts('guDT9CByeceyrbjRG6hOAnAs4mH3')
+            //const g = await fetchBlogPosts(auth.currentUser?.uid ? auth.currentUser.uid : '')
+            setBlogs(g)
+        }
     }
     useEffect(() => {
         x()
