@@ -1,5 +1,9 @@
 // TODO: add in some error handling
-import { child, get, getDatabase, push, ref } from "firebase/database"
+// TODO: refactor function params to be an object for greater modulatrity
+// TODO: add in some functions to handle boilerplate for db access
+// TODO: move db paths to config file
+
+import { child, get, getDatabase, push, ref, remove } from "firebase/database"
 import { auth, database } from "loaders/firebase"
 
 export type BlogPost = {
@@ -16,18 +20,6 @@ export const fetchBlogTags = async (userId: string) => {
     const dbRef = ref(getDatabase());
     const blogTopics = (await get(child(dbRef, `/users/${userId}/blog/tags`))).val()
     return Object.keys(blogTopics).map(key => blogTopics[key]) as string[]
-}
-
-export const getBlogPosts = () => {
-
-}
-
-export const addBlogPost = () => {
-
-}
-
-export const deleteBlogPost = () => {
-
 }
 
 //TODO: refactor to take in an object
@@ -58,6 +50,20 @@ export const fetchDraftBlogs = async (userId: string) => {
     }
 }
 
+export const deleteDraftBlog = async (id: string, userId: string) => {
+    try {
+        const dbRef = ref(getDatabase());
+        await remove(child(dbRef, `/users/${userId}/blog/drafts/${id}`))
+        return true
+    }
+    catch(error)
+    {
+        console.log(error)
+        return false
+    }
+}
+
+
 export const createBlogPost = (title: string, tag: string, content: string, userId: string) => {
     push(ref(database, `/users/${userId}/blog/posts`), {
         createdOn: new Date().getTime(),
@@ -82,5 +88,18 @@ export const fetchBlogPosts = async (userId: string) => {
     {
         console.log(error)
         return [];
+    }
+}
+
+export const deleteBlogPost = async (id: string, userId: string) => {
+    try {
+        const dbRef = ref(getDatabase());
+        await remove(child(dbRef, `/users/${userId}/blog/posts/${id}`))
+        return true
+    }
+    catch(error)
+    {
+        console.log(error)
+        return false
     }
 }
