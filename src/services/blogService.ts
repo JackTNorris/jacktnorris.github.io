@@ -3,7 +3,7 @@
 // TODO: add in some functions to handle boilerplate for db access
 // TODO: move db paths to config file
 
-import { child, get, getDatabase, push, ref, remove } from "firebase/database"
+import { child, get, getDatabase, push, ref, remove, update } from "firebase/database"
 import { auth, database } from "loaders/firebase"
 
 export type BlogPost = {
@@ -63,6 +63,15 @@ export const deleteDraftBlog = async (id: string, userId: string) => {
     }
 }
 
+export const updateDraftBlog = async (id: string, userId: string, title: string, tag: string, content: string) => {
+    update(ref(database, `/users/${userId}/blog/drafts/${id}`), {
+        lastEdited: new Date().getTime(),
+        title,
+        tag,
+        content
+    })
+}
+
 
 export const createBlogPost = (title: string, tag: string, content: string, userId: string) => {
     push(ref(database, `/users/${userId}/blog/posts`), {
@@ -89,6 +98,15 @@ export const fetchBlogPosts = async (userId: string) => {
         console.log(error)
         return [];
     }
+}
+
+export const updateBlogPost = async (id: string, userId: string, title: string, tag: string, content: string) => {
+    update(ref(database, `/users/${userId}/blog/posts/${id}`), {
+        lastEdited: new Date().getTime(),
+        title,
+        tag,
+        content
+    })
 }
 
 export const deleteBlogPost = async (id: string, userId: string) => {
