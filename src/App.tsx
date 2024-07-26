@@ -1,7 +1,7 @@
 // TODO: prettier rules
 // TODO: eslint rules
 // TODO: references with @
-
+// TODO: fix security vulnerability, have conflicting dependencies for upgrade
 import './App.css';
 import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 
