@@ -9,11 +9,14 @@ import { Boids } from 'components/animations/Boids';
 import { random } from 'lodash';
 const Home = () => {
     return (
+        <>
+        {random(0, 1) ? <ConwayBoard /> : <Boids />}
         <div className='site-container'>
-            {random(0, 1) ? <ConwayBoard /> : <Boids />}
             <Hero />
             <AboutMe />
         </div>
+        </>
+        
     );
 };
 

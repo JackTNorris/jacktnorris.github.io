@@ -2,8 +2,6 @@
 import ProfilePicture from '../../assets/images/pfp.jpeg';
 import { TextCarousel } from './TextCarousel';
 import '../Header.css';
-import { useRef } from 'react';
-import { ConwayBoard } from '../animations/ConwayBoard';
 export const Hero = () => {
     return (
         <div className='-mt-20 flex flex-col w-screen min-h-screen items-center justify-center'>
