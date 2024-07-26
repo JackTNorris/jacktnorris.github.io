@@ -9,7 +9,8 @@ import rehypeRaw from 'rehype-raw'
 import { MDXEditorWrapper } from 'components/forms/MDXEditorWrapper'
 import { createBlogPost, createDraftBlog, fetchBlogTags } from 'services/blogService'
 import { auth } from 'loaders/firebase'
-export const CreateBlog = () => {    
+export const EditBlog = () => {    
+    const tags = ['Random', 'Family', 'Unfiltered', 'Travel', 'AI', 'Algorithms & Data Structures', 'Network Security', 'Low-Level Learnings']
     const ref = useRef<MDXEditorMethods>(null);
     const [formValue, setFormValue] = useState({
         title: '',
@@ -45,9 +46,10 @@ export const CreateBlog = () => {
     return (
         <div className='site-container -z-10'>
             <div className='flex flex-col items-center p-5 gap-3 px-8'>
+                <p>EDIT THIS: </p>
+
                 <div className='w-full max-w-[50rem] font-bold'><p>Title: </p></div>
                 <input onChange={e => setFormValue({...formValue, title: e.target.value})} className='p-1 w-full max-w-[50rem] h-10 border rounded-md required' placeholder="Title" />
-
                 <div className='w-full max-w-[50rem] font-bold'><p>Tag: </p></div>
                 <select className='p-1 w-full max-w-[50rem] h-10 border rounded-md' aria-placeholder="Category" defaultValue={""} onChange={e => setFormValue({...formValue, tag: e.target.value})}>
                     <option value="" disabled>Select</option>

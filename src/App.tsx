@@ -14,6 +14,7 @@ import { PrivateRoutes } from './components/PrivateRoutes';
 import { Portfolio } from './screens/Portfolio';
 import { DraftBlogs } from './screens/Blog/DraftBlogs';
 import { CreateBlog } from './screens/Blog/CreateBlog';
+import { EditBlog } from 'screens/Blog/EditBlog';
 
 function App() {
   return (
@@ -30,7 +31,9 @@ function App() {
             <Route path="/blog" Component={Blog} />
             <Route element={<PrivateRoutes />}>
               <Route path="/blog/draft-blogs" Component={DraftBlogs} />
+              <Route path="/blog/edit-draft/:id" Component={EditBlog} />
               <Route path="/blog/create-blogs" Component={CreateBlog} />
+              <Route path="/blog/edit-blog/:id" Component={EditBlog} />
             </Route>
 
 
