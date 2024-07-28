@@ -7,7 +7,7 @@ import '@mdxeditor/editor/style.css'
 import Markdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import { MDXEditorWrapper } from 'components/forms/MDXEditorWrapper'
-import { createBlogPost, createDraftBlog, fetchBlogTags } from 'services/blogService'
+import { createBlogPost, createDraftBlog, fetchBlogTags, updateDraftBlog } from 'services/blogService'
 import { auth } from 'loaders/firebase'
 export const EditBlog = () => {    
     const tags = ['Random', 'Family', 'Unfiltered', 'Travel', 'AI', 'Algorithms & Data Structures', 'Network Security', 'Low-Level Learnings']
@@ -39,7 +39,7 @@ export const EditBlog = () => {
     }
 
     const onPressSave = () => {
-        createDraftBlog(formValue.title, formValue.tag, formValue.content, auth.currentUser?.uid ? auth.currentUser.uid : '')
+        updateDraftBlog('', auth.currentUser?.uid ? auth.currentUser.uid : '', formValue.title, formValue.tag, formValue.content)
         console.log(formValue)        
     }
 
