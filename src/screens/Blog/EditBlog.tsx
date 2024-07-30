@@ -7,8 +7,10 @@ import '@mdxeditor/editor/style.css'
 import Markdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import { MDXEditorWrapper } from 'components/forms/MDXEditorWrapper'
-import { createBlogPost, createDraftBlog, fetchBlogTags, updateDraftBlog } from 'services/blogService'
+import { createBlogPost, fetchBlogTags, updateDraftBlog } from 'services/blogService'
 import { auth } from 'loaders/firebase'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
 export const EditBlog = () => {    
     const tags = ['Random', 'Family', 'Unfiltered', 'Travel', 'AI', 'Algorithms & Data Structures', 'Network Security', 'Low-Level Learnings']
     const ref = useRef<MDXEditorMethods>(null);
@@ -26,17 +28,6 @@ export const EditBlog = () => {
         }
         x()
     })
-
-
-
-    const onPressPublish = () => {
-        const wantsPublished = window.confirm('Are you sure you want to publish this blog?')
-        if (wantsPublished) {
-            createBlogPost(formValue.title, formValue.tag, formValue.content, auth.currentUser?.uid ? auth.currentUser.uid : '')
-            //publish the blog
-        }
-        console.log(formValue)        
-    }
 
     const onPressSave = () => {
         updateDraftBlog('', auth.currentUser?.uid ? auth.currentUser.uid : '', formValue.title, formValue.tag, formValue.content)
@@ -63,12 +54,12 @@ export const EditBlog = () => {
                 <div className='w-full max-w-[50rem] font-bold'><p>Result: </p></div>
                 <Markdown 
                     skipHtml={false} 
-                    rehypePlugins={[rehypeRaw]} 
+                    rehypePlugins={[rehypeRaw, rehypeKatex]} 
+                    remarkPlugins={[remarkMath]}
                     className='prose w-full p-1 max-w-[50rem] h-96 border rounded-md overflow-scroll'
                 >{formValue.content}</Markdown>
                 </div>
                 <button className='w-full max-w-[50rem] h-8 border-blue-500 hover:bg-blue-200 border text-black rounded-md transition-all' onClick={onPressSave}>Save</button>
-                <button className='w-full max-w-[50rem] h-8 bg-blue-500 hover:bg-blue-400 text-white rounded-md transition-all' onClick={onPressPublish}>Publish</button>
             </div>
         </div>
     )

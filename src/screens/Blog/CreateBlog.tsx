@@ -1,4 +1,5 @@
-//TODO: add types for this shit
+// TODO: add types for this shit
+// TODO: MDEX wrapper
 import { ImageUpload } from '../../components/forms/ImageUpload'
 import { ChangeEvent, useEffect, useRef, useState } from "react"
 import { BoldItalicUnderlineToggles, DiffSourceToggleWrapper, InsertCodeBlock, InsertImage, MDXEditor, MDXEditorMethods, UndoRedo, codeBlockPlugin, codeMirrorPlugin, contentEditableClassName$, diffSourcePlugin, headingsPlugin, imagePlugin, toolbarPlugin } from '@mdxeditor/editor'
@@ -6,6 +7,9 @@ import { listsPlugin, quotePlugin, thematicBreakPlugin } from '@mdxeditor/editor
 import '@mdxeditor/editor/style.css'
 import Markdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+import 'katex/dist/katex.min.css' // `rehype-katex` does not import the CSS for you
 import { MDXEditorWrapper } from 'components/forms/MDXEditorWrapper'
 import { createBlogPost, createDraftBlog, fetchBlogTags } from 'services/blogService'
 import { auth } from 'loaders/firebase'
@@ -61,7 +65,8 @@ export const CreateBlog = () => {
                 <div className='w-full max-w-[50rem] font-bold'><p>Result: </p></div>
                 <Markdown 
                     skipHtml={false} 
-                    rehypePlugins={[rehypeRaw]} 
+                    remarkPlugins={[remarkMath]}
+                    rehypePlugins={[rehypeRaw, rehypeKatex]} 
                     className='prose w-full p-1 max-w-[50rem] h-96 border rounded-md overflow-scroll'
                 >{formValue.content}</Markdown>
                 </div>
