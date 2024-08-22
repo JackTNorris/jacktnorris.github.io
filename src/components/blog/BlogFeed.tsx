@@ -33,7 +33,7 @@ export const BlogFeed = ({topic, isDrafts}: BlogFeedProps) => {
         <div className='flex flex-col w-3/5 min-w-[20rem]'>
             {blogs.map((blog, index) => 
             <Link to={isDrafts ? `/blog/edit-draft/${blog.id}` : `/blog/edit-blog/${blog.id}`}>
-                <div className={twMerge('hover:scale-105 w-4/5 aspect-[5/2] mt-12 bg-slate-100 shadow-md rounded-lg p-8 transition-all duration-1000', index % 2 ? 'self-end' : 'self-start')}>
+                <div className={twMerge('flex flex-col gap-4 hover:scale-105 w-4/5 aspect-[5/2] mt-12 bg-slate-100 shadow-md rounded-lg p-8 transition-all duration-1000', index % 2 ? 'self-end' : 'self-start')}>
                     <p><em><b>{blog.title}</b> || {new Date(blog.createdOn).toDateString()}</em></p>
                     <Markdown skipHtml={false} remarkPlugins={[remarkMath]} rehypePlugins={[rehypeRaw, rehypeKatex]} className='prose'>{blog.content}</Markdown>
                 </div>

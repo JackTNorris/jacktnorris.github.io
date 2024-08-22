@@ -1,13 +1,15 @@
-import { BoldItalicUnderlineToggles, DiffSourceToggleWrapper, InsertCodeBlock, InsertImage, MDXEditor, UndoRedo, codeBlockPlugin, codeMirrorPlugin, diffSourcePlugin, headingsPlugin, imagePlugin, quotePlugin, toolbarPlugin } from "@mdxeditor/editor"
+import { BoldItalicUnderlineToggles, DiffSourceToggleWrapper, InsertCodeBlock, InsertImage, MDXEditor, MDXEditorMethods, UndoRedo, codeBlockPlugin, codeMirrorPlugin, diffSourcePlugin, headingsPlugin, imagePlugin, quotePlugin, toolbarPlugin } from "@mdxeditor/editor"
 
 export type MDXEditorWrapperProps = {
     className?: string
     onChange?: (val: string) => void
+    innerref?: React.RefObject<MDXEditorMethods>
 }
 
-export const MDXEditorWrapper = ({className, onChange}: MDXEditorWrapperProps) => {
+export const MDXEditorWrapper = ({className, onChange, innerref}: MDXEditorWrapperProps) => {
     return (
         <MDXEditor
+        ref={innerref}
         className={className}
         onChange={onChange}
         markdown={''}

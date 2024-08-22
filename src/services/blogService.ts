@@ -2,6 +2,7 @@
 // TODO: refactor function params to be an object for greater modulatrity
 // TODO: add in some functions to handle boilerplate for db access
 // TODO: move db paths to config file
+// TODO: refactor things so I don't have to call the realtime database so many times
 
 import { child, get, getDatabase, push, ref, remove, update } from "firebase/database"
 import { auth, database } from "loaders/firebase"
@@ -49,6 +50,20 @@ export const fetchDraftBlogs = async (userId: string) => {
         return [];
     }
 }
+
+export const fetchDraftBlog = async (userId: string, blogId: string) => {
+    try {
+        const dbRef = ref(getDatabase());
+        const blog = (await get(child(dbRef, `/users/${userId}/blog/drafts/${blogId}`))).val()
+        return blog as BlogPost
+    }
+    catch(error)
+    {
+        console.log(error)
+        return null;
+    }
+}
+
 
 export const deleteDraftBlog = async (id: string, userId: string) => {
     try {
@@ -100,13 +115,33 @@ export const fetchBlogPosts = async (userId: string) => {
     }
 }
 
+export const fetchBlogPost = async (userId: string, blogId: string) => {
+    try {
+        const dbRef = ref(getDatabase());
+        const blog = (await get(child(dbRef, `/users/${userId}/blog/posts/${blogId}`))).val()
+        return blog as BlogPost
+    }
+    catch(error)
+    {
+        console.log(error)
+        return null;
+    }
+}
+
+
 export const updateBlogPost = async (id: string, userId: string, title: string, tag: string, content: string) => {
-    update(ref(database, `/users/${userId}/blog/posts/${id}`), {
-        lastEdited: new Date().getTime(),
-        title,
-        tag,
-        content
-    })
+    try {
+        await update(ref(database, `/users/${userId}/blog/posts/${id}`), {
+            lastEdited: new Date().getTime(),
+            title,
+            tag,
+            content
+        })
+        return true
+    }
+    catch (error) {
+        return false
+    }
 }
 
 export const deleteBlogPost = async (id: string, userId: string) => {

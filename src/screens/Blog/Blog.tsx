@@ -1,9 +1,7 @@
 import { twMerge } from "tailwind-merge"
 import { BlogCreator } from "../../components/blog/BlogCreator"
 import { BlogFeed } from "../../components/blog/BlogFeed"
-import { BlogPostNavigator } from "../../components/blog/BlogTopicNavigator"
 import { useAuth } from "../../hooks/useAuth"
-import { auth } from "../../loaders/firebase"
 
 export const Blog = () => {
     const currentUser = useAuth();
