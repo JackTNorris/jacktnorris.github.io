@@ -14,7 +14,7 @@ export const NavigationMenu = () => {
     const getMenuItemsDesktop = () => {
         return menuItems.map((item, index) => {
             if(index === menuItems.length - 1) {
-                return <a key={index} href={item.link} target='_blank'><p className='transition duration-500 font-bold bg-blue-300 hover:underline hover:cursor-pointer p-2 border rounded-lg border-blue-600 hover:bg-blue-500 hover:text-white' key={index}>{item.name}</p></a>
+                return <a key={index} href={item.link} target='_blank' rel="noreferrer"><p className='transition duration-500 font-bold bg-blue-300 hover:underline hover:cursor-pointer p-2 border rounded-lg border-blue-600 hover:bg-blue-500 hover:text-white' key={index}>{item.name}</p></a>
             }
             return <a key={index} href={item.link}><p className='font-bold transition duration-800 hover:underline hover:cursor-pointer hover:translate-y-[-20%]' key={index}>{`${index + 1}. ${item.name}`}</p></a>
         });

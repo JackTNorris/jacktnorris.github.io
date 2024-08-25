@@ -102,7 +102,7 @@ export const Boids = () => {
     boids.forEach(boid => {
       const rule1 = cohesion(boid)
       const rule2 = alignment(boid)
-      let rule3 = separation(boid)
+      const rule3 = separation(boid)
       const bVelocity = {x:( boid.velocity.x +  rule1.x + rule2.x + rule3.x), y: (boid.velocity.y + rule1.y + rule2.y + rule3.y)}
       boid.velocity = bVelocity
       if (boid.position.x + boid.velocity.x > width || boid.position.x + boid.velocity.x < 0)

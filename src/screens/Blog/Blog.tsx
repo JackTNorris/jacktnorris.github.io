@@ -7,7 +7,7 @@ export const Blog = () => {
     const currentUser = useAuth();
     return (
         <div className='site-container flex flex-col items-center'>
-            <div className={twMerge('m-4 self-end', !!!currentUser && 'hidden')}>
+            <div className={twMerge('m-4 self-end', !currentUser && 'hidden')}>
                 <BlogCreator />
             </div>
             <BlogFeed topic="apples" />
