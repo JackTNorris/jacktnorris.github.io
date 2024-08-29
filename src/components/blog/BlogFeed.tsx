@@ -17,10 +17,12 @@ export const BlogFeed = ({topic, isDrafts}: BlogFeedProps) => {
     const x = async () => {
         if (isDrafts) {
             const g = await fetchDraftBlogs('guDT9CByeceyrbjRG6hOAnAs4mH3')
+            g.sort((a, b) => {return b.createdOn - a.createdOn})
             setBlogs(g)
         }
         else {
             const g = await fetchBlogPosts('guDT9CByeceyrbjRG6hOAnAs4mH3')
+            g.sort((a, b) => {return b.createdOn - a.createdOn})
             //const g = await fetchBlogPosts(auth.currentUser?.uid ? auth.currentUser.uid : '')
             setBlogs(g)
         }
