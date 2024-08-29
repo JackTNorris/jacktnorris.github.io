@@ -1,4 +1,5 @@
-//TODO: add types for this shit
+// TODO: add types for this shit
+// TODO: refactor this so I'm not using the same thing for edit blog that I am using for create blog
 import { ImageUpload } from '../../components/forms/ImageUpload'
 import { ChangeEvent, useEffect, useRef, useState } from "react"
 import { BoldItalicUnderlineToggles, DiffSourceToggleWrapper, InsertCodeBlock, InsertImage, MDXEditor, MDXEditorMethods, UndoRedo, codeBlockPlugin, codeMirrorPlugin, contentEditableClassName$, diffSourcePlugin, headingsPlugin, imagePlugin, setMarkdown$, toolbarPlugin } from '@mdxeditor/editor'
