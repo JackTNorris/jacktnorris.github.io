@@ -1,4 +1,4 @@
-import { Modal } from "../Modal";
+//TODO: rename this, terrible name
 
 export const BlogCreator = () => {
     return (

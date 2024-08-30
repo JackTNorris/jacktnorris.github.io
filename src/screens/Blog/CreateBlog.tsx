@@ -1,9 +1,8 @@
 // TODO: add types for this shit
-// TODO: MDEX wrapper
+// TODO: change the 
 import { ImageUpload } from '../../components/forms/ImageUpload'
 import { ChangeEvent, useEffect, useRef, useState } from "react"
 import { BoldItalicUnderlineToggles, DiffSourceToggleWrapper, InsertCodeBlock, InsertImage, MDXEditor, MDXEditorMethods, UndoRedo, codeBlockPlugin, codeMirrorPlugin, contentEditableClassName$, diffSourcePlugin, headingsPlugin, imagePlugin, toolbarPlugin } from '@mdxeditor/editor'
-import { listsPlugin, quotePlugin, thematicBreakPlugin } from '@mdxeditor/editor'
 import '@mdxeditor/editor/style.css'
 import Markdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
