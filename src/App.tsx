@@ -16,12 +16,17 @@ import { Portfolio } from './screens/Portfolio';
 import { DraftBlogs } from './screens/Blog/DraftBlogs';
 import { CreateBlog } from './screens/Blog/CreateBlog';
 import { EditBlog } from 'screens/Blog/EditBlog';
+import { random } from 'lodash';
+import { ConwayBoard } from 'components/animations/ConwayBoard';
+import { Boids } from 'components/animations/Boids';
 
 function App() {
   return (
     <>
       <Header/>
         <ToastMessages />
+        {random(0, 1) ? <ConwayBoard /> : <Boids />}
+
         <BrowserRouter basename='/'>
           <Routes>
             <Route path='/' element={<Navigate to={'/home'} />} />
@@ -36,8 +41,6 @@ function App() {
               <Route path="/blog/create-blogs" Component={CreateBlog} />
               <Route path="/blog/edit-blog/:id" Component={EditBlog} />
             </Route>
-
-
           </Routes>
         </BrowserRouter>
     </>
