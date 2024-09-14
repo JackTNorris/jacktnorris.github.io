@@ -2,7 +2,7 @@
 // TODO: eslint rules
 // TODO: references with @
 // TODO: fix security vulnerability, have conflicting dependencies for upgrade
-// TODO: redux for auth!
+// TODO: add an image loader
 import './App.css';
 import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 

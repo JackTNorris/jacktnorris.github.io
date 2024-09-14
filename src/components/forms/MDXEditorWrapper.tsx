@@ -10,6 +10,7 @@ export const MDXEditorWrapper = ({className, onChange, innerref}: MDXEditorWrapp
     return (
         <MDXEditor
         ref={innerref}
+        suppressHtmlProcessing={false}
         className={className}
         onChange={onChange}
         markdown={''}
