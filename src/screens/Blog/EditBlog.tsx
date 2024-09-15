@@ -11,6 +11,7 @@ import { createBlogPost, fetchBlogPost, fetchBlogTags, fetchDraftBlog, fetchDraf
 import { auth } from 'loaders/firebase'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
+import { MarkdownWrapper } from 'components/MarkdownWrapper'
 export const EditBlog = () => {    
     const tags = ['Random', 'Family', 'Unfiltered', 'Travel', 'AI', 'Algorithms & Data Structures', 'Network Security', 'Low-Level Learnings']
     const ref = useRef<MDXEditorMethods>(null);
@@ -74,12 +75,9 @@ export const EditBlog = () => {
                 <div className='w-full max-w-[50rem] font-bold'><p>Content: </p></div>
                 <MDXEditorWrapper innerref={ref} className='-z-10 prose w-full p-1 max-w-[50rem] h-96 border rounded-md overflow-scroll' onChange={val => setFormValue({...formValue, content: val})} />
                 <div className='w-full max-w-[50rem] font-bold'><p>Result: </p></div>
-                <Markdown 
-                    skipHtml={false} 
-                    rehypePlugins={[rehypeRaw, rehypeKatex]} 
-                    remarkPlugins={[remarkMath]}
-                    className='prose w-full p-1 max-w-[50rem] h-96 border rounded-md overflow-scroll'
-                >{formValue.content}</Markdown>
+                <MarkdownWrapper className='w-full p-1 max-w-[50rem] h-96 border rounded-md overflow-scroll'>
+                    {formValue.content}
+                </MarkdownWrapper>
                 </div>
                 <button className='w-full max-w-[50rem] h-8 border-blue-500 hover:bg-blue-200 border text-black rounded-md transition-all' onClick={onPressSave}>Save</button>
                 { window.location.href.indexOf('edit-draft') > -1 &&  <button className='w-full max-w-[50rem] h-8 bg-blue-500 hover:bg-blue-400 text-white rounded-md transition-all' onClick={onPressPublish}>Publish</button>}

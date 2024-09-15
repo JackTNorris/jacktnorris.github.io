@@ -8,6 +8,7 @@ import { BlogPost, deleteBlogPost, deleteDraftBlog, fetchBlogPosts, fetchDraftBl
 import { twMerge } from "tailwind-merge";
 import { TiTrash, TiEdit } from "react-icons/ti";
 import { auth } from 'loaders/firebase'
+import { MarkdownWrapper } from "components/MarkdownWrapper";
 
 export type BlogFeedProps = {
     topic: string
@@ -61,7 +62,7 @@ export const BlogFeed = ({topic, isDrafts}: BlogFeedProps) => {
                             <TiTrash onClick={() => deleteDraftOrPost(blog.id)} className="hover:text-red-500 hover:cursor-pointer" />
                         </div>
                     </div>
-                    <Markdown skipHtml={false} remarkPlugins={[remarkMath]} rehypePlugins={[rehypeRaw, rehypeKatex]} className='prose'>{blog.content}</Markdown>
+                    <MarkdownWrapper>{blog.content}</MarkdownWrapper>
                 </div>
         )}
         </div>

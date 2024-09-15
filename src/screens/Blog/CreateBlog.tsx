@@ -64,6 +64,7 @@ export const CreateBlog = () => {
                 <MDXEditorWrapper className='-z-10 prose w-full p-1 max-w-[50rem] h-96 border rounded-md overflow-scroll' onChange={val => setFormValue({...formValue, content: val})} />
                 <div className='w-full max-w-[50rem] font-bold'><p>Result: </p></div>
                 <MarkdownWrapper
+                    className='w-full p-1 max-w-[50rem] h-96 border rounded-md overflow-scroll'
                 >{formValue.content}</MarkdownWrapper>
                 </div>
                 <button className='w-full max-w-[50rem] h-8 border-blue-500 hover:bg-blue-200 border text-black rounded-md transition-all' onClick={onPressSave}>Save</button>
