@@ -28,7 +28,6 @@ export const MarkdownWrapper = ({children, className}: MarkdownWrapperProps) => 
               const match = /language-(\w+)/.exec(className || '')
               return match ? (
                 <SyntaxHighlighter
-                showLineNumbers
                 customStyle={{border: 'none', backgroundColor: "#1F2937"}}
                 PreTag="div"
                 children={String(children).replace(/\n$/, '')}
