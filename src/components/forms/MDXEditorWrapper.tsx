@@ -4,16 +4,17 @@ export type MDXEditorWrapperProps = {
     className?: string
     onChange?: (val: string) => void
     innerref?: React.RefObject<MDXEditorMethods>
+    mdown?: string
 }
 
-export const MDXEditorWrapper = ({className, onChange, innerref}: MDXEditorWrapperProps) => {
+export const MDXEditorWrapper = ({className, onChange, innerref, mdown}: MDXEditorWrapperProps) => {
     return (
         <MDXEditor
         ref={innerref}
         suppressHtmlProcessing={false}
         className={className}
         onChange={onChange}
-        markdown={''}
+        markdown={mdown || ''}
         contentEditableClassName={className}
         plugins={[
             // the viewMode parameter lets you switch the editor to diff or source mode.

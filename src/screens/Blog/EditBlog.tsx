@@ -1,5 +1,6 @@
 // TODO: add types for this shit
 // TODO: refactor this so I'm not using the same thing for edit blog that I am using for create blog
+// TODO: add in some loaders
 import { ImageUpload } from '../../components/forms/ImageUpload'
 import { ChangeEvent, useEffect, useRef, useState } from "react"
 import { BoldItalicUnderlineToggles, DiffSourceToggleWrapper, InsertCodeBlock, InsertImage, MDXEditor, MDXEditorMethods, UndoRedo, codeBlockPlugin, codeMirrorPlugin, contentEditableClassName$, diffSourcePlugin, headingsPlugin, imagePlugin, setMarkdown$, toolbarPlugin } from '@mdxeditor/editor'
@@ -15,6 +16,7 @@ import { MarkdownWrapper } from 'components/MarkdownWrapper'
 export const EditBlog = () => {    
     const tags = ['Random', 'Family', 'Unfiltered', 'Travel', 'AI', 'Algorithms & Data Structures', 'Network Security', 'Low-Level Learnings']
     const ref = useRef<MDXEditorMethods>(null);
+    const [isLoading, setIsLoading] = useState(true);
     const [formValue, setFormValue] = useState({
         title: '',
         tag: '',
@@ -26,12 +28,13 @@ export const EditBlog = () => {
         const blog_id = url[url.length - 1]
         console.log(blog_id)
         const x = async () => {
+            setIsLoading(true);
             const g = await fetchBlogTags(auth.currentUser?.uid ? auth.currentUser.uid : '')
             const blog = window.location.href.indexOf('edit-draft') > -1 ? await fetchDraftBlog(auth.currentUser?.uid ? auth.currentUser.uid : '', blog_id) : await fetchBlogPost(auth.currentUser?.uid ? auth.currentUser.uid : '', blog_id)
             console.log(blog)
             setFormValue({title: blog?.title ? blog.title : '', content: blog?.content ? blog.content : '', tag: blog?.tag ? blog.tag : ''})
             setAvailableTags(g)
-            ref.current?.setMarkdown(blog?.content ? blog.content : '')
+            setIsLoading(false);
         }
         x()
     }, [])
@@ -73,7 +76,9 @@ export const EditBlog = () => {
                 </select>
                 <div className='w-full max-w-[50rem] font-bold'>
                 <div className='w-full max-w-[50rem] font-bold'><p>Content: </p></div>
-                <MDXEditorWrapper innerref={ref} className='-z-10 prose w-full p-1 max-w-[50rem] h-96 border rounded-md overflow-scroll' onChange={val => setFormValue({...formValue, content: val})} />
+                { !isLoading &&
+                <MDXEditorWrapper mdown={formValue.content} innerref={ref} className='-z-10 prose w-full p-1 max-w-[50rem] h-96 border rounded-md overflow-scroll' onChange={val => setFormValue({...formValue, content: val})} />
+                }
                 <div className='w-full max-w-[50rem] font-bold'><p>Result: </p></div>
                 <MarkdownWrapper className='w-full p-1 max-w-[50rem] h-96 border rounded-md overflow-scroll'>
                     {formValue.content}
