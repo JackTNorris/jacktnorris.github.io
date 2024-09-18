@@ -132,11 +132,6 @@ export const ConwayBoard = () => {
         }
       }
     }
-    counter += 1
-    if (counter >= 500) {
-      counter = 0
-      initBoard()
-    }
 
     requestAnimationFrame(draw)
   }
