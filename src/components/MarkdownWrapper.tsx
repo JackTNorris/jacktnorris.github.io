@@ -21,7 +21,7 @@ export const MarkdownWrapper = ({children, className}: MarkdownWrapperProps) => 
         skipHtml={false} 
         remarkPlugins={[remarkMath]}
         rehypePlugins={[rehypeRaw, rehypeKatex]} 
-        className={twMerge('prose', className)}
+        className={twMerge('prose font-normal', className)}
         components={{
             code(props) {
               const {children, className, node, ...rest} = props
