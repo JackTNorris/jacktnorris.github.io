@@ -10,6 +10,7 @@ import { random } from 'lodash';
 const Home = () => {
     return (
         <>
+        {random(0, 1) ? <ConwayBoard /> : <Boids />}
         <div className='site-container'>
             <Hero />
             <AboutMe />

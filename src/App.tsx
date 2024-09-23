@@ -25,8 +25,6 @@ function App() {
     <>
       <Header/>
         <ToastMessages />
-        {random(0, 1) ? <ConwayBoard /> : <Boids />}
-
         <BrowserRouter basename='/'>
           <Routes>
             <Route path='/' element={<Navigate to={'/home'} />} />
