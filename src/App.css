@@ -13,6 +13,13 @@
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .katex-display {
+    font-size: x-small;
+  }  
+}
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
