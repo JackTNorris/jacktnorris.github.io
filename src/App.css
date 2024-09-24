@@ -15,7 +15,8 @@
 
 @media only screen and (max-width: 600px) {
   .katex-display {
-    font-size: x-small;
+    font-size: small;
+    overflow-x: scroll;
   }  
 }
 
