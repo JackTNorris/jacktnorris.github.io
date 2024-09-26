@@ -13,8 +13,10 @@ import { MDXEditorWrapper } from 'components/forms/MDXEditorWrapper'
 import { createBlogPost, createDraftBlog, fetchBlogTags } from 'services/blogService'
 import { auth } from 'loaders/firebase'
 import { MarkdownWrapper } from 'components/MarkdownWrapper'
+import { useNavigate } from 'react-router-dom'
 export const CreateBlog = () => {    
     const ref = useRef<MDXEditorMethods>(null);
+    const navigate = useNavigate();
     const [formValue, setFormValue] = useState({
         title: '',
         tag: '',
@@ -32,18 +34,20 @@ export const CreateBlog = () => {
 
 
 
-    const onPressPublish = () => {
+    const onPressPublish = async () => {
         const wantsPublished = window.confirm('Are you sure you want to publish this blog?')
         if (wantsPublished) {
-            createBlogPost(formValue.title, formValue.tag, formValue.content, auth.currentUser?.uid ? auth.currentUser.uid : '')
+            await createBlogPost(formValue.title, formValue.tag, formValue.content, auth.currentUser?.uid ? auth.currentUser.uid : '')
             //publish the blog
         }
-        console.log(formValue)        
+        console.log(formValue)       
+        navigate('/blog') 
     }
 
-    const onPressSave = () => {
-        createDraftBlog(formValue.title, formValue.tag, formValue.content, auth.currentUser?.uid ? auth.currentUser.uid : '')
-        console.log(formValue)        
+    const onPressSave = async () => {
+        await createDraftBlog(formValue.title, formValue.tag, formValue.content, auth.currentUser?.uid ? auth.currentUser.uid : '')
+        console.log(formValue)   
+        navigate('/blog/draft-blogs') 
     }
 
     return (
