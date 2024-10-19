@@ -1,14 +1,12 @@
+// TODO: cleanup loading logic
 import { useEffect, useState } from "react";
-import Markdown from "react-markdown";
 import { Link } from "react-router-dom";
-import rehypeKatex from "rehype-katex";
-import rehypeRaw from "rehype-raw";
-import remarkMath from 'remark-math'
 import { BlogPost, deleteBlogPost, deleteDraftBlog, fetchBlogPosts, fetchDraftBlogs } from "services/blogService";
 import { twMerge } from "tailwind-merge";
 import { TiTrash, TiEdit } from "react-icons/ti";
 import { auth } from 'loaders/firebase'
 import { MarkdownWrapper } from "components/MarkdownWrapper";
+import { Loader } from "components/Loader";
 
 export type BlogFeedProps = {
     topic: string
@@ -17,8 +15,8 @@ export type BlogFeedProps = {
 }
 export const BlogFeed = ({topic, isDrafts}: BlogFeedProps) => {
     const [blogs, setBlogs] = useState<BlogPost[]>([]);    
-
-    const x = async () => {
+    const [isLoading, setIsLoading] = useState(true);
+    const fetchBlogs = async () => {
         if (isDrafts) {
             const g = await fetchDraftBlogs(auth.currentUser?.uid || '')
             g.sort((a, b) => {return b.createdOn - a.createdOn})
@@ -30,6 +28,7 @@ export const BlogFeed = ({topic, isDrafts}: BlogFeedProps) => {
             //const g = await fetchBlogPosts(auth.currentUser?.uid ? auth.currentUser.uid : '')
             setBlogs(g)
         }
+        setIsLoading(false);
     }
 
     const deleteDraftOrPost = (id: string) => {
@@ -50,10 +49,10 @@ export const BlogFeed = ({topic, isDrafts}: BlogFeedProps) => {
     }
 
     useEffect(() => {
-        x()
+        fetchBlogs()
     }, [])
     console.log(blogs)
-    return (
+    return isLoading ? <Loader /> : (
         <div className='flex flex-col items-center w-full md:w-4/5 min-w-[20rem] pb-8 pt-8 gap-12'>
             {blogs.map((blog, index) => 
                 <div id={index.toString()} className={twMerge('flex flex-col w-4/5 aspect-[5/2] bg-slate-100 shadow-md rounded-lg p-8 transition-all duration-1000')}>
