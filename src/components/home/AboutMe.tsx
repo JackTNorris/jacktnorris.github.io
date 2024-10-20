@@ -11,7 +11,7 @@ export const AboutMe = () => {
                     I'm currently a Peace Corps Health Volunteer in Paraguay, putting into practice my belief that service is a responsibility that extends beyond the domain of doctors and social workers -- it's also the duty of scientists and engineers as well.
                     </p>
                     <p className='font-bold text-sm sm:text-xl'>
-                    In my freetime, I love adventuring outside, playing my violin, reading, or writing code!
+                    In my freetime, I love travelling, adventuring outside, playing my violin, reading, or writing code!
                     </p>
                     <p className='font-bold text-sm sm:text-xl'>
                     Upon to my return to the states, I plan to attend graduate school for computer science, ideally doing research that hybridizes computer science with medicine. Scroll down to know a little bit more about me!
