@@ -56,7 +56,7 @@ export const BlogFeed = ({topic, isDrafts}: BlogFeedProps) => {
     console.log(blogs)
     return isLoading ? <Loader /> : (
         <div className='flex flex-col items-center w-full md:w-4/5 min-w-[20rem] pb-8 pt-8 gap-12'>
-            {blogs.filter(b => b.tag == topic).map((blog, index) => 
+            {blogs.filter(b => !isDrafts ? b.tag == topic : true).map((blog, index) => 
                 <div id={index.toString()} className={twMerge('flex flex-col w-4/5 aspect-[5/2] bg-slate-100 shadow-md rounded-lg p-8 transition-all duration-1000')}>
                     <div className="flex flex-row justify-between py-2">
                         <p><em><b>{blog.title}</b> || {new Date(blog.createdOn).toDateString()} </em></p>
