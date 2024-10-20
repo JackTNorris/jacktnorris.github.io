@@ -7,6 +7,7 @@ import { AboutMe } from '../components/home/AboutMe';
 import { ConwayBoard } from 'components/animations/ConwayBoard';
 import { Boids } from 'components/animations/Boids';
 import { random } from 'lodash';
+import { Travel } from 'components/home/Travel';
 const Home = () => {
     return (
         <>
@@ -14,6 +15,7 @@ const Home = () => {
         <div className='site-container'>
             <Hero />
             <AboutMe />
+            <Travel />
         </div>
         </>
         
