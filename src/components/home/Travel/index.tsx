@@ -25,11 +25,11 @@ function MyRotatingBox() {
 
 export const Travel = () => {
   return (
-    <div className='flex flex-row w-screen h-screen'>
-      <div className='hidden md:visible md:flex justify-center items-center w-1/2 h-full'>
+    <div className='flex flex-col md:flex-row w-screen h-screen'>
+      <div className='flex justify-center items-center md:w-1/2 md:h-full'>
         <h1 className='press-start text-lg'>🚧 UNDER CONSTRUCTION..COME BACK LATER 🚧</h1>
       </div>
-      <div className='w-full md:w-1/2 h-full'>
+      <div className='w-full md:w-1/2 md:h-full'>
         <Canvas>
           <MyRotatingBox />
           <ambientLight intensity={0.5} />
