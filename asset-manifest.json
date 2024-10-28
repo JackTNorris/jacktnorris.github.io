@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.ef78fda0.css",
-    "main.js": "/static/js/main.bc4ac5b1.js",
+    "main.js": "/static/js/main.f8936531.js",
     "static/js/7680.f4316617.chunk.js": "/static/js/7680.f4316617.chunk.js",
     "static/js/6415.af1447f6.chunk.js": "/static/js/6415.af1447f6.chunk.js",
     "static/js/4669.7e42c2ad.chunk.js": "/static/js/4669.7e42c2ad.chunk.js",
@@ -114,6 +114,7 @@
     "static/js/6764.36ee68f2.chunk.js": "/static/js/6764.36ee68f2.chunk.js",
     "static/js/4538.3f95c693.chunk.js": "/static/js/4538.3f95c693.chunk.js",
     "static/js/6453.be17c05c.chunk.js": "/static/js/6453.be17c05c.chunk.js",
+    "static/media/globe.jpg": "/static/media/globe.375b84c833add445d629.jpg",
     "static/media/skydive.jpeg": "/static/media/skydive.f1ab6187e674864e1ae7.jpeg",
     "static/media/pfp.jpeg": "/static/media/pfp.3825710ca24f0e6ea01c.jpeg",
     "static/media/pressstart.ttf": "/static/media/pressstart.c5b470938391e423c6d6.ttf",
@@ -123,7 +124,6 @@
     "static/media/KaTeX_Main-Italic.ttf": "/static/media/KaTeX_Main-Italic.fa675e5e4bec9eb250b6.ttf",
     "static/media/KaTeX_AMS-Regular.woff": "/static/media/KaTeX_AMS-Regular.d562e886c52f12660a41.woff",
     "static/media/KaTeX_Main-BoldItalic.ttf": "/static/media/KaTeX_Main-BoldItalic.828abcb200061cffbaae.ttf",
-    "static/media/globe.jpg": "/static/media/globe.085430dc4a8d2fd6da0f.jpg",
     "static/media/KaTeX_Math-Italic.ttf": "/static/media/KaTeX_Math-Italic.8a5f936332e8028c7278.ttf",
     "static/media/KaTeX_Math-BoldItalic.ttf": "/static/media/KaTeX_Math-BoldItalic.bf2d440b3a42ea78a998.ttf",
     "static/media/KaTeX_Main-Regular.woff": "/static/media/KaTeX_Main-Regular.4f35fbcc9ee8614c2bcc.woff",
@@ -180,7 +180,7 @@
     "static/media/KaTeX_Size3-Regular.woff2": "/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
     "index.html": "/index.html",
     "main.ef78fda0.css.map": "/static/css/main.ef78fda0.css.map",
-    "main.bc4ac5b1.js.map": "/static/js/main.bc4ac5b1.js.map",
+    "main.f8936531.js.map": "/static/js/main.f8936531.js.map",
     "7680.f4316617.chunk.js.map": "/static/js/7680.f4316617.chunk.js.map",
     "6415.af1447f6.chunk.js.map": "/static/js/6415.af1447f6.chunk.js.map",
     "4669.7e42c2ad.chunk.js.map": "/static/js/4669.7e42c2ad.chunk.js.map",
@@ -296,6 +296,6 @@
   },
   "entrypoints": [
     "static/css/main.ef78fda0.css",
-    "static/js/main.bc4ac5b1.js"
+    "static/js/main.f8936531.js"
   ]
 }
