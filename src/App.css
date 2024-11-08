@@ -62,3 +62,7 @@
 .prose {
   max-width: 100%;
 }
+
+.bottom-border {
+  border-bottom-width: 1px;
+}

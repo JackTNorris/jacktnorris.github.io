@@ -19,6 +19,7 @@ import { EditBlog } from 'screens/Blog/EditBlog';
 import { random } from 'lodash';
 import { ConwayBoard } from 'components/animations/ConwayBoard';
 import { Boids } from 'components/animations/Boids';
+import { Footer } from 'components/Footer';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
+      <Footer />
     </>
   );
 }
