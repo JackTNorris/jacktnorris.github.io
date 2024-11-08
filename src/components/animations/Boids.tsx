@@ -2,7 +2,6 @@
 import { useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 import _, { random } from 'lodash'
-import { average } from "firebase/firestore";
 
 type Boid = {
   position: {x: number, y: number};
