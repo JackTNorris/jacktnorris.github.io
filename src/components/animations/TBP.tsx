@@ -3,7 +3,10 @@ import { useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 import _, { random } from 'lodash'
 
+
+
 type Body = {
+  mass: number;
   position: {x: number, y: number};
   velocity: {x: number, y: number};
   path: {x: number, y: number}[];
@@ -15,7 +18,7 @@ export const TBP = () => {
   const width = window.screen.width * 1.2
   const height = window.screen.height * 1.2
   const canvas = useRef<HTMLCanvasElement>(null);
-  const bodies: Body[] = _.range(3).map(b => {return {path: [], position: {x: random(width), y: random(height)}, theta: random(360), velocity: {x: random(-0.1, 0.1, true), y: random(-0.1, 0.1, true)}}})
+  const bodies: Body[] = _.range(3).map(b => {return {mass: 1, path: [], position: {x: random(width), y: random(height)}, theta: random(360), velocity: {x: random(-0.1, 0.1, true), y: random(-0.1, 0.1, true)}}})
   const fov = 100
 
   const draw = () => {
@@ -33,13 +36,24 @@ export const TBP = () => {
     const {x, y, radius, ctx, color} = params
     ctx.beginPath();
     ctx.arc(x, y, radius, 0, 2 * Math.PI);
-    ctx.fillStyle = color;
+    ctx.fillStyle = "rgba(59, 130, 246, 0.2)";
     ctx.fill();
     ctx.stroke();
   }
 
   const applyNewton = () => {
-    const temp = bodies.slice(0);
+    const new_bodies = [{x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}]
+    for(let i = 0; i < bodies.length; i++)
+    {
+      for(let j = 0; j < bodies.length; j++)
+      {
+        if(i !== j)
+        {
+          new_bodies[i].x +=  G * bodies[j].mass * bodies[i].mass * (bodies[j].position.x - bodies[i].position.x)**2;
+          new_bodies[i].y +=  G * bodies[j].mass * bodies[i].mass * (bodies[j].position.y - bodies[i].position.y)**2;
+        }
+      }
+    }
     
   }
 
