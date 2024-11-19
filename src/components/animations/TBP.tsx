@@ -18,22 +18,23 @@ type Body = {
 
 
 const PI = 3.1415;
-const G = 5;
+const G = 100;
 export const TBP = () => {
   const width = window.screen.width * 1
   const height = window.screen.height * 1
   const canvas = useRef<HTMLCanvasElement>(null);
-  const bodies: Body[] = _.range(1).map(b => {return {mass: 1, path: [], position: {x: 1000, y: height - 600}, theta: random(360), velocity: {x: random(-0.1, 0.1, true), y: -10}}})
+  const bodies: Body[] = _.range(3).map(b => {return {mass: 1, path: [], position: {x: random(200, 1500, true), y: random(height - 1000, height - 200)}, theta: random(360), velocity: {x: random(-1, 1, true), y: random(-1, 1, true)}}})
   const fov = 100
 
   const draw = () => {
     const ctx = canvas.current?.getContext('2d');
     if (ctx) {
       ctx.clearRect(0, 0, width, height)
+      drawCircle({x: 20, y: height-40, radius: 20, ctx, color: 'green'})
       ctx.fillStyle = 'blue';
       applyNewton();
-      drawPath(bodies[0].path, ctx, 'green');
       bodies.forEach(b => {
+        drawPath(b.path, ctx, 'green');
         drawCircle({...b.position, radius: 20, ctx, color: 'blue'})
       })
     }
@@ -41,7 +42,8 @@ export const TBP = () => {
   }
 
   const drawPath = (path: {x: number, y:number}[], ctx: CanvasRenderingContext2D, color: string | CanvasGradient | CanvasPattern) => {
-    ctx.strokeStyle = 'green'
+    ctx.strokeStyle = 'rgba(59, 130, 246, 0.2)'
+    
     for(let i = 0; i < path.length; i++)
     {
       if (i == 0)
@@ -61,7 +63,7 @@ export const TBP = () => {
     const {x, y, radius, ctx, color} = params
     ctx.beginPath();
     ctx.arc(x, y, radius, 0, 2 * Math.PI);
-    ctx.fillStyle = "rgba(59, 130, 246, 0.2)";
+    ctx.fillStyle = "rgba(182, 209, 252)";
     ctx.fill();
   }
 
@@ -85,31 +87,52 @@ export const TBP = () => {
     {
       return;
     }
+    /*
     const gravity = 0.3;
     bodies[0].path.push({x: bodies[0].position.x, y: bodies[0].position.y});
     bodies[0].position.x += 3;
     bodies[0].position.y += bodies[0].velocity.y + gravity; 
     bodies[0].velocity.y += gravity
-    
+    */
     // now newton's law:
     let temp_vs: Vector2D[] = bodies.map(b => JSON.parse(JSON.stringify(b.velocity)) as Vector2D)
     for(let i = 0; i < bodies.length - 1; i++)
     {
-      for(let j = 0; j < bodies.length; j++)
+      for(let j = i; j < bodies.length; j++)
       {
         if(i != j)
         {
           const get_f = newton(bodies[i].position, bodies[j].position, bodies[i].mass, bodies[j].mass);
           const get_a = get_f / bodies[i].mass;
           const diff_vec = getDiffVector(bodies[i].position, bodies[j].position);
+          if (Math.sqrt(diff_vec.x**2 + diff_vec.y**2) <= 20)
+          {
+            continue
+          }
           const unit_vec = getUnitVector(diff_vec);
           const adder =  {x: unit_vec.x * get_a, y: unit_vec.y * get_a}
-          temp_vs[i].x += adder.x;
-          temp_vs[i].y += adder.y;
+          temp_vs[i].x -= adder.x;
+          temp_vs[i].y -= adder.y;
           temp_vs[j].x += adder.x;
-          temp_vs[0].y += adder.y;
+          temp_vs[j].y += adder.y;
         }
       }
+    }
+    for(let i = 0; i < temp_vs.length; i++)
+    {
+      if (bodies[i].position.y >= height - 40 || bodies[i].position.y <= 40)
+      {
+        bodies[i].velocity.y *= -1;
+      }
+
+      else
+      {
+        bodies[i].path.push({x: bodies[i].position.x, y: bodies[i].position.y})
+        bodies[i].velocity = temp_vs[i];
+        bodies[i].position.x += bodies[i].velocity.x;
+        bodies[i].position.y += bodies[i].velocity.y;
+      }
+      
     }
 
   }
