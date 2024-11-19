@@ -4,7 +4,7 @@ import { BlogFeed } from "components/blog/BlogFeed";
 
 export const DraftBlogs = () => {
     return (
-        <div className="site-container flex flex-col items-center">
+        <div className="site-container flex flex-col items-center min-h-screen">
             <BlogFeed isDrafts={true} topic="apple" />
         </div>
     );

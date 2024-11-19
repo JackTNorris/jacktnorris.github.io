@@ -21,7 +21,7 @@ export const Blog = () => {
     }, [])
     
     return (
-        <div className='site-container flex flex-col items-center'>
+        <div className='site-container flex flex-col items-center min-h-screen'>
             <div className={twMerge('m-4 self-end', !currentUser && 'hidden')}>
                 <BlogCreator />
             </div>

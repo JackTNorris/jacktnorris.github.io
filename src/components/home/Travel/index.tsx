@@ -29,7 +29,7 @@ export const Travel = () => {
       <div className='flex justify-center items-center md:w-1/2 md:h-full'>
         <h1 className='press-start text-lg'>🚧 UNDER CONSTRUCTION..COME BACK LATER 🚧</h1>
       </div>
-      <div className='w-full md:w-1/2 md:h-full'>
+      <div className='w-full h-full md:w-1/2'>
         <Canvas>
           <MyRotatingBox />
           <ambientLight intensity={0.5} />
