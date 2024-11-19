@@ -159,7 +159,7 @@ export const TBP = () => {
   return (
     <>
     <div className="fixed flex flex-row w-screen h-screen -z-10 overflow-clip justify-center items-center">
-      <canvas height={height} width={width} ref={canvas} className={twMerge('bg-green border border-green-600')} />
+      <canvas height={height} width={width} ref={canvas} className={twMerge('bg-green')} />
     </div>
     </>
   );
