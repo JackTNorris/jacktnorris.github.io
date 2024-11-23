@@ -24,6 +24,7 @@ export const TBP = () => {
   const height = window.screen.height * 1
   const canvas = useRef<HTMLCanvasElement>(null);
   const bodies: Body[] = _.range(3).map((b, index) => {return {mass: 1, path: [], position: {x: random(200, 1500, true), y: random(height - 1000, height - 200)}, theta: random(360), velocity: {x: random(-5, 5, true), y: random(-5, 5, true)}}})
+  
   const fov = 100
 
   const draw = () => {
@@ -77,7 +78,7 @@ export const TBP = () => {
 
   const newton = (pos1: Vector2D, pos2: Vector2D, m1: number, m2: number) => {
     const distance = (pos1.x - pos2.x)**2 + (pos1.y - pos2.y)**2
-    return G * m1 * m2 / (distance)
+    return G * m1 * m2 / (distance + 100) // softening factor
   }
 
   const applyNewton = () => {
@@ -100,10 +101,6 @@ export const TBP = () => {
           const get_f = newton(bodies[i].position, bodies[j].position, bodies[i].mass, bodies[j].mass);
           const get_a = get_f / bodies[i].mass;
           const diff_vec = getDiffVector(bodies[i].position, bodies[j].position);
-          if (Math.sqrt(diff_vec.x**2 + diff_vec.y**2) <= 20)
-          {
-            continue
-          }
           const unit_vec = getUnitVector(diff_vec);
           const adder =  {x: unit_vec.x * get_a, y: unit_vec.y * get_a}
           temp_vs[i].x -= adder.x;
