@@ -8,7 +8,7 @@ export const AboutMe = () => {
                 </div>
                 <div className='flex flex-col gap-4'>
                     <p className='font-bold text-sm sm:text-xl'>
-                    I'm currently a Peace Corps Health Volunteer in Paraguay, putting into practice my belief that service is a responsibility that extends beyond the domain of doctors and social workers -- it's also the duty of scientists and engineers as well.
+                    I'm currently a Peace Corps Health Volunteer in Paraguay, putting into practice my belief that service is a responsibility that extends beyond the domain of doctors and social workers -- it's also the duty of scientists and engineers.
                     </p>
                     <p className='font-bold text-sm sm:text-xl'>
                     In my freetime, I love travelling, adventuring outside, playing my violin, reading, or writing code!
