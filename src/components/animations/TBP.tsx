@@ -18,7 +18,7 @@ type Body = {
 
 
 const PI = 3.1415;
-const G = 1000;
+const G = 1000;//6.67408 * Math.pow(10, -11);
 export const TBP = () => {
   const width = window.screen.width * 1
   const height = window.screen.height * 1

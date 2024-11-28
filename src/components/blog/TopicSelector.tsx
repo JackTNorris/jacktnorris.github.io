@@ -4,7 +4,7 @@ export type TopicSelectorProps = {
 }
 export const TopicSelector = ({onSelectTopic, topics}: TopicSelectorProps) => {
     return topics.length ? (
-    <div>
+    <div className="mt-6">
         <select onChange={t => onSelectTopic(t.target.value)} className="border rounded-md p-3">
            {topics.map(topic => <option selected={topic == "peace corps"} value={topic}>{topic.toUpperCase()}</option>)}
         </select>
