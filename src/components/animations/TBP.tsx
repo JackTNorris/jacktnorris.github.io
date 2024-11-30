@@ -18,13 +18,35 @@ type Body = {
 
 
 const PI = 3.1415;
-const G = 1000;//6.67408 * Math.pow(10, -11);
+const G = 6.67408 * Math.pow(10, -11);
 export const TBP = () => {
   const width = window.screen.width * 1
   const height = window.screen.height * 1
   const canvas = useRef<HTMLCanvasElement>(null);
-  const bodies: Body[] = _.range(3).map((b, index) => {return {mass: 1, path: [], position: {x: random(200, 1500, true), y: random(height - 1000, height - 200)}, theta: random(360), velocity: {x: random(-5, 5, true), y: random(-5, 5, true)}}})
+  //const bodies: Body[] = _.range(3).map((b, index) => {return {mass: 1, path: [], position: {x: random(200, 1500, true), y: random(height - 1000, height - 200)}, theta: random(360), velocity: {x: random(0, 0, true), y: random(0, 0, true)}}})
   
+  const bodies: Body[] = [
+    {
+      mass: 1,
+      position: { x: width / 2 - width / 4 + random(3), y: height / 2 + random(20) }, // Body 1
+      velocity: { x: random(-3, 3), y: random(-3, 3) },
+      path: []
+    },
+    {
+      mass: 1,
+      position: { x: width / 2 + width / 4 + random(3), y: height / 2 + random(20) }, // Body 2
+      velocity: { x: random(-3, 3), y: random(-3, 3) },
+      path: []
+    },
+    {
+      mass: 1,
+      position: { x: width / 2 + random(3), y: height / 2 + random(20) }, // Body 3
+      velocity: { x: random(-3, 3), y: random(-3, 3) },
+      path: []
+    }
+  ];
+  
+
   const fov = 100
 
   const draw = () => {
@@ -32,7 +54,7 @@ export const TBP = () => {
     if (ctx) {
       ctx.clearRect(0, 0, width, height)
       ctx.fillStyle = 'blue';
-      applyNewton();
+      applyNewton(0.01);
       bodies.forEach(b => {
         drawPath(b.path, ctx, 'green');
         drawCircle({...b.position, radius: 20, ctx, color: 'blue'})
@@ -78,10 +100,10 @@ export const TBP = () => {
 
   const newton = (pos1: Vector2D, pos2: Vector2D, m1: number, m2: number) => {
     const distance = (pos1.x - pos2.x)**2 + (pos1.y - pos2.y)**2
-    return G * m1 * m2 / (distance + 100) // softening factor
+    return G * m1 * m2 / (distance + 0.02) // softening factor to prevent "explosion"
   }
 
-  const applyNewton = () => {
+  const applyNewton = (timestep: number) => {
     //going to start with just applying force of downward gravity on earth
     /*
     const gravity = 0.3;
@@ -99,14 +121,16 @@ export const TBP = () => {
         if(i != j)
         {
           const get_f = newton(bodies[i].position, bodies[j].position, bodies[i].mass, bodies[j].mass);
-          const get_a = get_f / bodies[i].mass;
-          const diff_vec = getDiffVector(bodies[i].position, bodies[j].position);
-          const unit_vec = getUnitVector(diff_vec);
-          const adder =  {x: unit_vec.x * get_a, y: unit_vec.y * get_a}
-          temp_vs[i].x -= adder.x;
-          temp_vs[i].y -= adder.y;
-          temp_vs[j].x += adder.x;
-          temp_vs[j].y += adder.y;
+          const get_dvi = get_f / bodies[i].mass;
+          const get_dvj = get_f / bodies[j].mass;
+
+          const dvi_vector_dir = getUnitVector(getDiffVector(bodies[i].position, bodies[j].position));
+          const dvj_vector_dir = getUnitVector(getDiffVector(bodies[j].position, bodies[i].position));
+
+          temp_vs[i].x -= dvi_vector_dir.x * timestep;
+          temp_vs[i].y -= dvi_vector_dir.y * timestep;
+          temp_vs[j].x -= dvj_vector_dir.x * timestep;
+          temp_vs[j].y -= dvj_vector_dir.y * timestep;
         }
       }
     }
@@ -139,9 +163,9 @@ export const TBP = () => {
       else
       {
         bodies[i].path.push({x: bodies[i].position.x, y: bodies[i].position.y})
-        bodies[i].velocity = temp_vs[i];
         bodies[i].position.x += bodies[i].velocity.x;
         bodies[i].position.y += bodies[i].velocity.y;
+        bodies[i].velocity = temp_vs[i];
       }
       
     }
