@@ -13,6 +13,7 @@ import { auth } from 'loaders/firebase'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import { MarkdownWrapper } from 'components/MarkdownWrapper'
+import { Loader } from 'components/Loader'
 export const EditBlog = () => {    
     const tags = ['Random', 'Family', 'Unfiltered', 'Travel', 'AI', 'Algorithms & Data Structures', 'Network Security', 'Low-Level Learnings']
     const ref = useRef<MDXEditorMethods>(null);
@@ -63,7 +64,8 @@ export const EditBlog = () => {
     }
 
     return (
-        <div className='site-container -z-10'>
+        <div className='site-container min-h-screen -z-10'>
+            { !isLoading ?
             <div className='flex flex-col items-center p-5 gap-3 px-8'>
                 <div className='w-full max-w-[50rem] font-bold'><p>Title: </p></div>
                 <input value={formValue.title} onChange={e => setFormValue({...formValue, title: e.target.value})} className='p-1 w-full max-w-[50rem] h-10 border rounded-md required' placeholder="Title" />
@@ -74,19 +76,18 @@ export const EditBlog = () => {
                         <option key={index} value={category}>{category}</option>
                     ))}
                 </select>
-                <div className='w-full max-w-[50rem] font-bold'>
-                <div className='w-full max-w-[50rem] font-bold'><p>Content: </p></div>
-                { !isLoading &&
-                <MDXEditorWrapper mdown={formValue.content} innerref={ref} className='-z-10 prose w-full p-1 max-w-[50rem] border rounded-md overflow-scroll' onChange={val => setFormValue({...formValue, content: val})} />
-                }
-                <div className='w-full max-w-[50rem] font-bold'><p>Result: </p></div>
-                <MarkdownWrapper className='w-full p-1 max-w-[50rem] border rounded-md'>
-                    {formValue.content}
-                </MarkdownWrapper>
+                <div className='flex flex-col w-full max-w-[50rem] font-bold gap-4'>
+                    <div className='w-full max-w-[50rem] font-bold'><p>Content: </p></div>
+                    <MDXEditorWrapper mdown={formValue.content} innerref={ref} className='-z-10 prose w-full p-1 max-w-[50rem] border rounded-md overflow-scroll' onChange={val => setFormValue({...formValue, content: val})} />
+                    <div className='w-full max-w-[50rem] font-bold'><p>Result: </p></div>
+                    <MarkdownWrapper className='w-full p-1 max-w-[50rem] border rounded-md'>
+                        {formValue.content}
+                    </MarkdownWrapper>
+                    <button className='w-full max-w-[50rem] h-8 border-blue-500 hover:bg-blue-200 border text-black rounded-md transition-all' onClick={onPressSave}>Save</button>
+                    { window.location.href.indexOf('edit-draft') > -1 &&  <button className='w-full max-w-[50rem] h-8 bg-blue-500 hover:bg-blue-400 text-white rounded-md transition-all' onClick={onPressPublish}>Publish</button>}
                 </div>
-                <button className='w-full max-w-[50rem] h-8 border-blue-500 hover:bg-blue-200 border text-black rounded-md transition-all' onClick={onPressSave}>Save</button>
-                { window.location.href.indexOf('edit-draft') > -1 &&  <button className='w-full max-w-[50rem] h-8 bg-blue-500 hover:bg-blue-400 text-white rounded-md transition-all' onClick={onPressPublish}>Publish</button>}
-            </div>
+            </div> : <Loader />
+            }
         </div>
     )
 }
