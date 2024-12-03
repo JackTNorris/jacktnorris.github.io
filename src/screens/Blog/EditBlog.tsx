@@ -1,17 +1,12 @@
 // TODO: add types for this shit
 // TODO: refactor this so I'm not using the same thing for edit blog that I am using for create blog
 // TODO: add in some loaders
-import { ImageUpload } from '../../components/forms/ImageUpload'
-import { ChangeEvent, useEffect, useRef, useState } from "react"
-import { BoldItalicUnderlineToggles, DiffSourceToggleWrapper, InsertCodeBlock, InsertImage, MDXEditor, MDXEditorMethods, UndoRedo, codeBlockPlugin, codeMirrorPlugin, contentEditableClassName$, diffSourcePlugin, headingsPlugin, imagePlugin, setMarkdown$, toolbarPlugin } from '@mdxeditor/editor'
+import { useEffect, useRef, useState } from "react"
+import { MDXEditorMethods } from '@mdxeditor/editor'
 import '@mdxeditor/editor/style.css'
-import Markdown from 'react-markdown'
-import rehypeRaw from 'rehype-raw'
 import { MDXEditorWrapper } from 'components/forms/MDXEditorWrapper'
 import { createBlogPost, fetchBlogPost, fetchBlogTags, fetchDraftBlog, fetchDraftBlogs, updateBlogPost, updateDraftBlog } from 'services/blogService'
 import { auth } from 'loaders/firebase'
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
 import { MarkdownWrapper } from 'components/MarkdownWrapper'
 import { Loader } from 'components/Loader'
 export const EditBlog = () => {    
