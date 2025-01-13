@@ -2,21 +2,21 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Home page -->
   <url>
-    <loc>https://jacktnorris.github.io/home</loc>
+    <loc>https://jacktnorris.dev/home</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <!-- Portfolio page -->
   <url>
-    <loc>https://jacktnorris.github.io/portfolio</loc>
+    <loc>https://jacktnorris.dev/portfolio</loc>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <!-- Blog page -->
   <url>
-    <loc>https://jacktnorris.github.io/blog</loc>
+    <loc>https://jacktnorris.dev/blog</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
