@@ -9,7 +9,7 @@ import { fetchBlogTags } from "services/blogService"
 
 export const Blog = () => {
     const [blogTopics, setBlogTopics] = useState<string[]>([])
-    const [selectedTopic, setSelectedTopic] = useState<string>('peace corps');
+    const [selectedTopic, setSelectedTopic] = useState<string>('🕊️ peace corps');
     const fetchBlogTopics = async () => {
         const bT = await fetchBlogTags('guDT9CByeceyrbjRG6hOAnAs4mH3')
         setBlogTopics(bT);
