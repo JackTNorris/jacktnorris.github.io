@@ -38,7 +38,7 @@ export const NavigationMenu = () => {
             <div onClick={() => setIsOpen((curr_state) => !curr_state)}>
                 <TiThMenu className={twMerge('h-10 w-10 text-gray-400 transition duration-500', isOpen && 'rotate-90')}/> 
             </div>
-            <div className={twMerge('absolute left-0 top-0 mt-20 flex w-full self-start flex-col items-center gap-3 bg-slate-100 shadow-lgx overflow-hidden transition-all duration-500 h-0', isOpen && 'h-40')}>
+            <div className={twMerge('z-10 border absolute left-0 top-0 mt-20 flex w-full self-start flex-col items-center gap-3 bg-slate-100 shadow-lgx overflow-hidden transition-all duration-500 h-0', isOpen && 'h-40')}>
                 {getMenuItemsMobile()}
             </div>
         </div>
