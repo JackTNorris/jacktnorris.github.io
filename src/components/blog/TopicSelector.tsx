@@ -20,7 +20,7 @@ export const TopicSelector = ({onSelectTopic, topics}: TopicSelectorProps) => {
                 </span>
             </button>
             <div className={twMerge('transition-all shadow-md w-52 bg-white rounded-xl h-0 overflow-hidden', isOpen && 'border h-36 overflow-scroll')}>
-                {topics.map(topic => <div onClick={() => {setCurrTopic(topic); onSelectTopic(topic); setIsOpen(false)} } className='py-2 border hover:bg-slate-200 hover:cursor-pointer'>{topic.split(' ').map(i => capitalize(i)).join(' ') }</div>)}
+                {topics.map(topic => <div onClick={() => {setCurrTopic(topic); onSelectTopic(topic); setIsOpen(false)} } className='p-2 border hover:bg-slate-200 hover:cursor-pointer'>{topic.split(' ').map(i => capitalize(i)).join(' ') }</div>)}
             </div>
         </div>
     </div>
