@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.5d61d926.css",
-    "main.js": "/static/js/main.29da1649.js",
+    "main.js": "/static/js/main.1b054d0f.js",
     "static/js/7680.2dbc7693.chunk.js": "/static/js/7680.2dbc7693.chunk.js",
     "static/js/6415.af1447f6.chunk.js": "/static/js/6415.af1447f6.chunk.js",
     "static/js/4669.7e42c2ad.chunk.js": "/static/js/4669.7e42c2ad.chunk.js",
@@ -114,7 +114,6 @@
     "static/js/6764.36ee68f2.chunk.js": "/static/js/6764.36ee68f2.chunk.js",
     "static/js/4538.3f95c693.chunk.js": "/static/js/4538.3f95c693.chunk.js",
     "static/js/6453.be17c05c.chunk.js": "/static/js/6453.be17c05c.chunk.js",
-    "static/media/globe.jpg": "/static/media/globe.375b84c833add445d629.jpg",
     "static/media/skydive.jpeg": "/static/media/skydive.f1ab6187e674864e1ae7.jpeg",
     "static/media/pfp.jpeg": "/static/media/pfp.3825710ca24f0e6ea01c.jpeg",
     "static/media/pressstart.ttf": "/static/media/pressstart.c5b470938391e423c6d6.ttf",
@@ -180,7 +179,7 @@
     "static/media/KaTeX_Size3-Regular.woff2": "/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
     "index.html": "/index.html",
     "main.5d61d926.css.map": "/static/css/main.5d61d926.css.map",
-    "main.29da1649.js.map": "/static/js/main.29da1649.js.map",
+    "main.1b054d0f.js.map": "/static/js/main.1b054d0f.js.map",
     "7680.2dbc7693.chunk.js.map": "/static/js/7680.2dbc7693.chunk.js.map",
     "6415.af1447f6.chunk.js.map": "/static/js/6415.af1447f6.chunk.js.map",
     "4669.7e42c2ad.chunk.js.map": "/static/js/4669.7e42c2ad.chunk.js.map",
@@ -296,6 +295,6 @@
   },
   "entrypoints": [
     "static/css/main.5d61d926.css",
-    "static/js/main.29da1649.js"
+    "static/js/main.1b054d0f.js"
   ]
 }
