@@ -13,7 +13,6 @@ const Home = () => {
         <div className='site-container'>
             <Hero />
             <AboutMe />
-            <Travel />
         </div>
         </>
         
