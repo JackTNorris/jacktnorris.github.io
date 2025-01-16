@@ -26,22 +26,24 @@ function App() {
     <>
       <Header/>
         <ToastMessages />
-        <BrowserRouter basename='/'>
-          <Routes>
-            <Route path='/' element={<Navigate to={'/home'} />} />
-            <Route path='*' element={<Navigate to={'/home'} />} />
-            <Route path="/home" Component={Home} />
-            <Route path="/login" Component={Login} />
-            <Route path="/portfolio" Component={Portfolio} />
-            <Route path="/blog" Component={Blog} />
-            <Route element={<PrivateRoutes />}>
-              <Route path="/blog/draft-blogs" Component={DraftBlogs} />
-              <Route path="/blog/edit-draft/:id" Component={EditBlog} />
-              <Route path="/blog/create-blogs" Component={CreateBlog} />
-              <Route path="/blog/edit-blog/:id" Component={EditBlog} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+        <div className='min-h-screen'>
+          <BrowserRouter basename='/'>
+            <Routes>
+              <Route path='/' element={<Navigate to={'/home'} />} />
+              <Route path='*' element={<Navigate to={'/home'} />} />
+              <Route path="/home" Component={Home} />
+              <Route path="/login" Component={Login} />
+              <Route path="/portfolio" Component={Portfolio} />
+              <Route path="/blog" Component={Blog} />
+              <Route element={<PrivateRoutes />}>
+                <Route path="/blog/draft-blogs" Component={DraftBlogs} />
+                <Route path="/blog/edit-draft/:id" Component={EditBlog} />
+                <Route path="/blog/create-blogs" Component={CreateBlog} />
+                <Route path="/blog/edit-blog/:id" Component={EditBlog} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </div>
       <Footer />
     </>
   );
