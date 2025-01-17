@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.5d61d926.css",
-    "main.js": "/static/js/main.9db8aed4.js",
+    "main.js": "/static/js/main.5e672d82.js",
     "static/js/7680.2dbc7693.chunk.js": "/static/js/7680.2dbc7693.chunk.js",
     "static/js/6415.af1447f6.chunk.js": "/static/js/6415.af1447f6.chunk.js",
     "static/js/4669.7e42c2ad.chunk.js": "/static/js/4669.7e42c2ad.chunk.js",
@@ -157,6 +157,7 @@
     "static/media/KaTeX_Size1-Regular.ttf": "/static/media/KaTeX_Size1-Regular.6de7d4b539221a49e9e2.ttf",
     "static/media/KaTeX_SansSerif-Bold.woff2": "/static/media/KaTeX_SansSerif-Bold.95591a929f0d32aa282a.woff2",
     "static/media/KaTeX_SansSerif-Italic.woff2": "/static/media/KaTeX_SansSerif-Italic.7d393d382f3e7fb1c637.woff2",
+    "static/media/instagram.png": "/static/media/instagram.4a85fa308a481f4ce479.png",
     "static/media/KaTeX_Size2-Regular.ttf": "/static/media/KaTeX_Size2-Regular.57f5c1837853986ea1db.ttf",
     "static/media/KaTeX_Fraktur-Bold.woff2": "/static/media/KaTeX_Fraktur-Bold.931d67ea207ab37ee693.woff2",
     "static/media/KaTeX_Fraktur-Regular.woff2": "/static/media/KaTeX_Fraktur-Regular.172d3529b26f8cedef6b.woff2",
@@ -179,7 +180,7 @@
     "static/media/KaTeX_Size3-Regular.woff2": "/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
     "index.html": "/index.html",
     "main.5d61d926.css.map": "/static/css/main.5d61d926.css.map",
-    "main.9db8aed4.js.map": "/static/js/main.9db8aed4.js.map",
+    "main.5e672d82.js.map": "/static/js/main.5e672d82.js.map",
     "7680.2dbc7693.chunk.js.map": "/static/js/7680.2dbc7693.chunk.js.map",
     "6415.af1447f6.chunk.js.map": "/static/js/6415.af1447f6.chunk.js.map",
     "4669.7e42c2ad.chunk.js.map": "/static/js/4669.7e42c2ad.chunk.js.map",
@@ -295,6 +296,6 @@
   },
   "entrypoints": [
     "static/css/main.5d61d926.css",
-    "static/js/main.9db8aed4.js"
+    "static/js/main.5e672d82.js"
   ]
 }
