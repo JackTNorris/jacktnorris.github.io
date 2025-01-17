@@ -1,0 +1,1 @@
+curl https://jack-norris-website-default-rtdb.firebaseio.com/users/guDT9CByeceyrbjRG6hOAnAs4mH3/blog/posts.json
