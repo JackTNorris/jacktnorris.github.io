@@ -3,9 +3,12 @@ import { AboutMe } from '../components/home/AboutMe';
 import { ConwayBoard } from 'components/animations/ConwayBoard';
 import { Boids } from 'components/animations/Boids';
 import { random } from 'lodash';
-import { Travel } from 'components/home/Travel';
 import { TBP } from 'components/animations/TBP';
+import { useEffect } from 'react';
 const Home = () => {
+    useEffect(() => {
+        document.title = 'Jack Norris | Home'
+    })
     let r = random(2)
     return (
         <>

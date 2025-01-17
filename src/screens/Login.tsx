@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from "react";
 import { auth } from "../loaders/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -9,16 +9,19 @@ export const Login = () => {
     const [password, setPassword] = useState('');
     const [logMessage, setLogMessage] = useState('');
 
+    useEffect(() => {
+        document.title = 'Jack Norris | Login'
+    })
+
     const login = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            const user = userCredential.user;
             setLogMessage('Logged in')
         })
         .catch((error) => {
             setLogMessage(error.message);
-            const errorCode = error.code;
-            const errorMessage = error.message;
+            // const errorCode = error.code;
+            // const errorMessage = error.message;
         });
     }
 

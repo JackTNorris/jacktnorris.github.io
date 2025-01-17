@@ -4,7 +4,7 @@ import { BlogCreator } from "../../components/blog/BlogCreator"
 import { BlogFeed } from "../../components/blog/BlogFeed"
 import { useAuth } from "../../hooks/useAuth"
 import { TopicSelector } from "components/blog/TopicSelector"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { fetchBlogTags } from "services/blogService"
 
 export const Blog = () => {
@@ -18,6 +18,7 @@ export const Blog = () => {
 
     useEffect(() => {
         fetchBlogTopics();
+        document.title = 'Jack Norris | Blog'
     }, [])
     
     return (

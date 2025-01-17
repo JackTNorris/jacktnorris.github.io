@@ -16,9 +16,6 @@ import { Portfolio } from './screens/Portfolio';
 import { DraftBlogs } from './screens/Blog/DraftBlogs';
 import { CreateBlog } from './screens/Blog/CreateBlog';
 import { EditBlog } from 'screens/Blog/EditBlog';
-import { random } from 'lodash';
-import { ConwayBoard } from 'components/animations/ConwayBoard';
-import { Boids } from 'components/animations/Boids';
 import { Footer } from 'components/Footer';
 
 function App() {
