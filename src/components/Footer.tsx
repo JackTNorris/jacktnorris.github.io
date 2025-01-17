@@ -9,7 +9,6 @@ export const Footer = () => {
             <a href="https://github.com/JackTNorris"><img className='w-8 transition-all h-8 hover:opacity-25 hover:cursor-pointer hover:-translate-y-1' src={github} /></a>
             <a href="https://www.linkedin.com/in/jack-t-norris/"><img className='w-8 transition-all h-8 hover:opacity-25 hover:cursor-pointer hover:-translate-y-1' src={linkedin} /></a>
             <a href="https://www.instagram.com/jacktnorris_01/"><img className='w-8 transition-all h-8 hover:opacity-25 hover:cursor-pointer hover:-translate-y-1' src={instagram} /></a>
-
         </div>
     </div>
     );
