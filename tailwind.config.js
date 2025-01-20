@@ -1,3 +1,5 @@
+const { transform } = require('lodash');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -28,10 +30,31 @@ module.exports = {
           '90%': {
             transform: 'translateY(0%)'
           }
+        },
+        'shaker': {
+          '0%': {
+            transform: 'rotate(0deg)'
+          },
+          '20%': {
+            transform: 'rotate(-10deg)',
+          },
+          '40%': {
+            transform: 'rotate(10deg)'
+          },
+          '60%': {
+            transform: 'rotate(-10deg)'
+          },
+          '80%': {
+            transform: 'rotate(10deg)'
+          },
+          '100%': {
+            transform: 'rotate(0deg)'
+          }
         }
       },
       animation: {
         'snap-slide-down': 'fade-in-down 5s infinite',
+        'shake': 'shaker 0.5s'
       },
     },
   },

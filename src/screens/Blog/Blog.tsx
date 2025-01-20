@@ -6,6 +6,7 @@ import { useAuth } from "../../hooks/useAuth"
 import { TopicSelector } from "components/blog/TopicSelector"
 import { useEffect, useState } from "react"
 import { fetchBlogTags } from "services/blogService"
+import { Notifier } from "components/Notifier"
 
 export const Blog = () => {
     const [blogTopics, setBlogTopics] = useState<string[]>([])
@@ -25,6 +26,9 @@ export const Blog = () => {
         <div className='site-container flex flex-col items-center min-h-screen'>
             <div className={twMerge('m-4 self-end', !currentUser && 'hidden')}>
                 <BlogCreator />
+            </div>
+            <div className={twMerge('m-4 self-start hidden md:visible md:block')}>
+                <Notifier />
             </div>
             <TopicSelector onSelectTopic={(t) => {setSelectedTopic(t)}} topics={blogTopics} />
             <BlogFeed topic={selectedTopic} />
