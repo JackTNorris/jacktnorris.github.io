@@ -13,8 +13,8 @@ export const Hero = ({onSelectBackground, currBackground}: HeroProps) => {
     const backgroundOptions = [{name: 'boids', icon: '🐦‍⬛'}, {name: 'conway', icon: '👾'}, {name: 'tbp', icon: '🌌'}];
     return (
         <div className='-mt-20 flex flex-col w-screen min-h-screen items-center justify-center'>
-            <div className='flex p-4 flex-row justify-end items-end top-0 left-0 z-5 absolute w-screen h-screen'>
-                <div className='flex flex-row gap-2 text-3xl'>
+            <div className='flex p-4 flex-row justify-end items-end top-20 pb-20 left-0 -z-5 absolute w-full min-h-screen'>
+                <div className='p-2 flex flex-row gap-2 text-3xl'>
                     {backgroundOptions.map(item => (<button className={twMerge('rounded-md transition-all focus:outline-none hover:-translate-y-2', item.name == currBackground && 'bg-blue-300')} onClick={() => onSelectBackground(item.name)}>{item.icon}</button>))}
                 </div>
             </div>
