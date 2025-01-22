@@ -24,11 +24,13 @@ export const Blog = () => {
     
     return (
         <div className='site-container flex flex-col items-center min-h-screen'>
-            <div className={twMerge('m-4 self-end', !currentUser && 'hidden')}>
-                <BlogCreator />
-            </div>
-            <div className={twMerge('m-4 self-start hidden md:visible md:block')}>
-                <Notifier />
+            <div className='flex flex-row w-screen'>
+                <div className={twMerge('md:flex flex-row flex-1 m-4 justify-start hidden md:visible')}>
+                    <Notifier />
+                </div>
+                <div className={twMerge('flex flex-row flex-1 m-4 justify-end', !currentUser && 'hidden')}>
+                    <BlogCreator />
+                </div>
             </div>
             <TopicSelector onSelectTopic={(t) => {setSelectedTopic(t)}} topics={blogTopics} />
             <BlogFeed topic={selectedTopic} />
