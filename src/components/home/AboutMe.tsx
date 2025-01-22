@@ -14,7 +14,7 @@ export const AboutMe = () => {
                     In my freetime, I love travelling, adventuring outside, playing my violin, reading, or writing code!
                     </p>
                     <p className='font-bold text-sm sm:text-xl'>
-                    Upon to my return to the states, I plan to attend graduate school for computer science. Scroll down to know a little bit more about me!
+                    Upon to my return to the states, I plan to attend graduate school for computer science. This site is a work in progress, but feel free to poke around!
                     </p>
                 </div>
             </div>
