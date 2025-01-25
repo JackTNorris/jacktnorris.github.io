@@ -6,6 +6,9 @@
 
 import { child, get, getDatabase, push, ref, remove, update } from "firebase/database"
 import { auth, database } from "loaders/firebase"
+import { random, uniqueId } from "lodash"
+import { createHash, randomBytes } from "node:crypto"
+import hashCode from "utils/hash"
 
 export type BlogPost = {
     id: string,
@@ -158,8 +161,17 @@ export const deleteBlogPost = async (id: string, userId: string) => {
 }
 
 
+// TODO: fix this nonsense?
 export const addBlogSubscriber = async (email: string, userId: string) => {
-    push(ref(database, `/useres/${userId}/blog/subscribers`), {
-        email
-    })
+    try {
+        await update(ref(database, `/users/${userId}/blog/subscribers/${hashCode(email)}`), {
+            email: email
+        })
+        return true
+    }
+    catch(error)
+    {
+        console.log(error)
+        return false
+    }
 }

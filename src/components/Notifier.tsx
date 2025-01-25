@@ -1,16 +1,18 @@
 import React from 'react'
 import notifier from 'assets/images/notification.svg'
 import { twMerge } from 'tailwind-merge'
+import { addBlogSubscriber } from 'services/blogService'
 export const Notifier = () => {
     const [overNotifications, setOverNotifications] = React.useState(false)
 
-    const onSubmitEmail = (email: string | null) => {
+    const onSubmitEmail = async (email: string | null) => {
         if (email != null) {
-            alert(`Thanks for signing up for notifications, ${email}!`)
+            const success = await addBlogSubscriber(email, 'guDT9CByeceyrbjRG6hOAnAs4mH3')
+            
+            success ? alert(`Thanks for signing up for notifications, ${email}!`) : alert("There was an error signing you up, please check again later")
         }
 
     }
-
 
     return (
         <div className='flex flex-row gap-1 items-center'>

@@ -50,11 +50,33 @@ module.exports = {
           '100%': {
             transform: 'rotate(0deg)'
           }
-        }
+        },
+        'fade-in-opacity': {
+          '0%': {
+            transform: 'translateY(-20%)',
+            opacity: '0'
+          },
+          '100%': {
+            transform: 'translateY(0%)',
+            opacity: '1'
+          }
+        },
+        'fade-out-opacity': {
+          '0%': {
+            transform: 'translateY(0%)',
+            opacity: '1'
+          },
+          '100%': {
+            transform: 'translateY(-20%)',
+            opacity: '0'
+          }
+        },
       },
       animation: {
         'snap-slide-down': 'fade-in-down 5s infinite',
-        'shake': 'shaker 0.5s'
+        'shake': 'shaker 0.5s',
+        'fade-in': 'fade-in-opacity 0.25s linear',
+        'fade-out': 'fade-out-opacity 0.25s linear'
       },
     },
   },
