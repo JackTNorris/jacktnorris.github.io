@@ -156,3 +156,10 @@ export const deleteBlogPost = async (id: string, userId: string) => {
         return false
     }
 }
+
+
+export const addBlogSubscriber = async (email: string, userId: string) => {
+    push(ref(database, `/useres/${userId}/blog/subscribers`), {
+        email
+    })
+}
