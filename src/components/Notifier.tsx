@@ -11,7 +11,7 @@ export const Notifier = () => {
             const success = await addBlogSubscriber(email, 'guDT9CByeceyrbjRG6hOAnAs4mH3')
             if(success)
             {
-                toastContext.addToast("Email Noted!", "Awesome, I'll make sure to notify you once this functionality is built!", "success", 4000)
+                toastContext.addToast("Email Noted!", "Awesome, I'll make sure to notify you once this functionality is built and a new blog is out!", "success", 4000)
             }
             else
             {
