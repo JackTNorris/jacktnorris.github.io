@@ -10,7 +10,6 @@ import Home from './screens/Home';
 import { Header } from './components/Header';
 import { Blog } from './screens/Blog/Blog';
 import { Login } from './screens/Login';
-import { ToastContainer } from 'components/toast/ToastContainer';
 import { PrivateRoutes } from 'components/PrivateRoutes';
 import { Portfolio } from 'screens/Portfolio';
 import { DraftBlogs } from 'screens/Blog/DraftBlogs';
@@ -23,8 +22,8 @@ function App() {
   return (
     <>
       <Header/>
-        <ToastContainerProvider>
           <div className='min-h-screen'>
+          <ToastContainerProvider>
             <BrowserRouter basename='/'>
               <Routes>
                 <Route path='/' element={<Navigate to={'/home'} />} />
@@ -41,8 +40,8 @@ function App() {
                 </Route>
               </Routes>
             </BrowserRouter>
+            </ToastContainerProvider>
           </div>
-          </ToastContainerProvider>
       <Footer />
     </>
   );

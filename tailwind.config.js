@@ -68,7 +68,10 @@ module.exports = {
           },
           '100%': {
             transform: 'translateY(-20%)',
-            opacity: '0'
+            opacity: '0',
+            visibility: 'hidden',
+            display: 'none',
+            height: '0',
           }
         },
       },
@@ -76,7 +79,7 @@ module.exports = {
         'snap-slide-down': 'fade-in-down 5s infinite',
         'shake': 'shaker 0.5s',
         'fade-in': 'fade-in-opacity 0.25s linear',
-        'fade-out': 'fade-out-opacity 0.25s linear'
+        'fade-out': 'fade-out-opacity 0.25s forwards'
       },
     },
   },
