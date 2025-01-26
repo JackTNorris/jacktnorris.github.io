@@ -14,7 +14,7 @@ export const AboutMe = () => {
                     When I'm not writing code, I love adventuring outside, tinkering with small electronics, or fiddling around with my violin. 
                     </p>
                     <p className='font-bold text-sm sm:text-xl'>
-                    Upon to my return to the states, I plan to attend graduate school for computer science. This site is a pet project during service (and therefore, a work and progress). Feel free to poke around!
+                    Upon to my return to the states, I plan to attend graduate school for computer science. This site is a pet project during service (and therefore a work-in-progress). Feel free to poke around!
                     </p>
                 </div>
             </div>
