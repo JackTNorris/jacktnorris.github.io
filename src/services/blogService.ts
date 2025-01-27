@@ -168,7 +168,7 @@ export const addBlogSubscriber = async (email: string, userId: string) => {
         await update(ref(database, `/users/${userId}/blog/subscribers/${hashCode(email)}`), {
             email: email
         })*/
-        const x = await fetch(`https:api.jacktnorris.dev/emailer/signup?email=${email}`, {cache: "no-store"})
+        const x = await fetch(`https://api.jacktnorris.dev/emailer/signup?email=${email}`, {cache: "no-store"})
         if (x.status != 200)
             return false
         return true
