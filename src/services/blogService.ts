@@ -164,9 +164,13 @@ export const deleteBlogPost = async (id: string, userId: string) => {
 // TODO: fix this nonsense?
 export const addBlogSubscriber = async (email: string, userId: string) => {
     try {
+        /*
         await update(ref(database, `/users/${userId}/blog/subscribers/${hashCode(email)}`), {
             email: email
-        })
+        })*/
+        const x = await fetch(`https:api.jacktnorris.dev/emailer/signup?email=${email}`, {cache: "no-store"})
+        if (x.status != 200)
+            return false
         return true
     }
     catch(error)
