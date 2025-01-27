@@ -18,6 +18,16 @@ export const BlogFeed = ({topic, isDrafts}: BlogFeedProps) => {
     const [blogs, setBlogs] = useState<BlogPost[]>([]);
     const [blogTopics, setBlogTopics] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(true);
+
+    if (!isLoading)
+    {
+        const temp_url = window.location.href
+        if (temp_url.includes('#'))
+        {
+            document.getElementById(temp_url.split('#')[1])?.scrollIntoView();
+        }
+    }
+
     const fetchBlogs = async () => {
         if (isDrafts) {
             const g = await fetchDraftBlogs(auth.currentUser?.uid || '')

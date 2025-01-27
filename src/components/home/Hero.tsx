@@ -16,11 +16,16 @@ export const Hero = ({onSelectBackground, currBackground}: HeroProps) => {
         <div className='-mt-20 pt-20 flex flex-col flex-1 w-screen min-h-screen items-center justify-center'>
             <div className='flex p-4 flex-row justify-end items-end top-20 pb-20 left-0 -z-5 absolute w-full h-full'>
                 <div className='p-2 flex flex-1 flex-row justify-between text-xl h-full'>
-                    <div className='flex flex-row items-end justify-start'>
-                        
+                    <div className='flex flex-col items-end justify-end'>
+                        {/* ADD SOMETHING LATER? */}
                     </div>
-                    <div className='flex flex-row items-start justify-end h-full gap-2'>
-                        {backgroundOptions.map(item => (<button className={twMerge('rounded-md transition-all focus:outline-none hover:-translate-y-2', item.name == currBackground && 'bg-blue-300')} onClick={() => onSelectBackground(item.name)}>{item.icon}</button>))}
+                    <div className='flex flex-col'>
+                        <div className='flex flex-row items-start justify-end h-full gap-2'>
+                            {backgroundOptions.map(item => (<button className={twMerge('rounded-md transition-all focus:outline-none hover:-translate-y-2', item.name == currBackground && 'bg-blue-300')} onClick={() => onSelectBackground(item.name)}>{item.icon}</button>))}
+                        </div>
+                        <div className='text-right'>
+                            {/*<SpotifyPlayer />*/}
+                        </div>
                     </div>
                 </div>
             </div>
