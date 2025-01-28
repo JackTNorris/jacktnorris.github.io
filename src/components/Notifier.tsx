@@ -12,6 +12,7 @@ export const Notifier = () => {
 
     const onSubmitEmail = async (email: string | null) => {
         if (email != null) {
+            
             setIsLoading(true)
             const success = await addBlogSubscriber(email, 'guDT9CByeceyrbjRG6hOAnAs4mH3')
             setIsLoading(false)
@@ -21,7 +22,7 @@ export const Notifier = () => {
             }
             else
             {
-                toastContext.addToast("Error!", "There was an error adding your email to the subscription list. Please try again later.", "error", 4000)
+                toastContext.addToast("Error!", "There was an error adding your email to the subscription list (make sure you formatted it correctly, @ sybol and all). Please try again later.", "error", 4000)
             }
         }
 
