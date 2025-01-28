@@ -22,7 +22,7 @@ export const Notifier = () => {
             }
             else
             {
-                toastContext.addToast("Error!", "There was an error adding your email to the subscription list (make sure you formatted it correctly, @ sybol and all). Please try again later.", "error", 4000)
+                toastContext.addToast("Error!", "There was an error adding your email to the subscription list (make sure you formatted it correctly, @ symbol and all). Please try again later.", "error", 4000)
             }
         }
 
