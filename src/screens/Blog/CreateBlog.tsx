@@ -65,7 +65,7 @@ export const CreateBlog = () => {
                 </select>
                 <div className='w-full max-w-[50rem] font-bold'>
                 <div className='w-full max-w-[50rem] font-bold'><p>Content: </p></div>
-                <MDXEditorWrapper className='-z-10 prose w-full p-1 max-w-[50rem] h-96 border rounded-md overflow-scroll' onChange={val => setFormValue({...formValue, content: val})} />
+                <MDXEditorWrapper mdown={formValue.content.replace('\\_', '_')} className='-z-10 prose w-full p-1 max-w-[50rem] border rounded-md overflow-scroll' onChange={val => setFormValue({...formValue, content: val.replace('\\_', '_') || ''})} />
                 <div className='w-full max-w-[50rem] font-bold'><p>Result: </p></div>
                 <MarkdownWrapper
                     className='w-full p-1 max-w-[50rem] h-96 border rounded-md overflow-scroll'

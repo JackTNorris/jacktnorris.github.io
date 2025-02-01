@@ -75,7 +75,7 @@ export const EditBlog = () => {
                 </select>
                 <div className='flex flex-col w-full max-w-[50rem] font-bold gap-4'>
                     <div className='w-full max-w-[50rem] font-bold'><p>Content: </p></div>
-                    <MDXEditorWrapper mdown={formValue.content} className='-z-10 prose w-full p-1 max-w-[50rem] border rounded-md overflow-scroll' onChange={val => setFormValue({...formValue, content: val})} />
+                    <MDXEditorWrapper mdown={formValue.content.replace('\\_', '_')} className='-z-10 prose w-full p-1 max-w-[50rem] border rounded-md overflow-scroll' onChange={val => setFormValue({...formValue, content: val.replace('\\_', '_') || ''})} />
                     <div className='w-full max-w-[50rem] font-bold'><p>Result: </p></div>
                     <MarkdownWrapper className='w-full p-1 max-w-[50rem] border rounded-md'>
                         {formValue.content}
