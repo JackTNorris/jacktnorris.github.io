@@ -9,10 +9,12 @@ import { createBlogPost, fetchBlogPost, fetchBlogTags, fetchDraftBlog, fetchDraf
 import { auth } from 'loaders/firebase'
 import { MarkdownWrapper } from 'components/MarkdownWrapper'
 import { Loader } from 'components/Loader'
+import { useToast } from "components/toast/ToastContainerProvider"
 export const EditBlog = () => {    
     const tags = ['Random', 'Family', 'Unfiltered', 'Travel', 'AI', 'Algorithms & Data Structures', 'Network Security', 'Low-Level Learnings']
     const ref = useRef<MDXEditorMethods>(null);
     const [isLoading, setIsLoading] = useState(true);
+    const toastContext = useToast();
     const [formValue, setFormValue] = useState({
         title: '',
         tag: '',
@@ -35,24 +37,24 @@ export const EditBlog = () => {
         x()
     }, [])
 
-    const onPressSave = () => {
+    const onPressSave = async () => {
         const url = window.location.href.split('/')
         const blog_id = url[url.length - 1]
         if (window.location.href.indexOf('edit-draft') > -1)
         {
-            updateDraftBlog(blog_id, auth.currentUser?.uid ? auth.currentUser.uid : '', formValue.title, formValue.tag, formValue.content)
+            await updateDraftBlog(blog_id, auth.currentUser?.uid ? auth.currentUser.uid : '', formValue.title, formValue.tag, formValue.content)
         }
         else 
         {
-            updateBlogPost(blog_id, auth.currentUser?.uid ? auth.currentUser.uid : '', formValue.title, formValue.tag, formValue.content)
+            await updateBlogPost(blog_id, auth.currentUser?.uid ? auth.currentUser.uid : '', formValue.title, formValue.tag, formValue.content)
         }
-        console.log(formValue)        
+        toastContext.addToast("Saved Blog", "Successfully saved the blog!")
     }
 
-    const onPressPublish = () => {
+    const onPressPublish = async () => {
         const wantsPublished = window.confirm('Are you sure you want to publish this blog?')
         if (wantsPublished) {
-            createBlogPost(formValue.title, formValue.tag, formValue.content, auth.currentUser?.uid ? auth.currentUser.uid : '')
+            await createBlogPost(formValue.title, formValue.tag, formValue.content, auth.currentUser?.uid ? auth.currentUser.uid : '')
             //publish the blog
         }
         console.log(formValue)        
@@ -73,12 +75,12 @@ export const EditBlog = () => {
                 </select>
                 <div className='flex flex-col w-full max-w-[50rem] font-bold gap-4'>
                     <div className='w-full max-w-[50rem] font-bold'><p>Content: </p></div>
-                    <MDXEditorWrapper mdown={formValue.content} innerref={ref} className='-z-10 prose w-full p-1 max-w-[50rem] border rounded-md overflow-scroll' onChange={val => setFormValue({...formValue, content: val})} />
+                    <MDXEditorWrapper mdown={formValue.content} className='-z-10 prose w-full p-1 max-w-[50rem] border rounded-md overflow-scroll' onChange={val => setFormValue({...formValue, content: val})} />
                     <div className='w-full max-w-[50rem] font-bold'><p>Result: </p></div>
                     <MarkdownWrapper className='w-full p-1 max-w-[50rem] border rounded-md'>
                         {formValue.content}
                     </MarkdownWrapper>
-                    <button className='w-full max-w-[50rem] h-8 border-blue-500 hover:bg-blue-200 border text-black rounded-md transition-all' onClick={onPressSave}>Save</button>
+                    <button className='w-full max-w-[50rem] h-8 border-blue-500 hover:bg-blue-200 border text-black rounded-md transition-all' onClick={async () => await onPressSave()}>Save</button>
                     { window.location.href.indexOf('edit-draft') > -1 &&  <button className='w-full max-w-[50rem] h-8 bg-blue-500 hover:bg-blue-400 text-white rounded-md transition-all' onClick={onPressPublish}>Publish</button>}
                 </div>
             </div> : <Loader />
