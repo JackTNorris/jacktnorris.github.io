@@ -1,7 +1,8 @@
 import { auth } from "loaders/firebase";
 
 export const authRequest = async (url: string, method: string, data?: any) => {
-    const idToken  = await auth.currentUser?.getIdToken()
+    const idToken = await auth.currentUser?.getIdToken()
+    console.log("id token is: ", idToken)
     return fetch(url, {
         method,
         headers: {

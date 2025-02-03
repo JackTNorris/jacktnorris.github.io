@@ -1,6 +1,8 @@
 // TODO: bend it like beckham
+import { useAuth } from "hooks/useAuth";
 import { useEffect, useState } from "react";
 import { Router } from "react-router-dom";
+import { getEmailList } from "services/emailerService";
 import { twMerge } from "tailwind-merge"
 
 export const SpotifyPlayer = () => {

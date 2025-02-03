@@ -9,6 +9,7 @@ import { auth, database } from "loaders/firebase"
 import { random, uniqueId } from "lodash"
 import { createHash, randomBytes } from "node:crypto"
 import hashCode from "utils/hash"
+import { sendEmailNotification } from "services/emailerService"
 
 export type BlogPost = {
     id: string,
@@ -91,14 +92,19 @@ export const updateDraftBlog = async (id: string, userId: string, title: string,
 }
 
 
-export const createBlogPost = (title: string, tag: string, content: string, userId: string) => {
-    push(ref(database, `/users/${userId}/blog/posts`), {
+export const createBlogPost = async (title: string, tag: string, content: string, userId: string) => {
+    const id = await push(ref(database, `/users/${userId}/blog/posts`), {
         createdOn: new Date().getTime(),
         lastEdited: new Date().getTime(),
         title,
         tag,
         content
     })
+    if( id.key && tag == '🕊️ peace corps' ) 
+    {
+        sendEmailNotification(id.key);
+    } 
+    return id.key
 }
 
 export const fetchBlogPosts = async (userId: string) => {
