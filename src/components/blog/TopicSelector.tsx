@@ -11,7 +11,7 @@ export const TopicSelector = ({onSelectTopic, topics}: TopicSelectorProps) => {
     const [isOpen, setIsOpen] = useState(false)
     const [currTopic, setCurrTopic] = useState('🕊️ peace corps')
     return topics.length ? (
-    <div className="flex flex-row justify-center h-26 my-6">
+    <div className="flex flex-row justify-center h-26 my-6 relative z-10">
         <div className='h-26 absolute'>
             <button className="border w-52 p-2 rounded-lg" onClick={() => setIsOpen(!isOpen)}>
                 <span className='flex flex-row items-center justify-between'>
