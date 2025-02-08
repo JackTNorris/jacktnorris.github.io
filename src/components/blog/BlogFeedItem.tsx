@@ -19,9 +19,9 @@ export const BlogFeedItem = ({blog, isDrafts, isAuth, onClickDelete, needsViewed
     const [isOpen, setIsOpen] = useState(needsViewed != undefined && needsViewed == blog.id)
     return (
         <div id={blog.id} className={twMerge('relative flex flex-col w-4/5 aspect-[5/2] bg-slate-100 shadow-md rounded-lg p-8 transition-all duration-1000', !isOpen && 'h-96 overflow-hidden')}>
-                <div className={twMerge("bottom-0 left-0 absolute flex flex-row justify-center w-full")}>
+                <div className={twMerge("pointer-events-none bottom-0 left-0 absolute flex flex-row justify-center w-full")}>
                     <div className={twMerge("flex flex-col flex-1 items-end justify-end w-full", !isOpen && "bg-gradient-to-b from-transparent opacity-90 to-white h-[22rem]")}>
-                       <p onClick={() => setIsOpen((currVal) => !currVal)} className="p-3 transition-all text-xs hover:text-blue-400 hover:cursor-pointer underline hover:-translate-y-1">See {isOpen ? "Less" : "More"}</p>
+                       <p onClick={() => setIsOpen((currVal) => !currVal)} className="p-3 pointer-events-auto transition-all text-xs hover:text-blue-400 hover:cursor-pointer underline hover:-translate-y-1">See {isOpen ? "Less" : "More"}</p>
                     </div>
                 </div>
                 <div className="flex flex-row justify-between py-2">
