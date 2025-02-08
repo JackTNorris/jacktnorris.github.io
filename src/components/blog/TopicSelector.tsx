@@ -13,7 +13,7 @@ export const TopicSelector = ({onSelectTopic, topics}: TopicSelectorProps) => {
     return topics.length ? (
     <div className="flex flex-row justify-center h-26 my-6 relative z-10">
         <div className='h-26 absolute'>
-            <button className="border w-52 p-2 rounded-lg" onClick={() => setIsOpen(!isOpen)}>
+            <button className="border w-52 p-2 rounded-lg focus:outline-none" onClick={() => setIsOpen(!isOpen)}>
                 <span className='flex flex-row items-center justify-between'>
                     <span className="selected-value">{currTopic.split(' ').map(i => capitalize(i)).join(' ')}</span>
                     <span className="arrow"><img className={twMerge('transition-all h-3 w-3', isOpen && 'rotate-180')} src={chevron} /></span>
