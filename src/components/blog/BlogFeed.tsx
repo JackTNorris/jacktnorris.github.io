@@ -19,8 +19,7 @@ export const BlogFeed = ({topic, isDrafts}: BlogFeedProps) => {
     const [blogs, setBlogs] = useState<BlogPost[]>([]);
     const [blogTopics, setBlogTopics] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(true);
-    //const [needsViewed, setNeedsViewed] = useState<string | undefined>()
-    const needsViewed = useRef<string | undefined>();
+    const [needsViewed, setNeedsViewed] = useState<string | undefined>()
 
     useEffect(() => {
         if (!isLoading)
@@ -29,7 +28,7 @@ export const BlogFeed = ({topic, isDrafts}: BlogFeedProps) => {
             if (temp_url.includes('#'))
             {
                 document.getElementById(temp_url.split('#')[1])?.scrollIntoView();
-                needsViewed.current = temp_url.split('#')[1]
+                setNeedsViewed(temp_url.split('#')[1])
             }
         }
     }, [isLoading])
@@ -70,7 +69,7 @@ export const BlogFeed = ({topic, isDrafts}: BlogFeedProps) => {
     const renderBlogs = () => {
         const topicBlogs = blogs.filter(b => !isDrafts ? b.tag == topic : true);
         return topicBlogs.length > 0 ? topicBlogs.map((blog, index) => 
-            <BlogFeedItem needsViewed={needsViewed.current} isDrafts={!!isDrafts} isAuth={!!auth.currentUser?.uid} blog={blog} onClickDelete={() => deleteDraftOrPost(blog.id)} />
+            <BlogFeedItem needsViewed={needsViewed} isDrafts={!!isDrafts} isAuth={!!auth.currentUser?.uid} blog={blog} onClickDelete={() => deleteDraftOrPost(blog.id)} />
         ) : <p>No blogs of this type for now! Hang tight</p>
     }
 
