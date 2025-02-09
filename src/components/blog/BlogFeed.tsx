@@ -19,18 +19,21 @@ export const BlogFeed = ({topic, isDrafts}: BlogFeedProps) => {
     const [blogs, setBlogs] = useState<BlogPost[]>([]);
     const [blogTopics, setBlogTopics] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(true);
+    //const [needsViewed, setNeedsViewed] = useState<string | undefined>()
     const needsViewed = useRef<string | undefined>();
-    if (!isLoading)
-    {
-        console.log("is loading: ", isLoading)
-        console.log(window.location.href)
-        const temp_url = window.location.href
-        if (temp_url.includes('#'))
+
+    useEffect(() => {
+        if (!isLoading)
         {
-            document.getElementById(temp_url.split('#')[1])?.scrollIntoView();
-            needsViewed.current = (temp_url.split('#')[1])
+            const temp_url = window.location.href
+            if (temp_url.includes('#'))
+            {
+                document.getElementById(temp_url.split('#')[1])?.scrollIntoView();
+                needsViewed.current = temp_url.split('#')[1]
+            }
         }
-    }
+    }, [isLoading])
+
 
     const fetchBlogs = async () => {
         if (isDrafts) {
