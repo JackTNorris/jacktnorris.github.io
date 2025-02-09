@@ -1,8 +1,8 @@
 {
-  "name": "jacktnorris.github.io",
+  "name": "jacktnorris.dev",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jacktnorris.github.io",
+  "homepage": "https://jacktnorris.dev",
   "dependencies": {
     "@mdxeditor/editor": "^3.8.0",
     "@react-three/drei": "^9.114.6",

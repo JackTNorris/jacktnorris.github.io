@@ -22,6 +22,8 @@ export const BlogFeed = ({topic, isDrafts}: BlogFeedProps) => {
     const needsViewed = useRef<string | undefined>();
     if (!isLoading)
     {
+        console.log("is loading: ", isLoading)
+        console.log(window.location.href)
         const temp_url = window.location.href
         if (temp_url.includes('#'))
         {
