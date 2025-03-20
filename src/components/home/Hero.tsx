@@ -4,6 +4,7 @@ import { TextCarousel } from './TextCarousel';
 import '../Header.css';
 import { twMerge } from 'tailwind-merge';
 import { SpotifyPlayer } from 'components/animations/SpotifyPlayer';
+import { ImageLoader } from 'components/ImageLoader';
 
 export type HeroProps = {
     currBackground: string;
@@ -29,7 +30,7 @@ export const Hero = ({onSelectBackground, currBackground}: HeroProps) => {
                 </div>
             </div>
             <h1 className='press-start text-xl md:text-2xl font-extrabold p-3 text-center'>Hi, I'm Jack</h1>
-            <img src={ProfilePicture} alt='me' className='rounded-full max-h-[50vh] aspect-square p-3'/>
+            <ImageLoader alt='me' src={ProfilePicture} className='rounded-full w-full max-w-[50vh] aspect-square p-3'/>
             {/*<h3 className='text-xl font-extrabold underline p-3'>I'm a</h3>*/}
             <TextCarousel items={['Peace Corps Volunteer', 'Software Developer', 'Violinist', 'Outdoors-Lover']}/>
         </div>
