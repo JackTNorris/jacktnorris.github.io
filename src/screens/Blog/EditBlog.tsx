@@ -10,11 +10,13 @@ import { auth } from 'loaders/firebase'
 import { MarkdownWrapper } from 'components/MarkdownWrapper'
 import { Loader } from 'components/Loader'
 import { useToast } from "components/toast/ToastContainerProvider"
+import { useNavigate } from "react-router-dom"
 export const EditBlog = () => {    
     const tags = ['Random', 'Family', 'Unfiltered', 'Travel', 'AI', 'Algorithms & Data Structures', 'Network Security', 'Low-Level Learnings']
     const ref = useRef<MDXEditorMethods>(null);
     const [isLoading, setIsLoading] = useState(true);
     const toastContext = useToast();
+    const navigate = useNavigate();
     const [formValue, setFormValue] = useState({
         title: '',
         tag: '',
@@ -57,6 +59,7 @@ export const EditBlog = () => {
             await createBlogPost(formValue.title, formValue.tag, formValue.content, auth.currentUser?.uid ? auth.currentUser.uid : '')
             //publish the blog
         }
+        navigate('/blog')
         console.log(formValue)        
     }
 
