@@ -1,7 +1,7 @@
 .progress {
     height: 5px;
     width: 0%;
-    background-color: #fccb59;
+    background-color: rgb(41, 51, 229);
     position: fixed;
     top:0;
     /*top: 5rem;*/
@@ -11,9 +11,11 @@
     /* Bind the animation to scroll */
     animation-delay: calc(var(--scroll) * -1s);
   }
+  /*
   @keyframes progress {
     to {
-      background-color: rgb(41, 51, 229);
+      background-color: #fccb59;
       width: 100%;
     }
   }
+  */
