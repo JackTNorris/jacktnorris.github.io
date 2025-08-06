@@ -21,7 +21,7 @@ export const MDXEditorWrapper = ({className, onChange, innerref, mdown}: MDXEdit
             // you can get the diffMarkdown from your backend and pass it here.
             imagePlugin(),
             codeBlockPlugin({defaultCodeBlockLanguage: 'js'}),
-            codeMirrorPlugin({ codeBlockLanguages: { js: 'JavaScript', css: 'CSS', cpp: 'C++' } }),
+            codeMirrorPlugin({ codeBlockLanguages: { js: 'JavaScript', css: 'CSS', cpp: 'C++', python: 'python' } }),
             diffSourcePlugin({ diffMarkdown: 'An older version', viewMode: 'source' }),
             headingsPlugin(),
             quotePlugin(),
