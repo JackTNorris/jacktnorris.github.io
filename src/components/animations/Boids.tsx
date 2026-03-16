@@ -10,48 +10,42 @@ type Boid = {
 }
 
 export const Boids = () => {
-  const width = window.screen.width * 1.2
-  const height = window.screen.height * 1.2
+  const width = window.innerWidth * 1.2
+  const height = window.innerHeight * 1.2
   const canvas = useRef<HTMLCanvasElement>(null);
   const numBoids = 200
-  const boids: Boid[] = _.range(numBoids).map(boid => {return {position: {x: random(width), y: random(height)}, theta: random(360), velocity: {x: random(-0.1, 0.1, true), y: random(-0.1, 0.1, true)}}})
+  const boidsRef = useRef<Boid[]>([])
   const fov = 100
 
-  const draw = () => {
-    const ctx = canvas.current?.getContext('2d');
-    if (ctx) {
-      ctx.clearRect(0, 0, width, height)
-      boids.forEach(boid => {
-        ctx.fillStyle = 'rgba(59, 130, 246, 0.4)'
-        ctx.fillRect(boid.position.x, boid.position.y, 5, 5)
-      })
+  useEffect(() => {
+    boidsRef.current = _.range(numBoids).map(boid => {return {position: {x: random(width), y: random(height)}, theta: random(360), velocity: {x: random(-0.1, 0.1, true), y: random(-0.1, 0.1, true)}}})
+    let frameId = 0
+    const draw = () => {
+      const ctx = canvas.current?.getContext('2d');
+      if (ctx) {
+        ctx.clearRect(0, 0, width, height)
+          boidsRef.current.forEach(boid => {
+          ctx.fillStyle = 'rgba(59, 130, 246, 0.4)'
+          ctx.fillRect(boid.position.x, boid.position.y, 5, 5)
+        })
+      }
+      updateBoids()
+      frameId = requestAnimationFrame(draw);
     }
-    updateBoids()
-    requestAnimationFrame(draw)
-  }
+    frameId = requestAnimationFrame(draw);
+    return () => cancelAnimationFrame(frameId)
+  }, [numBoids, width, height])
+
 
 
   const calcDistance = (boid1: Boid, boid2: Boid) => {
     return Math.sqrt((boid1.position.x - boid2.position.x)**2 + (boid1.position.y - boid2.position.y)**2)
   }
 
-  const getNearbyBoids = (boid: Boid, fov: number) => {
-    const nearbyBoids: Boid[] = []
-    boids.forEach(b => {
-      if (b !== boid)
-      {
-        if (calcDistance(boid, b) < fov)
-        {
-          nearbyBoids.push(b)
-        }
-      }
-    })
-    return nearbyBoids
-  }
 
   const separation = (boid: Boid) => {
     const vectorOperation = {x: 0, y: 0}
-    boids.forEach(b => {
+    boidsRef.current.forEach(b => {
       if (b !== boid)
       {
         if (calcDistance(b, boid) < 50)
@@ -68,15 +62,15 @@ export const Boids = () => {
 
   const alignment = (boid: Boid) => {
     const vectorOperation = {x: 0, y: 0}
-    boids.forEach(b => {
+    boidsRef.current.forEach(b => {
       if (b !== boid)
       {
         vectorOperation.x += b.velocity.x
         vectorOperation.y += b.velocity.y
       }
     })
-    vectorOperation.x /= boids.length - 1
-    vectorOperation.y /= boids.length - 1
+    vectorOperation.x /= boidsRef.current.length - 1
+    vectorOperation.y /= boidsRef.current.length - 1
     vectorOperation.x = (vectorOperation.x - boid.velocity.x) / 300
     vectorOperation.y = (vectorOperation.y - boid.velocity.y) / 300
     return vectorOperation
@@ -84,21 +78,21 @@ export const Boids = () => {
 
   const cohesion = (boid: Boid) => {
     const averagePos = {x: 0, y: 0}
-    boids.forEach(b => {
+    boidsRef.current.forEach(b => {
       if (b !== boid)
       {
         averagePos.x += b.position.x
         averagePos.y += b.position.y
       }
     })
-    averagePos.x = averagePos.x / (boids.length - 1)
-    averagePos.y = averagePos.y / (boids.length - 1)
+    averagePos.x = averagePos.x / (boidsRef.current.length - 1)
+    averagePos.y = averagePos.y / (boidsRef.current.length - 1)
     return {x: (averagePos.x - boid.position.x) / 10000, y: (averagePos.y - boid.position.y) / 10000}
 
   }
 
   const updateBoids = () => {
-    boids.forEach(boid => {
+    boidsRef.current.forEach(boid => {
       const rule1 = cohesion(boid)
       const rule2 = alignment(boid)
       const rule3 = separation(boid)
@@ -116,9 +110,6 @@ export const Boids = () => {
     })
   }
 
-  useEffect(() => {
-    requestAnimationFrame(draw)
-  })
 
   return (
     <>
