@@ -1,9 +1,10 @@
 // TODO: add in better handling of loading
+// TODO: better loading of deeplearning topics
 import { twMerge } from "tailwind-merge"
 import { BlogCreator } from "components/blog/BlogCreator"
 import { BlogFeed } from "components/blog/BlogFeed"
 import { useAuth } from "hooks/useAuth"
-import { TopicSelector } from "components/blog/TopicSelector"
+import { TopicSelector } from "components/TopicSelector"
 import { useEffect, useState } from "react"
 import { fetchBlogTags } from "services/blogService"
 import { Notifier } from "components/Notifier"

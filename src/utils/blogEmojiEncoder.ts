@@ -5,6 +5,11 @@ const TOPIC_EMOJI_MAP: Record<string, string> = {
   "computer-science": "💻 computer science",
   books: "📚 books",
   "peace-corps": "🕊️ peace corps",
+  research: "🧪 research",
+  "general-software": "🧠 general software",
+  "hardware": "💪 hardware",
+  "games": "🕹️ games",
+  "other": "🔮 other"
 };
 
 const EMOJI_TO_TOPIC_MAP: Record<string, string> = Object.fromEntries(
