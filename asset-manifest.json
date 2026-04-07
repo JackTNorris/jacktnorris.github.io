@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.b42e8ad1.css",
-    "main.js": "/static/js/main.174a6da6.js",
+    "main.css": "/static/css/main.17b9742c.css",
+    "main.js": "/static/js/main.9a1cf9b8.js",
     "static/js/7680.95967b93.chunk.js": "/static/js/7680.95967b93.chunk.js",
     "static/js/6415.edfaeb0c.chunk.js": "/static/js/6415.edfaeb0c.chunk.js",
     "static/js/4669.a9040832.chunk.js": "/static/js/4669.a9040832.chunk.js",
@@ -114,8 +114,23 @@
     "static/js/6764.5f578eb8.chunk.js": "/static/js/6764.5f578eb8.chunk.js",
     "static/js/4538.d77409d5.chunk.js": "/static/js/4538.d77409d5.chunk.js",
     "static/js/6453.f2658cac.chunk.js": "/static/js/6453.f2658cac.chunk.js",
+    "static/media/iron-man.gif": "/static/media/iron-man.db6fcb16ffd75f442660.gif",
+    "static/media/sensus.png": "/static/media/sensus.17747b0ef323623a571e.png",
+    "static/media/auto-diff.png": "/static/media/auto-diff.b55bdb3c33fc1b893ba4.png",
     "static/media/skydive.jpeg": "/static/media/skydive.f1ab6187e674864e1ae7.jpeg",
+    "static/media/commander-impeach.png": "/static/media/commander-impeach.e4b17befd5e6e17d86eb.png",
+    "static/media/mountie-mobile.png": "/static/media/mountie-mobile.2355da5e4002a3984c65.png",
+    "static/media/personal-website.png": "/static/media/personal-website.ad2d5699bacb73927ede.png",
+    "static/media/sictoc.png": "/static/media/sictoc.7dbc1771d6f7dca6263b.png",
+    "static/media/swiss-army-knife.png": "/static/media/swiss-army-knife.6a9436094265a11cc389.png",
+    "static/media/breadboard-comp.jpg": "/static/media/breadboard-comp.ba29c293c61831fedf4d.jpg",
+    "static/media/paper-route.png": "/static/media/paper-route.1d2c79f65a3ec3fb41a0.png",
+    "static/media/pmu-recovery-project.png": "/static/media/pmu-recovery-project.7ba3081fef6bc5c9852a.png",
+    "static/media/hoghacks.png": "/static/media/hoghacks.a1e31e98f6884f311bfb.png",
+    "static/media/atari-breakout.gif": "/static/media/atari-breakout.b8dbf6f9820dc89571e7.gif",
+    "static/media/chess.png": "/static/media/chess.c1eba3274fc7b606e9a4.png",
     "static/media/pfp.jpeg": "/static/media/pfp.3825710ca24f0e6ea01c.jpeg",
+    "static/media/kitty-cam.jpg": "/static/media/kitty-cam.ec3738be69cc43874f0c.jpg",
     "static/media/pressstart.ttf": "/static/media/pressstart.c5b470938391e423c6d6.ttf",
     "static/media/KaTeX_AMS-Regular.ttf": "/static/media/KaTeX_AMS-Regular.853be92419a6c3766b9a.ttf",
     "static/media/KaTeX_Main-Regular.ttf": "/static/media/KaTeX_Main-Regular.9eba1d77abcf2aa6e94e.ttf",
@@ -179,8 +194,8 @@
     "static/media/KaTeX_Size3-Regular.woff": "/static/media/KaTeX_Size3-Regular.7947224e8a9914fa332b.woff",
     "static/media/KaTeX_Size3-Regular.woff2": "/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
     "index.html": "/index.html",
-    "main.b42e8ad1.css.map": "/static/css/main.b42e8ad1.css.map",
-    "main.174a6da6.js.map": "/static/js/main.174a6da6.js.map",
+    "main.17b9742c.css.map": "/static/css/main.17b9742c.css.map",
+    "main.9a1cf9b8.js.map": "/static/js/main.9a1cf9b8.js.map",
     "7680.95967b93.chunk.js.map": "/static/js/7680.95967b93.chunk.js.map",
     "6415.edfaeb0c.chunk.js.map": "/static/js/6415.edfaeb0c.chunk.js.map",
     "4669.a9040832.chunk.js.map": "/static/js/4669.a9040832.chunk.js.map",
@@ -295,7 +310,7 @@
     "6453.f2658cac.chunk.js.map": "/static/js/6453.f2658cac.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b42e8ad1.css",
-    "static/js/main.174a6da6.js"
+    "static/css/main.17b9742c.css",
+    "static/js/main.9a1cf9b8.js"
   ]
 }
