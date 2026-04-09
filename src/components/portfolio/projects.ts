@@ -14,7 +14,7 @@ import personal_website_img from './portfolio-images/personal-website.png'
 import swiss_army_knife_img from './portfolio-images/swiss-army-knife.png'
 import chess_img from './portfolio-images/chess.png'
 
-export type TechnologyUsed = 'arduino' | 'react' | 'unity' | 'c++' | 'python' | 'c#' | 'java' | 'kotlin' | 'firebase' | 'docker' | 'express' | 'node.js'
+export type TechnologyUsed = 'Assembly' | 'Breadboarding ' | 'Arduino' | 'React' | 'Unity' | 'C++' | 'Python' | 'C#' | 'Java' | 'Kotlin' | 'Firebase' | 'Docker' | 'Express' | 'Node.js' | 'P4' | 'Mininet' | 'NumPy' | 'WebRTC' | 'MQTT' | 'ESP32' | 'React Native' | 'Javascript' | 'HTML/CSS' | 'Github Pages';
 
 export type PortfolioProject = {
     id: string,
@@ -34,34 +34,40 @@ export const projects: PortfolioProject[] = [
         link: 'https://jacktnorris.dev',
         tag: '🧠 general software',
         year: 2026,
-        imageSrc: personal_website_img
+        imageSrc: personal_website_img,
+        technologiesUsed: ['React', 'Express', 'Docker', 'Firebase']
     },
     {
         id: 'pmu-recovery-project',
-        title: 'An In-Network Approach for PMU Missing Data Recovery with Data Plane Programmability',
+        title: 'PMU Recovery with Programmable Switches',
         description: 'A culmination of the research I conducted with Dr. Kevin Jin during my undergraduate degree. We proposed and evaluated the usage of programmable network switches as a means of reconstructing missing data in power grid communication networks. Instead of relying on a single control center to detect and reconstructing missing power grid measurements, we offload some of this computation to the network itself. Resulted in first-author publication in SmartGridComm \'25',
         link: 'https://ieeexplore.ieee.org/document/11204568/',
         tag: '🧪 research',
         year: 2024,
         imageSrc: pmu_recovery_img,
+        technologiesUsed: ['Python', 'P4', 'Mininet']
+
     },
     {
         id: 'commander-impeach',
         title: 'Commander Impeach',
-        description: 'A flappy bird-esque game I made in high school in which you try to achieve the latest impeachment date for Trump. Published it on Google Play, but have since taken it down.',
-        link: 'https://publication.example.com/perf-study',
+        description: 'A flappy bird-esque game I made in high school in which you try to achieve the latest impeachment date for Trump by dodging various obstacles. Published it on Google Play, but have since taken it down.',
+        link: 'https://github.com/JackTNorris/Commander-Impeach',
         tag: '🕹️ games',
         year: 2018,
-        imageSrc: commander_impeach_img
+        imageSrc: commander_impeach_img,
+        technologiesUsed: ['Unity', 'C#']
     },
     {
         id: 'mountie-mobile',
         title: 'Mountie Mobile',
-        description: 'A mobile app I made with some buddies in high school for keeping up with school events. Included push notifications, event calendars, and a custom CMS for event organizers. Worked with school administration to get it published on the app store.',
+        description: 'A mobile app and website I made with some buddies in high school for keeping up with school events. Included push notifications, event calendars, and a custom CMS for event organizers. Worked with school administration to get it published on the app store.',
         link: 'https://apps.apple.com/cl/app/mountie-mobile/id1479474681',
         tag: '🧠 general software',
         year: 2019,
         imageSrc: mountie_mobile_img,
+        technologiesUsed: ['React Native', 'Firebase', 'Javascript']
+
     },
     {
         id: 'paper-route',
@@ -70,34 +76,37 @@ export const projects: PortfolioProject[] = [
         link: 'https://github.com/JackTNorris/Paper-Game',
         tag: '🕹️ games',
         year: 2019,
-        imageSrc: paper_route_img
+        imageSrc: paper_route_img,
+        technologiesUsed: ['Unity', 'C#']
     },
     {
         id: 'atari-breakout',
         title: 'Atari Breakout',
         description: 'One of the first games I built from scratch: Atari Breakout clone built using a very rudimentary graphics library in C++ (only native function were putPixel calls). Features basic collision detection, scoring, and multiple "levels" of difficulty.',
-        link: 'https://example.com/game',
+        link: 'https://github.com/JackTNorris/Atari-Breakout',
         tag: '🕹️ games',
         year: 2017,
-        imageSrc: atari_breakout_gif
+        imageSrc: atari_breakout_gif,
+        technologiesUsed: ['C++']
     },
     {
         id: 'breadboard-computer',
         title: '8-Bit Computer on a Breadboard',
-        description: 'An in progress 8-bit computer I started my senior year of college and have been working on while serving in the Peace Corps. Keep an eye out on my project blog for updates! Built with the kits and tutorials of Ben Eater',
-        link: 'https://example.com/game',
+        description: 'An in progress 8-bit computer I started my senior year of college and have been working on while serving in the Peace Corps. Keep an eye out on my project blog for updates! Built with the kits and tutorials of Ben Eater.',
         tag: '💪 hardware',
         year: 2024,
+        technologiesUsed: ['Assembly', 'Arduino'],
         imageSrc: breadboard_computer_img
     },
     {
         id: 'sictoc',
         title: 'SicToc',
         description: 'An app I built during the 2020 UARK hackathon that enabled users to send messages to people in their nearby vicinity to stimulate social connection. Won 1st place overall (and a pretty sick computer monitor!).',
-        link: 'https://example.com/game',
+        link: 'https://github.com/JackTNorris/SICTOC',
         tag: '🧠 general software',
         year: 2020,
-        imageSrc: sictoc_img
+        imageSrc: sictoc_img,
+        technologiesUsed: ['React Native', 'Firebase', 'Javascript']
     },
     {
         id: 'chess',
@@ -106,66 +115,69 @@ export const projects: PortfolioProject[] = [
         link: 'https://jacktnorris.dev/chess/',
         tag: '🕹️ games',
         year: 2025,
+        technologiesUsed: ['Javascript', 'HTML/CSS', 'Express'],
         imageSrc: chess_img
     },
     {
         id: 'iron-man-helmet',
         title: 'Iron Man Helmet',
         description: 'An arduino powered iron man helmet I built out of cardboard while in high school. Included moving faceplate and light up eyes. ',
-        link: 'https://example.com/game',
         tag: '💪 hardware',
         year: 2017,
-        imageSrc: iron_man_helmet_gif
+        imageSrc: iron_man_helmet_gif,
+        technologiesUsed: ['Arduino', 'C++']
     },
     {
         id: 'android-swiss-army-knife',
         title: 'Android Swiss Army Knife',
-        description: 'A multifunctional Android app I built with a team of student my junior year of college with a team using the MVVM paradigm. Features a metal detector, compass, barometer, speedometer, and a few other utility apps',
-        link: '',
+        description: 'A multifunctional Android app I built with a team of student my junior year of college with a team using the MVVM paradigm. Features a metal detector, compass, barometer, speedometer, and a few other utility apps.',
         tag: '🧠 general software',
         year: 2023,
-        imageSrc: swiss_army_knife_img
+        link: 'https://github.com/JackTNorris/Android_Swiss_Army_Knife',
+        imageSrc: swiss_army_knife_img,
+        technologiesUsed: ['Kotlin']
     },
     {
         id: 'auto-differentiation-engine',
         title: 'Simple Automatic Differentiation Engine',
         description: 'A simple automatic differentiation engine I built to better understand the mathematics behind neural networks. Implemented from scratch in Python with NumPy, and subsequently tested by training a neural net on the MNIST dataset',
-        link: '',
+        link: 'https://github.com/JackTNorris/jtn-nn',
         tag: '🧪 research',
         year: 2025,
-        imageSrc: autodiff_img
+        imageSrc: autodiff_img,
+        technologiesUsed: ['Python', 'NumPy']
     },
     {
         id: 'kitty-cam',
         title: 'Kitty Cam',
-        description: 'A rudimentary app I built to keep an eye on my cat when away from home. Didn\'t want to buy a camera system, so this is designed to convert a spare cell phone into a camers. Features real-time serverless video streaming over WebRTC and authentication via Firebase Auth',
-        link: '',
+        description: 'A rudimentary app I built to keep an eye on my cat when away from home. Didn\'t want to buy a camera system, so this is designed to convert a spare cell phone into a camera. Features real-time serverless video streaming over WebRTC and authentication via Firebase Auth.',
         tag: '🧠 general software',
         year: 2024,
-        imageSrc: kitty_cam_img
+        imageSrc: kitty_cam_img,
+        technologiesUsed: ['React Native', 'Firebase', 'WebRTC']
     },
     {
         id: 'vna-grapher',
         title: 'VNA Grapher',
         description: 'An Android app that interfaces over bluetooth with the ZEENKO Vector Network Analyzer. Uses Android Bluetooth API to both send a receive bluetooth signals from a VNA device. Developed over a summer while working part-time in Dr. Ryan Tian\'s UARK nanotechnology research lab.',
-        link: '',
         tag: '🧠 general software',
         year: 2024,
+        technologiesUsed: ['Kotlin'],
+        link: 'https://github.com/JackTNorris/VNAGrapher/tree/main'
     },
     {
         id: 'sensus',
         title: 'Sensus',
         description: 'A mobile app x device I developed freshman year of college that used bluetooth low energy to measure the occupancy of a room. Developed and deployed BLE detection code to an ESP32 which interfaced with an MQTT server, allowing a React Native app I built to displayed occupancy updates in real time.',
-        link: '',
         tag: '🧠 general software',
         year: 2021,
-        imageSrc: sensus_img
+        imageSrc: sensus_img,
+        technologiesUsed: ['React Native', 'ESP32', 'MQTT']
     },
     {
         id: 'computer-lab-for-peace-corps',
         title: 'Computer Lab for Peace Corps',
-        description: 'Sourced and set up a small computer lab for a the school in my community in rural Paraguay. Worked with community stakeholders to source devices via donations through programs like labdoo, configured some devices to run Ubuntu, and advocated for the installation of Wi-Fi',
-        link: '',
+        description: 'Sourced and set up a small computer lab for a the school in my community in rural Paraguay. Worked with community stakeholders to source devices via donations through programs like labdoo, configured some devices to run Ubuntu, and advocated for the installation of Wi-Fi.',
         tag: '🔮 other',
         year: 2025,
     },
@@ -173,7 +185,6 @@ export const projects: PortfolioProject[] = [
         id: 'outdoor-gym-peace-corps',
         title: 'Outdoor Gym for Peace Corps',
         description: 'Sourced and set up a small outdoor gym for a the school in my community in rural Paraguay. Worked with community stakeholders to source materials and construction labor.',
-        link: '',
         tag: '🔮 other',
         year: 2025,
     },
@@ -181,10 +192,11 @@ export const projects: PortfolioProject[] = [
         id: 'acm-hackathon-website',
         title: 'ACM HogHacks Website',
         description: 'Co-developed a responsive website for the ACM HogHacks to convey event information, schedule, and sponsors to attendees. Built with React and hosted on GitHub pages.',
-        link: '',
+        link: 'https://uark-acm.github.io/hoghacks/',
         tag: '🧠 general software',
         year: 2024,
-        imageSrc: hoghacks_img
+        imageSrc: hoghacks_img,
+        technologiesUsed: ['React']
     },
     {
         id: 'community-library-peace-corps',

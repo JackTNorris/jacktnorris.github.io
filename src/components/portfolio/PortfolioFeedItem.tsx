@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { BlogPost } from "services/blogService"
 import { twMerge } from "tailwind-merge"
 import { PortfolioProject } from "./projects"
-
+import { CiLink } from "react-icons/ci";
 export type PortfolioFeedProjectProps = {
     project: PortfolioProject,
     needsViewed?: string
@@ -19,7 +19,13 @@ export const PortfolioFeedItem = ({project, needsViewed}: PortfolioFeedProjectPr
     return (
         <div id={project.id} className={twMerge('relative flex flex-col w-4/5 md:w-3/5 bg-slate-100 shadow-md rounded-lg p-2 md:p-8 transition-all duration-1000', !isOpen && 'min-h-48 overflow-hidden')}>
                 <div className="flex flex-row justify-between py-2">
-                    <p><em><b>{project.title}</b> || {project.year} </em></p>
+                    { project.link ? <p className="flex flex-row items-center"><CiLink /><em><b><a className="hover:text-blue-500" href={project.link} target="_blank" rel="noopener noreferrer">{project.title}</a></b> || {project.year} </em></p>
+                    : <p className="flex flex-row items-center"><em><b>{project.title}</b> || {project.year} </em></p>}
+                </div>
+                <div className="flex flex-row gap-2">
+                    {project.technologiesUsed?.map(tech => {
+                        return <div className="p-1 bg-slate-400 rounded-lg hover:bg-slate-500 hover:-translate-y-1 transition-all"><p key={tech} className="text-sm text-white">{tech}</p></div>
+                    })}
                 </div>
             <div className="flex w-full flex-row justify-center p-6">
                 {project.imageSrc ? <img src={project.imageSrc} alt={project.title} className="h-full w-auto rounded-md"/> : <div className="bg-gray-300 w-full h-64 rounded-md flex items-center justify-center"><p>No image available</p></div>}
