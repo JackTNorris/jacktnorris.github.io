@@ -61,7 +61,7 @@ export const projects: PortfolioProject[] = [
     {
         id: 'mountie-mobile',
         title: 'Mountie Mobile',
-        description: 'A mobile app and website I made with some buddies in high school for keeping up with school events. Included push notifications, event calendars, and a custom CMS for event organizers. Worked with school administration to get it published on the app store.',
+        description: 'A mobile app and website I made with some buddies in high school for keeping up with school events. Included push notifications, event calendars, and a custom CMS for event organizers. Worked with school administration to get it published on the app store and google play.',
         link: 'https://apps.apple.com/cl/app/mountie-mobile/id1479474681',
         tag: '🧠 general software',
         year: 2019,
@@ -121,7 +121,7 @@ export const projects: PortfolioProject[] = [
     {
         id: 'iron-man-helmet',
         title: 'Iron Man Helmet',
-        description: 'An arduino powered iron man helmet I built out of cardboard while in high school. Included moving faceplate and light up eyes. ',
+        description: 'An Arduino powered iron man helmet I built out of cardboard while in high school. Included moving faceplate and light up eyes. Designed the circuitry and hinge mechanism myself. Was a fun project that got me interested in hardware and embedded programming.',
         tag: '💪 hardware',
         year: 2017,
         imageSrc: iron_man_helmet_gif,

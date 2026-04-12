@@ -49,7 +49,7 @@ export const Blog = () => {
     return (
         <div className="site-container flex flex-col items-center min-h-screen">
             <div className="flex flex-row w-screen">
-                <div className={twMerge("md:flex flex-row flex-1 m-4 justify-start hidden md:visible")}>
+                <div className={twMerge("md:flex flex-row flex-1 m-4 justify-start")}>
                     <Notifier />
                 </div>
                 <div className={twMerge("flex flex-row flex-1 m-4 justify-end", !currentUser && "hidden")}>
