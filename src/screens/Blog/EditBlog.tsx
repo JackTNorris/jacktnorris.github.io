@@ -1,20 +1,17 @@
 // TODO: add types for this shit
 // TODO: refactor this so I'm not using the same thing for edit blog that I am using for create blog
 // TODO: add in some loaders
-import { useEffect, useRef, useState } from "react"
-import { MDXEditorMethods } from '@mdxeditor/editor'
+import { useEffect, useState } from "react"
 import '@mdxeditor/editor/style.css'
-import { MDXEditorWrapper } from 'components/forms/MDXEditorWrapper'
-import { createBlogPost, fetchBlogPost, fetchBlogTags, fetchDraftBlog, fetchDraftBlogs, updateBlogPost, updateDraftBlog } from 'services/blogService'
+import { createBlogPost, fetchBlogPost, fetchBlogTags, fetchDraftBlog, updateBlogPost, updateDraftBlog } from 'services/blogService'
 import { auth } from 'loaders/firebase'
 import { MarkdownWrapper } from 'components/MarkdownWrapper'
 import { Loader } from 'components/Loader'
 import { useToast } from "components/toast/ToastContainerProvider"
 import { useNavigate } from "react-router-dom"
 export const EditBlog = () => {    
-    const tags = ['Random', 'Family', 'Unfiltered', 'Travel', 'AI', 'Algorithms & Data Structures', 'Network Security', 'Low-Level Learnings']
-    const ref = useRef<MDXEditorMethods>(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [markdownRender, setMarkdownRender] = useState('')
     const toastContext = useToast();
     const navigate = useNavigate();
     const [formValue, setFormValue] = useState({
@@ -33,6 +30,7 @@ export const EditBlog = () => {
             const blog = window.location.href.indexOf('edit-draft') > -1 ? await fetchDraftBlog(auth.currentUser?.uid ? auth.currentUser.uid : '', blog_id) : await fetchBlogPost(auth.currentUser?.uid ? auth.currentUser.uid : '', blog_id)
             console.log(blog)
             setFormValue({title: blog?.title ? blog.title : '', content: blog?.content ? blog.content : '', tag: blog?.tag ? blog.tag : ''})
+            setMarkdownRender(blog?.content ? blog.content : '')
             setAvailableTags(g)
             setIsLoading(false);
         }
@@ -78,10 +76,11 @@ export const EditBlog = () => {
                 </select>
                 <div className='flex flex-col w-full max-w-[50rem] font-bold gap-4'>
                     <div className='w-full max-w-[50rem] font-bold'><p>Content: </p></div>
-                    <MDXEditorWrapper mdown={formValue.content.replace('\\_', '_')} className='-z-10 prose w-full p-1 max-w-[50rem] border rounded-md overflow-scroll' onChange={val => setFormValue({...formValue, content: val.replace('\\_', '_') || ''})} />
+                    <textarea value={formValue.content} onChange={e => setFormValue({...formValue, content: e.target.value})} className='p-1 max-w-[50rem] font-normal border rounded-md overflow-scroll h-96' />
                     <div className='w-full max-w-[50rem] font-bold'><p>Result: </p></div>
+                    <button className='w-full max-w-[50rem] h-8 border-blue-500 hover:bg-blue-200 border text-black rounded-md transition-all' onClick={async () => setMarkdownRender(formValue.content)}>Update Result</button>
                     <MarkdownWrapper className='w-full p-1 max-w-[50rem] border rounded-md'>
-                        {formValue.content}
+                        {markdownRender}
                     </MarkdownWrapper>
                     <button className='w-full max-w-[50rem] h-8 border-blue-500 hover:bg-blue-200 border text-black rounded-md transition-all' onClick={async () => await onPressSave()}>Save</button>
                     { window.location.href.indexOf('edit-draft') > -1 &&  <button className='w-full max-w-[50rem] h-8 bg-blue-500 hover:bg-blue-400 text-white rounded-md transition-all' onClick={onPressPublish}>Publish</button>}
