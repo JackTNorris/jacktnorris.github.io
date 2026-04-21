@@ -27,19 +27,19 @@ export const TBP = () => {
   
   const bodies: Body[] = [
     {
-      mass: 1,
+      mass: 5.9722e13,
       position: { x: width / 2 - width / 4 + random(3), y: height / 2 + random(20) }, // Body 1
       velocity: { x: random(-3, 3), y: random(-3, 3) },
       path: []
     },
     {
-      mass: 1,
+      mass: 5.9722e13,
       position: { x: width / 2 + width / 4 + random(3), y: height / 2 + random(20) }, // Body 2
       velocity: { x: random(-3, 3), y: random(-3, 3) },
       path: []
     },
     {
-      mass: 1,
+      mass: 5.9722e13,
       position: { x: width / 2 + random(3), y: height / 2 + random(20) }, // Body 3
       velocity: { x: random(-3, 3), y: random(-3, 3) },
       path: []
@@ -47,14 +47,12 @@ export const TBP = () => {
   ];
   
 
-  const fov = 100
-
   const draw = () => {
     const ctx = canvas.current?.getContext('2d');
     if (ctx) {
       ctx.clearRect(0, 0, width, height)
       ctx.fillStyle = 'blue';
-      applyNewton(0.01);
+      applyNewton(1);
       bodies.forEach(b => {
         drawPath(b.path, ctx, 'green');
         drawCircle({...b.position, radius: 20, ctx, color: 'blue'})
@@ -126,16 +124,18 @@ export const TBP = () => {
 
           const dvi_vector_dir = getUnitVector(getDiffVector(bodies[i].position, bodies[j].position));
           const dvj_vector_dir = getUnitVector(getDiffVector(bodies[j].position, bodies[i].position));
+          
+          temp_vs[i].x -= dvi_vector_dir.x * get_dvi * timestep;
+          temp_vs[i].y -= dvi_vector_dir.y * get_dvi * timestep;
 
-          temp_vs[i].x -= dvi_vector_dir.x * timestep;
-          temp_vs[i].y -= dvi_vector_dir.y * timestep;
-          temp_vs[j].x -= dvj_vector_dir.x * timestep;
-          temp_vs[j].y -= dvj_vector_dir.y * timestep;
+          temp_vs[j].x -= dvj_vector_dir.x * get_dvj * timestep;
+          temp_vs[j].y -= dvj_vector_dir.y * get_dvj * timestep;
         }
       }
     }
     for(let i = 0; i < temp_vs.length; i++)
     {
+      /*
       if (bodies[i].position.y >= height - 40 || bodies[i].position.y <= 40)
       {
         if (bodies[i].position.y >= height - 40)
@@ -160,13 +160,26 @@ export const TBP = () => {
           }
           bodies[i].velocity.x *= -1;
         }
-      else
-      {
+      */
+      //else
+      //{
         bodies[i].path.push({x: bodies[i].position.x, y: bodies[i].position.y})
-        bodies[i].position.x += bodies[i].velocity.x;
-        bodies[i].position.y += bodies[i].velocity.y;
+        if (bodies[i].path.length > 100)
+        {
+          bodies[i].path.shift();
+        }
+
         bodies[i].velocity = temp_vs[i];
-      }
+          const damping = 0.999;
+
+        bodies[i].velocity.x *= damping;
+        bodies[i].velocity.y *= damping;
+        
+        bodies[i].position.x += bodies[i].velocity.x * timestep;
+        bodies[i].position.y += bodies[i].velocity.y * timestep;
+        
+        
+      //}
       
     }
 

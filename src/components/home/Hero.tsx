@@ -1,7 +1,6 @@
 //TODO: migrate completely over to vanilla html, css, and js
 import ProfilePicture from '../../assets/images/pfp.jpeg';
 import { TextCarousel } from './TextCarousel';
-import '../Header.css';
 import { twMerge } from 'tailwind-merge';
 import { SpotifyPlayer } from 'components/animations/SpotifyPlayer';
 import { ImageLoader } from 'components/ImageLoader';
