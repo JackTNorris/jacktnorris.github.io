@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
@@ -8,19 +8,20 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
+    "ignoreDeprecations": "6.0",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "node", // TODO: fix deprecation
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "downlevelIteration": true,
+    "downlevelIteration": true, // TODO: fix deprecation
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "src",
+    "baseUrl": "src", // TODO: fix deprecation
     "paths": {
       "@/*": ["./src/*"]
     }
