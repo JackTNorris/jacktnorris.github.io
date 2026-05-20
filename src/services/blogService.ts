@@ -5,10 +5,7 @@
 // TODO: refactor things so I don't have to call the realtime database so many times
 
 import { child, get, getDatabase, push, ref, remove, update } from "firebase/database"
-import { auth, database } from "loaders/firebase"
-import { random, uniqueId } from "lodash"
-import { createHash, randomBytes } from "node:crypto"
-import hashCode from "utils/hash"
+import { database } from "loaders/firebase"
 import { sendEmailNotification } from "services/emailerService"
 
 export type BlogPost = {
@@ -83,12 +80,19 @@ export const deleteDraftBlog = async (id: string, userId: string) => {
 }
 
 export const updateDraftBlog = async (id: string, userId: string, title: string, tag: string, content: string) => {
-    update(ref(database, `/users/${userId}/blog/drafts/${id}`), {
-        lastEdited: new Date().getTime(),
-        title,
-        tag,
-        content
-    })
+    try {
+        await update(ref(database, `/users/${userId}/blog/drafts/${id}`), {
+            lastEdited: new Date().getTime(),
+            title,
+            tag,
+            content
+        })
+        return true
+    }
+    catch (error) {
+        console.log(error)
+        return false
+    }
 }
 
 

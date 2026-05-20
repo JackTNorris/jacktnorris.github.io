@@ -40,15 +40,17 @@ export const EditBlog = () => {
     const onPressSave = async () => {
         const url = window.location.href.split('/')
         const blog_id = url[url.length - 1]
+        let saveRes = false
         if (window.location.href.indexOf('edit-draft') > -1)
         {
-            await updateDraftBlog(blog_id, auth.currentUser?.uid ? auth.currentUser.uid : '', formValue.title, formValue.tag, formValue.content)
+            saveRes = await updateDraftBlog(blog_id, auth.currentUser?.uid ? auth.currentUser.uid : '', formValue.title, formValue.tag, formValue.content)
         }
         else 
         {
-            await updateBlogPost(blog_id, auth.currentUser?.uid ? auth.currentUser.uid : '', formValue.title, formValue.tag, formValue.content)
+            saveRes = await updateBlogPost(blog_id, auth.currentUser?.uid ? auth.currentUser.uid : '', formValue.title, formValue.tag, formValue.content)
         }
-        toastContext.addToast("Saved Blog", "Successfully saved the blog!")
+        console.log(saveRes)
+        saveRes ? toastContext.addToast("Saved Blog", "Successfully saved the blog!") : toastContext.addToast("Failed to Save Blog", "An error occurred", "error")
     }
 
     const onPressPublish = async () => {

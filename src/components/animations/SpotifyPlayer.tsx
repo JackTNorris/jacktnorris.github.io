@@ -7,10 +7,16 @@ import record from 'assets/images/record.png'
 export const SpotifyPlayer = () => {
     useEffect(() => {
         const getTrack = async () => {
-            const temp = await fetch('https://api.jacktnorris.dev/spotify/getCurrentTrack')
-            const data = await temp.json()
-            console.log(data)
-            setCurrentRecord({name: data?.name, image: data?.image.url, link: data?.link})
+            try {
+                const temp = await fetch('https://api.jacktnorris.dev/spotify/getCurrentTrack')
+                const data = await temp.json()
+                console.log(data)
+                setCurrentRecord({name: data?.name, image: data?.image.url, link: data?.link})
+            }
+            catch(error)
+            {
+                console.log(error)
+            }
         }
         getTrack()  
     }, [])

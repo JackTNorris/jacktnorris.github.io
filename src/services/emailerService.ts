@@ -1,5 +1,4 @@
 // TODO: add consistency when user id is or isn't passed
-import { auth } from "loaders/firebase";
 import { authRequest } from "./authService";
 
 export const sendEmailNotification = async (publishedBlogId: string) => {
