@@ -13,8 +13,8 @@ import autodiff_img from './portfolio-images/auto-diff.png'
 import personal_website_img from './portfolio-images/personal-website.png'
 import swiss_army_knife_img from './portfolio-images/swiss-army-knife.png'
 import chess_img from './portfolio-images/chess.png'
-
-export type TechnologyUsed = 'Assembly' | 'Breadboarding ' | 'Arduino' | 'React' | 'Unity' | 'C++' | 'Python' | 'C#' | 'Java' | 'Kotlin' | 'Firebase' | 'Docker' | 'Express' | 'Node.js' | 'P4' | 'Mininet' | 'NumPy' | 'WebRTC' | 'MQTT' | 'ESP32' | 'React Native' | 'Javascript' | 'HTML/CSS' | 'Github Pages';
+import qwirkle_img from './portfolio-images/qwirkle.png'
+export type TechnologyUsed = 'Assembly' | 'WebSockets' | 'Breadboarding ' | 'Arduino' | 'React' | 'Unity' | 'C++' | 'Python' | 'C#' | 'Java' | 'Kotlin' | 'Firebase' | 'Docker' | 'Express' | 'Node.js' | 'P4' | 'Mininet' | 'NumPy' | 'WebRTC' | 'MQTT' | 'ESP32' | 'React Native' | 'Javascript' | 'HTML/CSS' | 'Github Pages';
 
 export type PortfolioProject = {
     id: string,
@@ -27,6 +27,16 @@ export type PortfolioProject = {
     technologiesUsed?: TechnologyUsed[]
 }
 export const projects: PortfolioProject[] = [
+    {
+        id: 'qwirkle',
+        title: 'Online Qwirkle',
+        description: 'A multiplayer online version of the board game Qwirkle built with vanilla HTML, CSS, and Javascript. Interfaces with a Node.js backend via basic REST API and web sockets.',
+        link: 'https://jacktnorris.dev/qwirkle-online/',
+        tag: '🕹️ games',
+        year: 2026,
+        imageSrc: qwirkle_img,
+        technologiesUsed: ['Express', 'Docker', 'WebSockets', 'HTML/CSS', 'Javascript']
+    },
     {
         id: 'personal-website',
         title: 'Personal Website',

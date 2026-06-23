@@ -13,10 +13,6 @@ export type PortfolioFeedProps = {
 export const PortfolioFeed = ({topic, isDrafts}: PortfolioFeedProps) => {
     const [needsViewed, setNeedsViewed] = useState<string | undefined>()
 
-    useEffect(() => {
-    })
-
-
     const renderPortfolioProjects = () => {
         const projectsFiltered = projects.filter(b => !isDrafts ? b.tag == topic : true);
         return projects.length > 0
