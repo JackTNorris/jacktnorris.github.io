@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.83abe5a1.css",
-    "main.js": "/static/js/main.d9f44e8f.js",
+    "main.js": "/static/js/main.6aee1f61.js",
     "static/js/7680.0c764960.chunk.js": "/static/js/7680.0c764960.chunk.js",
     "static/js/6415.d888e4aa.chunk.js": "/static/js/6415.d888e4aa.chunk.js",
     "static/js/4669.f6c75668.chunk.js": "/static/js/4669.f6c75668.chunk.js",
@@ -128,6 +128,7 @@
     "static/media/pmu-recovery-project.png": "/static/media/pmu-recovery-project.7ba3081fef6bc5c9852a.png",
     "static/media/hoghacks.png": "/static/media/hoghacks.a1e31e98f6884f311bfb.png",
     "static/media/atari-breakout.gif": "/static/media/atari-breakout.b8dbf6f9820dc89571e7.gif",
+    "static/media/qwirkle.png": "/static/media/qwirkle.42418ac4f2b4a783b4bf.png",
     "static/media/chess.png": "/static/media/chess.0d1c7cc87d49c80cab02.png",
     "static/media/record.png": "/static/media/record.f439e5a21abf46d3923b.png",
     "static/media/pfp.jpeg": "/static/media/pfp.3825710ca24f0e6ea01c.jpeg",
@@ -196,7 +197,7 @@
     "static/media/KaTeX_Size3-Regular.woff2": "/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
     "index.html": "/index.html",
     "main.83abe5a1.css.map": "/static/css/main.83abe5a1.css.map",
-    "main.d9f44e8f.js.map": "/static/js/main.d9f44e8f.js.map",
+    "main.6aee1f61.js.map": "/static/js/main.6aee1f61.js.map",
     "7680.0c764960.chunk.js.map": "/static/js/7680.0c764960.chunk.js.map",
     "6415.d888e4aa.chunk.js.map": "/static/js/6415.d888e4aa.chunk.js.map",
     "4669.f6c75668.chunk.js.map": "/static/js/4669.f6c75668.chunk.js.map",
@@ -312,6 +313,6 @@
   },
   "entrypoints": [
     "static/css/main.83abe5a1.css",
-    "static/js/main.d9f44e8f.js"
+    "static/js/main.6aee1f61.js"
   ]
 }
