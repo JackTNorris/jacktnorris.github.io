@@ -1,10 +1,7 @@
-import { useState } from "react"
-
 export type TextCarouselProps = {
     items: string[]
 }
 export const TextCarousel = ({items}: TextCarouselProps) => {
-    const [currentItem, setCurrentItem] = useState(0)
     const tempItems = items.slice(0).concat(items).concat(items.slice(0, 1))
     return (
     <div className='w-80 h-8 md:w-[30rem] m:h-12 overflow-hidden text-center -z-10'>

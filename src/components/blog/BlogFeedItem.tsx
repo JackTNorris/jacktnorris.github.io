@@ -1,7 +1,7 @@
 // TODO: refactor some I'im not passing props through so many components
 import { MarkdownWrapper } from "components/MarkdownWrapper"
 import { useEffect, useState } from "react"
-import { TiArrowDown, TiBell, TiEdit, TiTrash } from "react-icons/ti"
+import { TiEdit, TiTrash } from "react-icons/ti"
 import { Link } from "react-router-dom"
 import { BlogPost } from "services/blogService"
 import { twMerge } from "tailwind-merge"
@@ -16,10 +16,10 @@ export type BlogFeedItemProps = {
 
 export const BlogFeedItem = ({blog, isDrafts, isAuth, onClickDelete, needsViewed}: BlogFeedItemProps) => 
 {
-    const [isOpen, setIsOpen] = useState(needsViewed != undefined && needsViewed == blog.id)
+    const [isOpen, setIsOpen] = useState(needsViewed !== undefined && needsViewed === blog.id)
     useEffect(() => {
-        setIsOpen(needsViewed != undefined && needsViewed == blog.id)
-    }, [needsViewed])
+        setIsOpen(needsViewed !== undefined && needsViewed === blog.id)
+    }, [needsViewed, blog.id])
     return (
         <div id={blog.id} className={twMerge('relative flex flex-col w-4/5 aspect-[5/2] bg-slate-100 shadow-md rounded-lg p-8 transition-all duration-1000', !isOpen && 'h-96 overflow-hidden')}>
                 <div className={twMerge("pointer-events-none bottom-0 left-0 absolute flex flex-row justify-center w-full")}>

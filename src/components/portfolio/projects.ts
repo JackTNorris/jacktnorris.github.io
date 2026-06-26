@@ -35,7 +35,7 @@ export const projects: PortfolioProject[] = [
     {
         id: 'galeano-work',
         title: 'Benchmarking ML Methods for Antibiotic Discovery',
-        description: 'Research project I conducted with Dr. Diego Galeano during my time in the Peace Corps. Utilized the dataset cultivated by Stokes et al. (DOI: 10.1038/s41586-019-1671-1) to train and thoroughly benchmark various machine learning methods for predicting antibiotic activity of small molecules against E. Coli. Discovered simpler models that rivaled the performance of the GNN presented by Stokes et al. First author conference publication currently under review for IBERAMIA \'26.',
+        description: 'Research project I conducted with Dr. Diego Galeano during my time in the Peace Corps. Utilized the dataset cultivated by Stokes et al. (DOI: 10.1038/s41586-019-1671-1) to train and thoroughly benchmark various machine learning methods and molecular representations for predicting antibiotic activity of small molecules. Found that simpler models and representations could rival the performance of the GNN presented by Stokes et al when also subjected to hyperparameter tuning.',
         tag: '🧪 research',
         year: 2026,
         imageSrc: galeano_work_img,

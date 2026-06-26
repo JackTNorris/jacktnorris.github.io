@@ -2,7 +2,7 @@
 import chevron from 'assets/images/chevron.png'
 import { useState } from 'react'
 import { twMerge } from 'tailwind-merge'
-import _, { capitalize } from 'lodash'
+import { capitalize } from 'lodash'
 export type TopicSelectorProps = {
     topics: string[]
     onSelectTopic: (topic: string) => void

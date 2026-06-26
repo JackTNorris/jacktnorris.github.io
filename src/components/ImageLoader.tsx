@@ -20,6 +20,6 @@ export const ImageLoader = ({src, className, alt, onClick, onMouseLeave, onMouse
         };
       }, [src]);
 
-    return imgSrc != '' ? <img onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} src={imgSrc} className={twMerge(className)} onClick={onClick} alt={alt} /> : <div className={twMerge(className, 'bg-gray-100 gradient-shine')}></div>
+    return imgSrc !== '' ? <img onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} src={imgSrc} className={twMerge(className)} onClick={onClick} alt={alt} /> : <div className={twMerge(className, 'bg-gray-100 gradient-shine')}></div>
     
 }

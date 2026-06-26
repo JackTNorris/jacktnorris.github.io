@@ -1,7 +1,7 @@
 // used this as a ref: https://vergenet.net/~conrad/boids/pseudocode.html
 import { useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
-import _, { random } from 'lodash'
+import { random } from 'lodash'
 
 
 
@@ -17,7 +17,7 @@ type Body = {
 }
 
 
-const PI = 3.1415;
+// const PI = 3.1415;
 const G = 6.67408 * Math.pow(10, -11);
 export const TBP = () => {
   const width = window.screen.width * 1
@@ -66,7 +66,7 @@ export const TBP = () => {
     
     for(let i = 0; i < path.length; i++)
     {
-      if (i == 0)
+      if (i === 0)
       {
         ctx.moveTo(path[i].x, path[i].y)
       }
@@ -80,6 +80,7 @@ export const TBP = () => {
   }
   
   const drawCircle = (params: {x: number, y: number, radius: number, ctx: CanvasRenderingContext2D, color: string | CanvasGradient | CanvasPattern}) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const {x, y, radius, ctx, color} = params
     ctx.beginPath();
     ctx.arc(x, y, radius, 0, 2 * Math.PI);
@@ -116,7 +117,7 @@ export const TBP = () => {
     {
       for(let j = i; j < bodies.length; j++)
       {
-        if(i != j)
+        if(i !== j)
         {
           const get_f = newton(bodies[i].position, bodies[j].position, bodies[i].mass, bodies[j].mass);
           const get_dvi = get_f / bodies[i].mass;

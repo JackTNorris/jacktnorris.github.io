@@ -1,7 +1,6 @@
 // TODO: refactor some I'im not passing props through so many components
 import { MarkdownWrapper } from "components/MarkdownWrapper"
 import { useEffect, useState } from "react"
-import { BlogPost } from "services/blogService"
 import { twMerge } from "tailwind-merge"
 import { PortfolioProject } from "./projects"
 import { CiLink } from "react-icons/ci";

@@ -23,7 +23,7 @@ export const Hero = ({onSelectBackground, currBackground}: HeroProps) => {
                     </div>
                     <div className='flex flex-col'>
                         <div className='flex flex-row items-start justify-end h-full gap-2'>
-                            {backgroundOptions.map(item => (<button className={twMerge('rounded-md transition-all focus:outline-none hover:-translate-y-2', item.name == currBackground && 'bg-blue-300')} onClick={() => onSelectBackground(item.name)}>{item.icon}</button>))}
+                            {backgroundOptions.map(item => (<button className={twMerge('rounded-md transition-all focus:outline-none hover:-translate-y-2', item.name === currBackground && 'bg-blue-300')} onClick={() => onSelectBackground(item.name)}>{item.icon}</button>))}
                         </div>
                     </div>
                 </div>

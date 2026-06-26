@@ -1,4 +1,3 @@
-import { request } from "https";
 import { useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -6,7 +5,6 @@ export const ConwayBoard = () => {
   const width = window.screen.width * 1.2
   const height = window.screen.height * 1.2
   const gridSize = 20
-  let counter = 0
   const grid: boolean[][] = Array.from(Array((Math.round(width / gridSize))), () => new Array(Math.round(height / gridSize)).fill(false));
   const canvas = useRef<HTMLCanvasElement>(null);
 

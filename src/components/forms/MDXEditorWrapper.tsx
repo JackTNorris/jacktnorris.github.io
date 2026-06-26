@@ -1,4 +1,4 @@
-import { BoldItalicUnderlineToggles, DiffSourceToggleWrapper, InsertCodeBlock, InsertImage, MDXEditor, MDXEditorMethods, UndoRedo, codeBlockPlugin, codeMirrorPlugin, diffSourcePlugin, headingsPlugin, imagePlugin, quotePlugin, toolbarPlugin } from "@mdxeditor/editor"
+import { MDXEditor, MDXEditorMethods, UndoRedo, codeBlockPlugin, codeMirrorPlugin, diffSourcePlugin, headingsPlugin, imagePlugin, quotePlugin } from "@mdxeditor/editor"
 
 export type MDXEditorWrapperProps = {
     className?: string

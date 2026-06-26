@@ -1,11 +1,7 @@
 // TODO: cleanup loading logic, refactor this to just display blogs not fetch
-import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { BlogPost, deleteBlogPost, deleteDraftBlog, fetchBlogPosts, fetchBlogTags, fetchDraftBlogs } from "services/blogService";
-import { twMerge } from "tailwind-merge";
-import { TiTrash, TiEdit } from "react-icons/ti";
 import { auth } from 'loaders/firebase'
-import { MarkdownWrapper } from "components/MarkdownWrapper";
 import { Loader } from "components/Loader";
 import { BlogFeedItem } from "./BlogFeedItem";
 
@@ -17,7 +13,6 @@ export type BlogFeedProps = {
 }
 export const BlogFeed = ({topic, isDrafts}: BlogFeedProps) => {
     const [blogs, setBlogs] = useState<BlogPost[]>([]);
-    const [blogTopics, setBlogTopics] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [needsViewed, setNeedsViewed] = useState<string | undefined>()
 
@@ -50,7 +45,7 @@ export const BlogFeed = ({topic, isDrafts}: BlogFeedProps) => {
     }
 
     const deleteDraftOrPost = (id: string) => {
-        const blogTitle = blogs.filter(blog => blog.id == id)[0].title
+        const blogTitle = blogs.filter(blog => blog.id === id)[0].title
         const wantsDeleted = window.confirm(`Are you sure you want to delete "${blogTitle}"? This decision is not reversible`)
         if (!wantsDeleted)
         {
@@ -67,7 +62,7 @@ export const BlogFeed = ({topic, isDrafts}: BlogFeedProps) => {
     }
 
     const renderBlogs = () => {
-        const topicBlogs = blogs.filter(b => !isDrafts ? b.tag == topic : true);
+        const topicBlogs = blogs.filter(b => !isDrafts ? b.tag === topic : true);
         return topicBlogs.length > 0 ? topicBlogs.map((blog, index) => 
             <BlogFeedItem needsViewed={needsViewed} isDrafts={!!isDrafts} isAuth={!!auth.currentUser?.uid} blog={blog} onClickDelete={() => deleteDraftOrPost(blog.id)} />
         ) : <p>No blogs of this type for now! Hang tight</p>

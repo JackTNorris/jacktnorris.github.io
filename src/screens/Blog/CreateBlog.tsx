@@ -1,13 +1,8 @@
 // TODO: add types for this shit
 // TODO: change the 
-import { ImageUpload } from '../../components/forms/ImageUpload'
-import { ChangeEvent, useEffect, useRef, useState } from "react"
-import { BoldItalicUnderlineToggles, DiffSourceToggleWrapper, InsertCodeBlock, InsertImage, MDXEditor, MDXEditorMethods, UndoRedo, codeBlockPlugin, codeMirrorPlugin, contentEditableClassName$, diffSourcePlugin, headingsPlugin, imagePlugin, toolbarPlugin } from '@mdxeditor/editor'
+import { useEffect, useRef, useState } from "react"
+import { MDXEditorMethods } from '@mdxeditor/editor'
 import '@mdxeditor/editor/style.css'
-import Markdown from 'react-markdown'
-import rehypeRaw from 'rehype-raw'
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
 import 'katex/dist/katex.min.css' // `rehype-katex` does not import the CSS for you
 import { MDXEditorWrapper } from 'components/forms/MDXEditorWrapper'
 import { createBlogPost, createDraftBlog, fetchBlogTags } from 'services/blogService'
@@ -15,7 +10,6 @@ import { auth } from 'loaders/firebase'
 import { MarkdownWrapper } from 'components/MarkdownWrapper'
 import { useNavigate } from 'react-router-dom'
 export const CreateBlog = () => {    
-    const ref = useRef<MDXEditorMethods>(null);
     const navigate = useNavigate();
     const [formValue, setFormValue] = useState({
         title: '',
