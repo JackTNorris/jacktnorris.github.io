@@ -14,7 +14,12 @@ import personal_website_img from './portfolio-images/personal-website.png'
 import swiss_army_knife_img from './portfolio-images/swiss-army-knife.png'
 import chess_img from './portfolio-images/chess.png'
 import qwirkle_img from './portfolio-images/qwirkle.png'
-export type TechnologyUsed = 'Assembly' | 'WebSockets' | 'Breadboarding ' | 'Arduino' | 'React' | 'Unity' | 'C++' | 'Python' | 'C#' | 'Java' | 'Kotlin' | 'Firebase' | 'Docker' | 'Express' | 'Node.js' | 'P4' | 'Mininet' | 'NumPy' | 'WebRTC' | 'MQTT' | 'ESP32' | 'React Native' | 'Javascript' | 'HTML/CSS' | 'Github Pages';
+import gym_img from './portfolio-images/gym.jpg'
+import library_img from './portfolio-images/library.jpg'
+import galeano_work_img from './portfolio-images/galeano-work.png'
+import computer_lab_img from './portfolio-images/computer-lab.jpg'
+
+export type TechnologyUsed = 'Assembly' | 'WebSockets' | 'RDKit' | 'Pandas' | 'PyTorch' | 'Breadboarding ' | 'Arduino' | 'React' | 'Unity' | 'C++' | 'Python' | 'C#' | 'Java' | 'Kotlin' | 'Firebase' | 'Docker' | 'Express' | 'Node.js' | 'P4' | 'Mininet' | 'NumPy' | 'WebRTC' | 'MQTT' | 'ESP32' | 'React Native' | 'Javascript' | 'HTML/CSS' | 'Github Pages';
 
 export type PortfolioProject = {
     id: string,
@@ -27,6 +32,15 @@ export type PortfolioProject = {
     technologiesUsed?: TechnologyUsed[]
 }
 export const projects: PortfolioProject[] = [
+    {
+        id: 'galeano-work',
+        title: 'Benchmarking ML Methods for Antibiotic Discovery',
+        description: 'Research project I conducted with Dr. Diego Galeano during my time in the Peace Corps. Utilized the dataset cultivated by Stokes et al. (DOI: 10.1038/s41586-019-1671-1) to train and thoroughly benchmark various machine learning methods for predicting antibiotic activity of small molecules against E. Coli. Discovered simpler models that rivaled the performance of the GNN presented by Stokes et al. First author conference publication currently under review for IBERAMIA \'26.',
+        tag: '🧪 research',
+        year: 2026,
+        imageSrc: galeano_work_img,
+        technologiesUsed: ['Python', 'RDKit', 'PyTorch']
+    },
     {
         id: 'qwirkle',
         title: 'Online Qwirkle',
@@ -187,14 +201,16 @@ export const projects: PortfolioProject[] = [
     {
         id: 'computer-lab-for-peace-corps',
         title: 'Computer Lab for Peace Corps',
-        description: 'Sourced and set up a small computer lab for a the school in my community in rural Paraguay. Worked with community stakeholders to source devices via donations through programs like labdoo, configured some devices to run Ubuntu, and advocated for the installation of Wi-Fi.',
+        description: 'Sourced and set up a small computer lab for a the high school in my community in rural Paraguay. Worked with community stakeholders to source devices via donations through programs like Labdoo, configured outdated Windows devices to run Ubuntu, and advocated with professors for the installation of Wi-Fi.',
         tag: '🔮 other',
+        imageSrc: computer_lab_img,
         year: 2025,
     },
     {
         id: 'outdoor-gym-peace-corps',
         title: 'Outdoor Gym for Peace Corps',
-        description: 'Sourced and set up a small outdoor gym for a the school in my community in rural Paraguay. Worked with community stakeholders to source materials and construction labor.',
+        imageSrc: gym_img,
+        description: 'Sourced and set up a small outdoor gym for my community in rural Paraguay. Worked with a local carpenter and professor to source materials and construction labor. Taught basic exercise and calisthenics to community members',
         tag: '🔮 other',
         year: 2025,
     },
@@ -211,8 +227,8 @@ export const projects: PortfolioProject[] = [
     {
         id: 'community-library-peace-corps',
         title: 'Community Library for Peace Corps',
-        description: 'Building a small library for a the school in my community in rural Paraguay. Co-coordinated the delivery of a 5000lb international book donation with my school\'s directora.',
-        link: '',
+        description: 'Building a small library for the high school and escuela in my community in rural Paraguay. Coordinated the delivery of a 5000lb international book donation with my school\'s directora for use in 3 community libraries throughout Paraguay.',
+        imageSrc: library_img,
         tag: '🔮 other',
         year: 2026,
     },
