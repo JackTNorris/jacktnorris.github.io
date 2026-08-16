@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.83abe5a1.css",
-    "main.js": "/static/js/main.4ddd842d.js",
+    "main.js": "/static/js/main.c54b332f.js",
     "static/js/7680.0c764960.chunk.js": "/static/js/7680.0c764960.chunk.js",
     "static/js/6415.d888e4aa.chunk.js": "/static/js/6415.d888e4aa.chunk.js",
     "static/js/4669.f6c75668.chunk.js": "/static/js/4669.f6c75668.chunk.js",
@@ -129,6 +129,7 @@
     "static/media/pmu-recovery-project.png": "/static/media/pmu-recovery-project.7ba3081fef6bc5c9852a.png",
     "static/media/computer-lab.jpg": "/static/media/computer-lab.b4802abe23624a165453.jpg",
     "static/media/library.jpg": "/static/media/library.8fe29e9adbee2e1da8a1.jpg",
+    "static/media/go-board.jpg": "/static/media/go-board.c408f3d94e645ffb8da0.jpg",
     "static/media/galeano-work.png": "/static/media/galeano-work.f99d7e32198655b95ce0.png",
     "static/media/hoghacks.png": "/static/media/hoghacks.a1e31e98f6884f311bfb.png",
     "static/media/atari-breakout.gif": "/static/media/atari-breakout.b8dbf6f9820dc89571e7.gif",
@@ -201,7 +202,7 @@
     "static/media/KaTeX_Size3-Regular.woff2": "/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
     "index.html": "/index.html",
     "main.83abe5a1.css.map": "/static/css/main.83abe5a1.css.map",
-    "main.4ddd842d.js.map": "/static/js/main.4ddd842d.js.map",
+    "main.c54b332f.js.map": "/static/js/main.c54b332f.js.map",
     "7680.0c764960.chunk.js.map": "/static/js/7680.0c764960.chunk.js.map",
     "6415.d888e4aa.chunk.js.map": "/static/js/6415.d888e4aa.chunk.js.map",
     "4669.f6c75668.chunk.js.map": "/static/js/4669.f6c75668.chunk.js.map",
@@ -317,6 +318,6 @@
   },
   "entrypoints": [
     "static/css/main.83abe5a1.css",
-    "static/js/main.4ddd842d.js"
+    "static/js/main.c54b332f.js"
   ]
 }
