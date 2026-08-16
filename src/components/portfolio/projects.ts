@@ -18,8 +18,8 @@ import gym_img from './portfolio-images/gym.jpg'
 import library_img from './portfolio-images/library.jpg'
 import galeano_work_img from './portfolio-images/galeano-work.png'
 import computer_lab_img from './portfolio-images/computer-lab.jpg'
-
-export type TechnologyUsed = 'Assembly' | 'WebSockets' | 'RDKit' | 'Pandas' | 'PyTorch' | 'Breadboarding ' | 'Arduino' | 'React' | 'Unity' | 'C++' | 'Python' | 'C#' | 'Java' | 'Kotlin' | 'Firebase' | 'Docker' | 'Express' | 'Node.js' | 'P4' | 'Mininet' | 'NumPy' | 'WebRTC' | 'MQTT' | 'ESP32' | 'React Native' | 'Javascript' | 'HTML/CSS' | 'Github Pages';
+import go_board from './portfolio-images/go-board.jpg'
+export type TechnologyUsed = 'Assembly' | 'WebSockets' | 'RDKit' | 'Pandas' | 'PyTorch' | 'Breadboarding ' | 'Arduino' | 'React' | 'Unity' | 'C++' | 'Python' | 'C#' | 'Java' | 'Kotlin' | 'Firebase' | 'Docker' | 'Express' | 'Node.js' | 'P4' | 'Mininet' | 'NumPy' | 'WebRTC' | 'MQTT' | 'ESP32' | 'React Native' | 'Javascript' | 'HTML/CSS' | 'Github Pages' | 'Woodworking';
 
 export type PortfolioProject = {
     id: string,
@@ -35,11 +35,20 @@ export const projects: PortfolioProject[] = [
     {
         id: 'galeano-work',
         title: 'Benchmarking ML Methods for Antibiotic Discovery',
-        description: 'Research project I conducted with Dr. Diego Galeano during my time in the Peace Corps. Utilized the dataset cultivated by Stokes et al. (DOI: 10.1038/s41586-019-1671-1) to train and thoroughly benchmark various machine learning methods and molecular representations for predicting antibiotic activity of small molecules. Found that simpler models and representations could rival the performance of the GNN presented by Stokes et al when also subjected to hyperparameter tuning.',
+        description: 'Research project I conducted with Dr. Diego Galeano during my time in the Peace Corps. Utilized the dataset cultivated by Stokes et al. (DOI: 10.1038/s41586-019-1671-1) to train and thoroughly benchmark various machine learning methods and molecular representations for predicting antibiotic activity of small molecules. Found that simpler models and representations could rival the performance of the GNN presented by Stokes et al when also subjected to hyperparameter tuning. Published work in IBERAMIA 2026',
         tag: '🧪 research',
         year: 2026,
         imageSrc: galeano_work_img,
         technologiesUsed: ['Python', 'RDKit', 'PyTorch']
+    },
+    {
+        id: 'go-board',
+        title: 'Custom Magnetic Go Board',
+        description: 'A custom magnetic Go board I designed and built after getting interested in the game (and pissed off when I bumped into the board). Used a woodburner to etch in the grid, and currently developing magnetic stones! Putting magnets in 300+ stones is no small feat.',
+        tag: '🔮 other',
+        year: 2026,
+        imageSrc: go_board,
+        technologiesUsed: ['Woodworking']
     },
     {
         id: 'qwirkle',
