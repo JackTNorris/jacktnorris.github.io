@@ -180,6 +180,7 @@ export const projects: PortfolioProject[] = [
         imageSrc: autodiff_img,
         technologiesUsed: ['Python', 'NumPy']
     },
+    /*
     {
         id: 'kitty-cam',
         title: 'Kitty Cam',
@@ -189,6 +190,7 @@ export const projects: PortfolioProject[] = [
         imageSrc: kitty_cam_img,
         technologiesUsed: ['React Native', 'Firebase', 'WebRTC']
     },
+    */
     {
         id: 'vna-grapher',
         title: 'VNA Grapher',
